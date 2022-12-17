@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">trained</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="trained">trained</string>
+    <string name="next">Далее</string>
+    <string name="start_screen_annot">Выстроите и контролируйте свои тренировки</string>
+    <string name="welcomeHome">С возвращением</string>
+    <string name="setings_profile">Настроить профиль</string>
+</resources>

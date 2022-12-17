@@ -1,0 +1,99 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Trained" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/mainBlack</item>
+    </style>
+
+<!--    TextView-->
+
+    <style name="textMainContext" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/source_code_pro_semi_bold</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/mainWhite</item>
+    </style>
+
+    <style name="textSecondContext" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/source_code_pro_medium</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/mainWhite</item>
+    </style>
+
+    <style name="textAllightContext" parent="TextAppearance.AppCompat" >
+        <item name="android:fontFamily">@font/source_code_pro_semi_bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/mainWhite</item>
+    </style>
+
+    <style name="textForCardView" parent="TextAppearance.AppCompat" >
+        <item name="android:fontFamily">@font/source_code_pro_semi_bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/mainBlack</item>
+    </style>
+
+<!--    -->
+
+<!--    MaterialButton-->
+
+    <style name="mainMaterialButton" parent="Widget.MaterialComponents.Button" >
+        <item name="cornerRadius">18dp</item>
+        <item name="android:backgroundTint">@color/mainWhite</item>
+        <item name="android:textColor">@color/mainBlack</item>
+        <item name="android:layout_height">64dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginStart">32dp</item>
+        <item name="android:layout_marginEnd">32dp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+<!--    -->
+
+<!-- CardView-->
+
+    <style name="cardViewHomeTrainState" parent="CardView" >
+        <item name="android:backgroundTint">@color/mainWhite</item>
+        <item name="android:tint">@android:color/transparent</item>
+        <item name="cardElevation">0dp</item>
+        <item name="cardCornerRadius">26dp</item>
+    </style>
+
+<!--    -->
+
+<!--    ImageButton-->
+
+    <style name="imgButtonMore" parent="Widget.AppCompat.ImageButton">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:layout_width">32dp</item>
+        <item name="android:layout_height">32dp</item>
+        <item name="android:tint">@color/mainWhite</item>
+    </style>
+
+    <!--    -->
+
+
+<!--    More-->
+
+    <style name="bottomNavView" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:background">@color/mainBlack</item>
+        <item name="itemIconTint">@color/bottom_nav_ic_black</item>
+        <item name="labelVisibilityMode">unlabeled</item>
+    </style>
+
+    <style name="imageViewForCardHomeState" parent="Widget.AppCompat.ImageButton" >
+        <item name="android:tint">@color/mainBlack</item>
+        <item name="android:backgroundTint">@android:color/transparent</item>
+    </style>
+
+<!--    -->
+
+</resources>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.screen.profile.ProfileFragment">
+
+
+    <include
+        android:id="@+id/include3"
+        layout="@layout/up_bar_simple_title"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        tools:text="Roma"
+        style="@style/textMainContext"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include3" />
+
+    <TextView
+        android:id="@+id/textPersonal"
+        style="@style/textSecondContext"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/textName"
+        app:layout_constraintTop_toBottomOf="@+id/textName"
+        tools:text="37 лет
+         вес: 84кг
+            рост: 175" />
+
+    <TextView
+        android:id="@+id/textNumsOfWorkout"
+        style="@style/textSecondContext"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        app:layout_constraintStart_toStartOf="@+id/textName"
+        app:layout_constraintTop_toBottomOf="@+id/textPersonal"
+        tools:text="3 тренировки в неделю" />
+
+    <TextView
+        android:id="@+id/textAverageAmountExercise"
+        style="@style/textSecondContext"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        app:layout_constraintStart_toStartOf="@+id/textName"
+        app:layout_constraintTop_toBottomOf="@+id/textNumsOfWorkout"
+        tools:text="4 среднее кол-во упражнений за тренировку" />
+
+    <TextView
+        android:id="@+id/textAverageApproaches"
+        style="@style/textSecondContext"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        app:layout_constraintStart_toStartOf="@+id/textName"
+        app:layout_constraintTop_toBottomOf="@+id/textAverageAmountExercise"
+        tools:text="3 среднее кол-во подтходов за тренировку" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/mainMaterialButton"
+        android:layout_marginBottom="16dp"
+        android:text="@string/setings_profile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
