@@ -1,6 +1,5 @@
 package com.example.trained.data.model
 
-import androidx.compose.ui.text.font.FontWeight
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey

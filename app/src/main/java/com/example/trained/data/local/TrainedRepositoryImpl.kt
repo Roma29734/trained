@@ -1,5 +1,6 @@
 package com.example.trained.data.local
 
+import androidx.lifecycle.LiveData
 import com.example.trained.data.local.dao.ProfileDao
 import com.example.trained.data.model.SportsmanModel
 import com.example.trained.domain.repository.TrainedRepository
@@ -22,6 +23,10 @@ class TrainedRepositoryImpl @Inject constructor(
 
     override suspend fun readUserTable(): SportsmanModel {
         return dao.readUserTable()
+    }
+
+    override suspend fun getSizeSportsmanTable(): Int {
+        return dao.getSizeSportsmanTable()
     }
 
 }

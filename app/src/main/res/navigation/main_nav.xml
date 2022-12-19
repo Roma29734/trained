@@ -18,5 +18,22 @@
         android:id="@+id/navFragment"
         android:name="com.example.trained.ui.screen.nav.NavFragment"
         android:label="fragment_nav"
-        tools:layout="@layout/fragment_nav" />
+        tools:layout="@layout/fragment_nav" >
+        <action
+            android:id="@+id/action_navFragment_to_profileSettingsFragment"
+            app:destination="@id/profileSettingsFragment"
+            app:popUpTo="@id/navFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileSettingsFragment"
+        android:name="com.example.trained.ui.screen.profileSettings.ProfileSettingsFragment"
+        android:label="fragment_profile_settings"
+        tools:layout="@layout/fragment_profile_settings" >
+        <action
+            android:id="@+id/action_profileSettingsFragment_to_navFragment"
+            app:destination="@id/navFragment"
+            app:popUpTo="@id/profileSettingsFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>
