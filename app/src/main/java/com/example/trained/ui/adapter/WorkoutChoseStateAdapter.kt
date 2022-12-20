@@ -2,19 +2,18 @@ package com.example.trained.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.view.marginStart
 import androidx.recyclerview.widget.RecyclerView
-import com.example.trained.data.model.DayWorkoutModel
 import com.example.trained.data.model.WorkoutModel
 import com.example.trained.databinding.CardTreinyHomeBinding
-import com.example.trained.databinding.CardWorkoutHomeBinding
 
-class WorkoutStateAdapter() : RecyclerView.Adapter<WorkoutStateAdapter.MyViewHolder>() {
+class WorkoutChoseStateAdapter: RecyclerView.Adapter<WorkoutChoseStateAdapter.MyViewHolder>() {
 
     inner class MyViewHolder(val binding: CardTreinyHomeBinding) :
         RecyclerView.ViewHolder(binding.root)
 
     private var dayWorkout = emptyList<WorkoutModel>()
+
+    var callBackDel: ((model: WorkoutModel) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(
@@ -30,14 +29,13 @@ class WorkoutStateAdapter() : RecyclerView.Adapter<WorkoutStateAdapter.MyViewHol
 
         val positionWorkout = dayWorkout[position]
 
-//        if(position == 1) {
-//            val layoutParams = (holder.binding.cardView.layoutParams as? ViewGroup.MarginLayoutParams)
-//            layoutParams?.setMargins(16,0,32,24)
-//            holder.binding.cardView.layoutParams = layoutParams
-//        }
         holder.binding.textNameWorkout.text = positionWorkout.nameExercise
         holder.binding.textApproach.text = positionWorkout.approaches.toString()
         holder.binding.textQuantity.text = positionWorkout.repetitions.toString()
+
+        holder.binding.cardView.setOnClickListener {
+            callBackDel?.let { it1 -> it1(positionWorkout) }
+        }
     }
 
     override fun getItemCount(): Int {

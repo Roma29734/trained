@@ -106,13 +106,20 @@
         <item name="android:tint">@color/mainBlack</item>
     </style>
 
+
+    <style name="imageButtonBack" parent="Widget.AppCompat.ImageButton">
+        <item name="srcCompat">@drawable/ic_back</item>
+        <item name="android:tint">@color/black</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
     <!--    -->
 
 <!--    EditText-->
 
     <style name="editText" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="boxStrokeColor">@color/mainBlack</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="boxStrokeColor">@color/edit_text_main_white</item>
+        <item name="android:textColor">@color/mainBlack</item>
         <item name="android:textColorHint">@color/mainBlack</item>
     </style>
 
@@ -131,6 +138,8 @@
         <item name="android:backgroundTint">@android:color/transparent</item>
     </style>
 
-<!--    -->
+
+
+    <!--    -->
 
 </resources>

@@ -12,7 +12,9 @@ class NavViewModel @Inject  constructor(
 ) : ViewModel() {
 
     suspend fun checkUser(): Boolean {
-        return repository.getSizeSportsmanTable() != 0
+        val result = repository.getSizeSportsmanTable() != 0
+        Log.d("checkBagFirstStart", result.toString())
+        return result
     }
 
     suspend fun checkWorkout(): Boolean {

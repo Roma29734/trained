@@ -11,16 +11,18 @@
         <entry key="..\:/tehnicals/trained/app/src/main/res/layout/card_treiny_home.xml" value="0.33" />
         <entry key="..\:/tehnicals/trained/app/src/main/res/layout/card_workout_home.xml" value="0.33" />
         <entry key="..\:/tehnicals/trained/app/src/main/res/layout/fragment_add_workout.xml" value="0.27291666666666664" />
+        <entry key="..\:/tehnicals/trained/app/src/main/res/layout/fragment_chose_workout.xml" value="0.29010416666666666" />
         <entry key="..\:/tehnicals/trained/app/src/main/res/layout/fragment_config.xml" value="0.27291666666666664" />
         <entry key="..\:/tehnicals/trained/app/src/main/res/layout/fragment_day_config.xml" value="0.25" />
         <entry key="..\:/tehnicals/trained/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/tehnicals/trained/app/src/main/res/layout/fragment_nav.xml" value="0.25" />
         <entry key="..\:/tehnicals/trained/app/src/main/res/layout/fragment_profile.xml" value="0.33" />
-        <entry key="..\:/tehnicals/trained/app/src/main/res/layout/fragment_profile_settings.xml" value="0.25" />
+        <entry key="..\:/tehnicals/trained/app/src/main/res/layout/fragment_profile_settings.xml" value="0.33" />
         <entry key="..\:/tehnicals/trained/app/src/main/res/layout/fragment_start.xml" value="0.22" />
         <entry key="..\:/tehnicals/trained/app/src/main/res/layout/up_bar_home.xml" value="0.25" />
         <entry key="..\:/tehnicals/trained/app/src/main/res/layout/up_bar_only_logo.xml" value="0.29010416666666666" />
         <entry key="..\:/tehnicals/trained/app/src/main/res/layout/up_bar_simple_title.xml" value="0.29010416666666666" />
+        <entry key="..\:/tehnicals/trained/app/src/main/res/layout/up_bar_simple_title_back.xml" value="0.25" />
         <entry key="..\:/tehnicals/trained/app/src/main/res/layout/widget_home_state.xml" value="0.216796875" />
         <entry key="..\:/tehnicals/trained/app/src/main/res/layout/widget_home_train_state.xml" value="0.25" />
         <entry key="..\:/tehnicals/trained/app/src/main/res/menu/bottom_menu.xml" value="0.29010416666666666" />
