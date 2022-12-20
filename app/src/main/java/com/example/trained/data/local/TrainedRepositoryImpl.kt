@@ -2,31 +2,51 @@ package com.example.trained.data.local
 
 import androidx.lifecycle.LiveData
 import com.example.trained.data.local.dao.ProfileDao
+import com.example.trained.data.local.dao.WorkoutDao
+import com.example.trained.data.model.DayWorkoutModel
 import com.example.trained.data.model.SportsmanModel
+import com.example.trained.data.model.WorkoutModel
 import com.example.trained.domain.repository.TrainedRepository
 import javax.inject.Inject
 
 class TrainedRepositoryImpl @Inject constructor(
-    private val dao: ProfileDao
+    private val profileDao: ProfileDao,
+    private val workoutDao: WorkoutDao,
 ): TrainedRepository {
     override suspend fun insertUser(user: SportsmanModel) {
-        dao.insertUser(user)
+        profileDao.insertUser(user)
     }
 
     override suspend fun updateUser(user: SportsmanModel) {
-        dao.updateUser(user)
+        profileDao.updateUser(user)
     }
 
     override suspend fun deleteUser(user: SportsmanModel) {
-        dao.deleteUser(user)
+        profileDao.deleteUser(user)
     }
 
     override suspend fun readUserTable(): SportsmanModel {
-        return dao.readUserTable()
+        return profileDao.readUserTable()
     }
 
     override suspend fun getSizeSportsmanTable(): Int {
-        return dao.getSizeSportsmanTable()
+        return profileDao.getSizeSportsmanTable()
+    }
+
+    override suspend fun insertWorkout(day: WorkoutModel) {
+        workoutDao.insertWorkout(day)
+    }
+
+    override suspend fun updateWorkout(day: WorkoutModel) {
+        workoutDao.updateWorkout(day)
+    }
+
+    override suspend fun readWorkoutTable(): List<WorkoutModel> {
+        return workoutDao.readWorkoutTable()
+    }
+
+    override suspend fun getSizeWorkoutTable(): Int {
+        return workoutDao.getSizeWorkoutTable()
     }
 
 }

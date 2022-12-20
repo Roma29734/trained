@@ -80,6 +80,16 @@
 
     <!--    -->
 
+    <!--    EditText-->
+
+    <style name="editText" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/mainAccent</item>
+        <item name="android:textColor">@color/mainWhite</item>
+        <item name="android:textColorHint">@color/mainAccent</item>
+    </style>
+
+    <!--    -->
+
 
 <!--    More-->
 

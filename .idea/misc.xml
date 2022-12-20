@@ -8,8 +8,11 @@
         <entry key="..\:/tehnicals/trained/app/src/main/res/drawable/ic_home.xml" value="0.1565" />
         <entry key="..\:/tehnicals/trained/app/src/main/res/font/font.xml" value="0.2898148148148148" />
         <entry key="..\:/tehnicals/trained/app/src/main/res/layout/activity_main.xml" value="0.27291666666666664" />
-        <entry key="..\:/tehnicals/trained/app/src/main/res/layout/card_treiny_home.xml" value="0.22" />
+        <entry key="..\:/tehnicals/trained/app/src/main/res/layout/card_treiny_home.xml" value="0.33" />
+        <entry key="..\:/tehnicals/trained/app/src/main/res/layout/card_workout_home.xml" value="0.33" />
+        <entry key="..\:/tehnicals/trained/app/src/main/res/layout/fragment_add_workout.xml" value="0.27291666666666664" />
         <entry key="..\:/tehnicals/trained/app/src/main/res/layout/fragment_config.xml" value="0.27291666666666664" />
+        <entry key="..\:/tehnicals/trained/app/src/main/res/layout/fragment_day_config.xml" value="0.25" />
         <entry key="..\:/tehnicals/trained/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/tehnicals/trained/app/src/main/res/layout/fragment_nav.xml" value="0.25" />
         <entry key="..\:/tehnicals/trained/app/src/main/res/layout/fragment_profile.xml" value="0.33" />

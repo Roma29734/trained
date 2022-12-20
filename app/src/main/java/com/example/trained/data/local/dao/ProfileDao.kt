@@ -2,7 +2,9 @@ package com.example.trained.data.local.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.example.trained.data.model.DayWorkoutModel
 import com.example.trained.data.model.SportsmanModel
+import com.example.trained.data.model.WorkoutModel
 
 @Dao
 interface ProfileDao {
@@ -21,4 +23,6 @@ interface ProfileDao {
 
     @Query("SELECT COUNT(*) FROM sportsman_table")
     suspend fun getSizeSportsmanTable(): Int
+
+
 }

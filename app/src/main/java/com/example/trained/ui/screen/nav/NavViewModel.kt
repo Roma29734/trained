@@ -14,4 +14,8 @@ class NavViewModel @Inject  constructor(
     suspend fun checkUser(): Boolean {
         return repository.getSizeSportsmanTable() != 0
     }
+
+    suspend fun checkWorkout(): Boolean {
+        return repository.getSizeWorkoutTable() != 0
+    }
 }

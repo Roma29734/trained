@@ -27,11 +27,15 @@ class NavFragment : BaseFragment<FragmentNavBinding>(FragmentNavBinding::inflate
 
         lifecycleScope.launch {
             if(viewModel.checkUser()) {
-                val navView = binding.bottomNavigationView
-                val navHostFragment = childFragmentManager.findFragmentById(R.id.nav_host_fragments) as NavHostFragment
-                val navController = navHostFragment.findNavController()
+                if(viewModel.checkWorkout()) {
+                    val navView = binding.bottomNavigationView
+                    val navHostFragment = childFragmentManager.findFragmentById(R.id.nav_host_fragments) as NavHostFragment
+                    val navController = navHostFragment.findNavController()
 
-                navView.setupWithNavController(navController)
+                    navView.setupWithNavController(navController)
+                } else {
+                    Navigation.findNavController(view).navigate(R.id.action_navFragment_to_dayConfigFragment)
+                }
             } else {
                 Navigation.findNavController(view).navigate(R.id.action_navFragment_to_profileSettingsFragment)
             }

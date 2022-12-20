@@ -7,4 +7,6 @@
     <string name="start_screen_annot">Выстроите и контролируйте свои тренировки</string>
     <string name="welcomeHome">С возвращением</string>
     <string name="setings_profile">Настроить профиль</string>
+    <string name="addWorkout">Добавить упражнение</string>
+    <string name="save">Cохранить</string>
 </resources>

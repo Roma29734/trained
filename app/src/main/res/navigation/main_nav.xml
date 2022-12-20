@@ -24,6 +24,14 @@
             app:destination="@id/profileSettingsFragment"
             app:popUpTo="@id/navFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_navFragment_to_dayConfigFragment"
+            app:destination="@id/dayConfigFragment"
+            app:popUpTo="@id/navFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_navFragment_to_addWorkoutFragment"
+            app:destination="@id/addWorkoutFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileSettingsFragment"
@@ -35,5 +43,19 @@
             app:destination="@id/navFragment"
             app:popUpTo="@id/profileSettingsFragment"
             app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/addWorkoutFragment"
+        android:name="com.example.trained.ui.screen.addWorkout.AddWorkoutFragment"
+        android:label="fragment_add_workout"
+        tools:layout="@layout/fragment_add_workout" />
+    <fragment
+        android:id="@+id/dayConfigFragment"
+        android:name="com.example.trained.ui.screen.dayConfig.DayConfigFragment"
+        android:label="fragment_day_config"
+        tools:layout="@layout/fragment_day_config" >
+        <action
+            android:id="@+id/action_dayConfigFragment_to_addWorkoutFragment"
+            app:destination="@id/addWorkoutFragment" />
     </fragment>
 </navigation>
