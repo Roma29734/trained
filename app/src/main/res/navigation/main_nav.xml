@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav"
-    app:startDestination="@id/startFragment">
+    app:startDestination="@id/navFragment">
 
     <fragment
         android:id="@+id/startFragment"
@@ -32,6 +32,9 @@
         <action
             android:id="@+id/action_navFragment_to_addWorkoutFragment"
             app:destination="@id/addWorkoutFragment" />
+        <action
+            android:id="@+id/action_navFragment_to_choseWorkoutFragment"
+            app:destination="@id/choseWorkoutFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileSettingsFragment"
@@ -57,5 +60,35 @@
         <action
             android:id="@+id/action_dayConfigFragment_to_addWorkoutFragment"
             app:destination="@id/addWorkoutFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/choseWorkoutFragment"
+        android:name="com.example.trained.ui.screen.choseWorkout.ChoseWorkoutFragment"
+        android:label="fragment_chose_workout"
+        tools:layout="@layout/fragment_chose_workout" >
+        <action
+            android:id="@+id/action_choseWorkoutFragment_to_settingExerciseFragment"
+            app:destination="@id/settingExerciseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingExerciseFragment"
+        android:name="com.example.trained.ui.settingExercise.SettingExerciseFragment"
+        android:label="fragment_setting_exercise"
+        tools:layout="@layout/fragment_setting_exercise" >
+        <action
+            android:id="@+id/action_settingExerciseFragment_to_transitionFragment"
+            app:destination="@id/transitionFragment" />
+        <argument
+            android:name="workout"
+            app:argType="com.example.trained.data.model.WorkoutModel" />
+    </fragment>
+    <fragment
+        android:id="@+id/transitionFragment"
+        android:name="com.example.trained.ui.transition.TransitionFragment"
+        android:label="fragment_transition"
+        tools:layout="@layout/fragment_transition" >
+        <argument
+            android:name="workout"
+            app:argType="com.example.trained.data.model.WorkoutTransitionModel" />
     </fragment>
 </navigation>

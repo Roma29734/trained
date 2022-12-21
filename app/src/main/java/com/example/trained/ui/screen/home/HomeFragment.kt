@@ -37,5 +37,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         viewModel.workout?.observe(viewLifecycleOwner) {
             adapter.setWorkout(it)
         }
+
+        binding.materialButton.setOnClickListener {
+            mainNavController.navigate(R.id.action_navFragment_to_choseWorkoutFragment)
+        }
     }
 }

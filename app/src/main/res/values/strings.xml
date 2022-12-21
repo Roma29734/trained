@@ -9,4 +9,5 @@
     <string name="setings_profile">Настроить профиль</string>
     <string name="addWorkout">Добавить упражнение</string>
     <string name="save">Cохранить</string>
+    <string name="reciption_item">Количество повторений</string>
 </resources>

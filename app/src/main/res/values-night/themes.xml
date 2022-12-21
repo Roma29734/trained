@@ -10,9 +10,10 @@
         <item name="colorSecondaryVariant">@color/teal_200</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/mainBlack</item>
         <!-- Customize your theme here. -->
         <item name="android:windowBackground">@color/mainBlack</item>
+
     </style>
 
 <!--    TextView-->
@@ -78,8 +79,7 @@
         <item name="android:tint">@color/mainWhite</item>
     </style>
 
-    <style name="imageButtonBack" parent="Widget.AppCompat.ImageButton">
-        <item name="srcCompat">@drawable/ic_back</item>
+    <style name="imageButton" parent="Widget.AppCompat.ImageButton">
         <item name="android:tint">@color/white</item>
         <item name="android:background">@android:color/transparent</item>
     </style>

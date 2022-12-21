@@ -12,8 +12,9 @@ import com.example.trained.base.BaseFragment
 import com.example.trained.databinding.FragmentChoseWorkoutBinding
 import com.example.trained.ui.adapter.WorkoutChoseStateAdapter
 import com.example.trained.ui.adapter.WorkoutStateAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class ChoseWorkoutFragment :
     BaseFragment<FragmentChoseWorkoutBinding>(FragmentChoseWorkoutBinding::inflate) {
 
@@ -24,8 +25,8 @@ class ChoseWorkoutFragment :
         super.onViewCreated(view, savedInstanceState)
 
         adapter.callBackDel = {
-//            val action =
-//            mainNavController.navigate()
+            val action = ChoseWorkoutFragmentDirections.actionChoseWorkoutFragmentToSettingExerciseFragment(it)
+            mainNavController.navigate(action)
         }
 
         binding.recycler.adapter = adapter
