@@ -1,13 +1,9 @@
-package com.example.trained.ui.settingExercise
+package com.example.trained.ui.screen.workout.settingExercise
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.navArgs
-import com.example.trained.R
 import com.example.trained.base.BaseFragment
 import com.example.trained.data.model.WorkoutTransitionModel
 import com.example.trained.databinding.FragmentSettingExerciseBinding

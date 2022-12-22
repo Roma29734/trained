@@ -63,7 +63,7 @@
     </fragment>
     <fragment
         android:id="@+id/choseWorkoutFragment"
-        android:name="com.example.trained.ui.screen.choseWorkout.ChoseWorkoutFragment"
+        android:name="com.example.trained.ui.screen.workout.choseWorkout.ChoseWorkoutFragment"
         android:label="fragment_chose_workout"
         tools:layout="@layout/fragment_chose_workout" >
         <action
@@ -72,7 +72,7 @@
     </fragment>
     <fragment
         android:id="@+id/settingExerciseFragment"
-        android:name="com.example.trained.ui.settingExercise.SettingExerciseFragment"
+        android:name="com.example.trained.ui.screen.workout.settingExercise.SettingExerciseFragment"
         android:label="fragment_setting_exercise"
         tools:layout="@layout/fragment_setting_exercise" >
         <action
@@ -84,7 +84,7 @@
     </fragment>
     <fragment
         android:id="@+id/transitionFragment"
-        android:name="com.example.trained.ui.transition.TransitionFragment"
+        android:name="com.example.trained.ui.screen.workout.transition.TransitionFragment"
         android:label="fragment_transition"
         tools:layout="@layout/fragment_transition" >
         <argument

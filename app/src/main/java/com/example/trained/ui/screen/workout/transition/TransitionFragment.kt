@@ -1,4 +1,4 @@
-package com.example.trained.ui.transition
+package com.example.trained.ui.screen.workout.transition
 
 import android.os.Bundle
 import android.view.View

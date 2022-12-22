@@ -4,34 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.screen.workout.transition.TransitionFragment">
+    tools:context=".ui.screen.workout.stopwatch.StopwatchFragment">
 
 
     <include
-        android:id="@+id/include8"
-        layout="@layout/up_bar_simple_title_back_add"
+        android:id="@+id/upBar"
+        layout="@layout/up_bar_simple_title"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textTime"
+        style="@style/textTimeMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/materialButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/upBar"
+        tools:text="0:00" />
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/materialButton"
         style="@style/mainMaterialButton"
         android:layout_marginBottom="32dp"
-        android:text="Начать тренировку"
+        android:text="Стоп"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <include
-        android:id="@+id/widget"
-        layout="@layout/widget_transition_workout_state"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include8" />
 </androidx.constraintlayout.widget.ConstraintLayout>

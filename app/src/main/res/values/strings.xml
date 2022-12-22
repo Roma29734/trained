@@ -10,4 +10,7 @@
     <string name="addWorkout">Добавить упражнение</string>
     <string name="save">Cохранить</string>
     <string name="reciption_item">Количество повторений</string>
+    <string name="planned_holidays">Запланированный отдых</string>
+    <string name="complete">Завершить</string>
+    <string name="next_mat_button">Продолжить</string>
 </resources>

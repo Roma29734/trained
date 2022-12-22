@@ -49,6 +49,12 @@
         <item name="android:textColor">@color/mainBlack</item>
     </style>
 
+    <style name="textTimeMain" parent="TextAppearance.AppCompat" >
+        <item name="android:textSize">150sp</item>
+        <item name="android:textColor">@color/mainBlack</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
+
 <!--    -->
 
 
@@ -62,6 +68,15 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_marginStart">32dp</item>
         <item name="android:layout_marginEnd">32dp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="smallMaterialButton" parent="Widget.MaterialComponents.Button" >
+        <item name="cornerRadius">18dp</item>
+        <item name="android:backgroundTint">@color/mainBlack</item>
+        <item name="android:textColor">@color/mainWhite</item>
+        <item name="android:layout_height">64dp</item>
+        <item name="android:layout_width">140dp</item>
         <item name="android:textAllCaps">false</item>
     </style>
 

@@ -1,4 +1,4 @@
-package com.example.trained.ui.screen.choseWorkout
+package com.example.trained.ui.screen.workout.choseWorkout
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
