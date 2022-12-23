@@ -24,4 +24,10 @@ interface TrainedRepository {
     suspend fun readWorkoutTable(): List<WorkoutModel>
 
     suspend fun getSizeWorkoutTable(): Int
+
+    suspend fun insertDayWorkout(workout: DayWorkoutModel)
+
+    suspend fun updateDayWorkout(workout: DayWorkoutModel)
+
+    suspend fun readDayWorkout(): DayWorkoutModel
 }

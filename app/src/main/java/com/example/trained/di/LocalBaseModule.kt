@@ -3,8 +3,10 @@ package com.example.trained.di
 import android.content.Context
 import androidx.room.Room
 import com.example.trained.data.local.TrainedRepositoryImpl
+import com.example.trained.data.local.dao.DayWorkoutDao
 import com.example.trained.data.local.dao.ProfileDao
 import com.example.trained.data.local.dao.WorkoutDao
+import com.example.trained.data.local.dataBase.DayWorkoutDataBase
 import com.example.trained.data.local.dataBase.SportsmanDataBase
 import com.example.trained.data.local.dataBase.WorkoutDataBase
 import com.example.trained.domain.repository.TrainedRepository
@@ -17,7 +19,7 @@ import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
 @Module
-class localBaseModule {
+class LocalBaseModule {
 
     @Provides
     fun provideTraindeRepository(impl: TrainedRepositoryImpl): TrainedRepository = impl
@@ -27,6 +29,9 @@ class localBaseModule {
 
     @Provides
     fun provideWorkoutDao(appDataBase: WorkoutDataBase): WorkoutDao = appDataBase.workoutDao()
+
+    @Provides
+    fun provideDayWorkoutDao(appDatabase: DayWorkoutDataBase): DayWorkoutDao = appDatabase.dayWorkoutDao()
 
     @Provides
     @Singleton
@@ -44,5 +49,14 @@ class localBaseModule {
             context,
             WorkoutDataBase::class.java,
             "workout_base"
+        ).build()
+
+    @Provides
+    @Singleton
+    fun provideDayWorkoutDataBase(@ApplicationContext context: Context): DayWorkoutDataBase =
+        Room.databaseBuilder(
+            context,
+            DayWorkoutDataBase::class.java,
+            "day_workout_table"
         ).build()
 }

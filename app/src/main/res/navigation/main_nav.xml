@@ -90,5 +90,28 @@
         <argument
             android:name="workout"
             app:argType="com.example.trained.data.model.WorkoutTransitionModel" />
+        <action
+            android:id="@+id/action_transitionFragment_to_stopwatchFragment"
+            app:destination="@id/stopwatchFragment"
+            app:popUpTo="@id/transitionFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/stopwatchFragment"
+        android:name="com.example.trained.ui.screen.workout.stopwatch.StopwatchFragment"
+        android:label="fragment_stopwatch"
+        tools:layout="@layout/fragment_stopwatch" >
+        <action
+            android:id="@+id/action_stopwatchFragment_to_timerChillFragment"
+            app:destination="@id/timerChillFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/timerChillFragment"
+        android:name="com.example.trained.ui.screen.workout.timerChill.TimerChillFragment"
+        android:label="fragment_timer_chill"
+        tools:layout="@layout/fragment_timer_chill" >
+        <argument
+            android:name="timeWorkout"
+            app:argType="long" />
     </fragment>
 </navigation>

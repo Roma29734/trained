@@ -51,7 +51,7 @@
 
     <style name="textTimeMain" parent="TextAppearance.AppCompat" >
         <item name="android:textSize">150sp</item>
-        <item name="android:textColor">@color/mainBlack</item>
+        <item name="android:textColor">@color/secondGrey</item>
         <item name="android:fontFamily">@font/roboto_bold</item>
     </style>
 

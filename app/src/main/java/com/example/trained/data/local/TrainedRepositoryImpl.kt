@@ -1,6 +1,7 @@
 package com.example.trained.data.local
 
 import androidx.lifecycle.LiveData
+import com.example.trained.data.local.dao.DayWorkoutDao
 import com.example.trained.data.local.dao.ProfileDao
 import com.example.trained.data.local.dao.WorkoutDao
 import com.example.trained.data.model.DayWorkoutModel
@@ -12,6 +13,7 @@ import javax.inject.Inject
 class TrainedRepositoryImpl @Inject constructor(
     private val profileDao: ProfileDao,
     private val workoutDao: WorkoutDao,
+    private val dayWorkoutDao: DayWorkoutDao,
 ): TrainedRepository {
     override suspend fun insertUser(user: SportsmanModel) {
         profileDao.insertUser(user)
@@ -47,6 +49,18 @@ class TrainedRepositoryImpl @Inject constructor(
 
     override suspend fun getSizeWorkoutTable(): Int {
         return workoutDao.getSizeWorkoutTable()
+    }
+
+    override suspend fun insertDayWorkout(workout: DayWorkoutModel) {
+        dayWorkoutDao.insertDayWorkout(workout)
+    }
+
+    override suspend fun updateDayWorkout(workout: DayWorkoutModel) {
+        dayWorkoutDao.updateDayWorkout(workout)
+    }
+
+    override suspend fun readDayWorkout(): DayWorkoutModel {
+        return  dayWorkoutDao.readDayWorkout()
     }
 
 }
