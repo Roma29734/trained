@@ -1,19 +1,15 @@
 package com.example.trained.ui.screen.workout.stopwatch
 
-import android.graphics.Color.red
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.core.content.ContextCompat
-import com.example.trained.R
+import androidx.navigation.fragment.navArgs
 import com.example.trained.base.BaseFragment
+import com.example.trained.data.model.DayWorkoutModel
 import com.example.trained.databinding.FragmentStopwatchBinding
-import com.example.trained.utils.Utils.getFormattedStopWatch
+import com.example.trained.utils.Utils.formattedTimeMain
 
 class StopwatchFragment :
     BaseFragment<FragmentStopwatchBinding>(FragmentStopwatchBinding::inflate) {
@@ -22,9 +18,12 @@ class StopwatchFragment :
     private var mHandler: Handler? = null
     private var timeInSeconds = 0L
     private var startButtonClicked = false
+    private val args: StopwatchFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.upBar.textView6.text = "Тренировка"
 
         binding.materialButton.setOnClickListener {
             if (!startButtonClicked) {
@@ -32,11 +31,21 @@ class StopwatchFragment :
                 startTimer()
                 startTimerView()
             } else {
-//                Перехожу на фрагмент с отдыхом
-                val action =
-                    StopwatchFragmentDirections.actionStopwatchFragmentToTimerChillFragment(
-                        timeInSeconds
+//                Перехожу на TimeChillFragment
+
+//                Собираю обновленную модель
+                Log.d("checkTime", timeInSeconds.toString())
+                val model =
+                    DayWorkoutModel(
+                        id = args.dayWorkoutModel.id,
+                        timeWorkout = args.dayWorkoutModel.timeWorkout + timeInSeconds,
+                        timeChill = args.dayWorkoutModel.timeChill,
+                        sumApproach = args.dayWorkoutModel.sumApproach,
+                        completedApproach = args.dayWorkoutModel.completedApproach + 1,
+                        idWorkout = args.dayWorkoutModel.idWorkout,
                     )
+                val action =
+                    StopwatchFragmentDirections.actionStopwatchFragmentToTimerChillFragment(model)
                 stopTimer()
                 mainNavController.navigate(action)
             }
@@ -74,7 +83,7 @@ class StopwatchFragment :
     }
 
     private fun updateStopWatchView(timeInSeconds: Long) {
-        val formattedTime = getFormattedStopWatch((timeInSeconds * 1000))
+        val formattedTime = formattedTimeMain((timeInSeconds * 1000))
         Log.e("formattedTime", formattedTime)
         binding.textTime.text = formattedTime
     }

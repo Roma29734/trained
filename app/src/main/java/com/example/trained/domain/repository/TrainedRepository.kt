@@ -1,6 +1,5 @@
 package com.example.trained.domain.repository
 
-import androidx.lifecycle.LiveData
 import com.example.trained.data.model.DayWorkoutModel
 import com.example.trained.data.model.SportsmanModel
 import com.example.trained.data.model.WorkoutModel
@@ -25,9 +24,11 @@ interface TrainedRepository {
 
     suspend fun getSizeWorkoutTable(): Int
 
-    suspend fun insertDayWorkout(workout: DayWorkoutModel)
+    suspend fun insertDayWorkout(workout: DayWorkoutModel): Long
 
     suspend fun updateDayWorkout(workout: DayWorkoutModel)
 
     suspend fun readDayWorkout(): DayWorkoutModel
+
+    suspend fun getDayWorkoutById(id: Int): DayWorkoutModel
 }

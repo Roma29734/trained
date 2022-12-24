@@ -51,8 +51,8 @@ class TrainedRepositoryImpl @Inject constructor(
         return workoutDao.getSizeWorkoutTable()
     }
 
-    override suspend fun insertDayWorkout(workout: DayWorkoutModel) {
-        dayWorkoutDao.insertDayWorkout(workout)
+    override suspend fun insertDayWorkout(workout: DayWorkoutModel): Long {
+        return dayWorkoutDao.insertDayWorkout(workout)
     }
 
     override suspend fun updateDayWorkout(workout: DayWorkoutModel) {
@@ -61,6 +61,10 @@ class TrainedRepositoryImpl @Inject constructor(
 
     override suspend fun readDayWorkout(): DayWorkoutModel {
         return  dayWorkoutDao.readDayWorkout()
+    }
+
+    override suspend fun getDayWorkoutById(id: Int): DayWorkoutModel {
+        return dayWorkoutDao.getDayWorkoutById(id)
     }
 
 }

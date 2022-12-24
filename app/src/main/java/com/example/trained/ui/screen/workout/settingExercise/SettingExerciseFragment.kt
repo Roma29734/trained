@@ -28,13 +28,17 @@ class SettingExerciseFragment :
                     .show()
             } else {
                 val model = WorkoutTransitionModel(
-                    args.workout.nameExercise,
-                    args.workout.repetitions,
-                    args.workout.approaches,
-                    binding.tiTimeChill.text.toString()
+                    id = args.workout.id,
+                    nameExercise = args.workout.nameExercise,
+                    repetitions = args.workout.repetitions,
+                    approaches = args.workout.approaches,
+                    timeChill = binding.tiTimeChill.text.toString().toLong() * 1000
                 )
                 val action =
-                    SettingExerciseFragmentDirections.actionSettingExerciseFragmentToTransitionFragment(model)
+                    SettingExerciseFragmentDirections
+                        .actionSettingExerciseFragmentToTransitionFragment(
+                        model
+                    )
                 mainNavController.navigate(action)
             }
         }

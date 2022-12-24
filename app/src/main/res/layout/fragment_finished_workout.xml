@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.screen.workout.transition.TransitionFragment">
+    tools:context=".ui.screen.workout.finishedWorkout.FinishedWorkoutFragment">
 
 
     <include
         android:id="@+id/upBar"
-        layout="@layout/up_bar_simple_title_back_add"
+        layout="@layout/up_bar_simple_title"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,7 +20,7 @@
         android:id="@+id/materialButton"
         style="@style/mainMaterialButton"
         android:layout_marginBottom="32dp"
-        android:text="Начать тренировку"
+        android:text="@string/next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -30,8 +30,21 @@
         layout="@layout/widget_transition_workout_state"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/materialButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/upBar" />
+
+    <TextView
+        android:id="@+id/textSuccesWorkout"
+        style="@style/textAllightContext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/widget"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Вы выполнили упражнение" />
 </androidx.constraintlayout.widget.ConstraintLayout>

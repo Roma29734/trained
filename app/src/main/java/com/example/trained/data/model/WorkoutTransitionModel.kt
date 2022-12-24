@@ -6,8 +6,9 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class WorkoutTransitionModel(
+    val id: Int,
     val nameExercise: String,
     val repetitions: Int,
     val approaches: Int,
-    val timeChill: String,
+    val timeChill: Long,
 ) : Parcelable
