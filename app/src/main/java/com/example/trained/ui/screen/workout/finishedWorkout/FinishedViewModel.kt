@@ -2,8 +2,9 @@ package com.example.trained.ui.screen.workout.finishedWorkout
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.trained.data.model.DayWorkoutModel
-import com.example.trained.domain.repository.TrainedRepository
+import com.example.data.model.DayWorkoutEntity
+import com.example.domain.TrainedRepository
+import com.example.domain.model.DayWorkoutModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -15,9 +16,9 @@ class FinishedViewModel @Inject constructor(
     private val repository: TrainedRepository,
 ): ViewModel() {
 
-    fun updateDayWorkout(dayWorkoutModel: DayWorkoutModel) {
+    fun updateDayWorkout(dayWorkoutEntity: DayWorkoutModel) {
         viewModelScope.launch (Dispatchers.IO) {
-            repository.updateDayWorkout(dayWorkoutModel)
+            repository.updateDayWorkout(dayWorkoutEntity)
         }
     }
 }

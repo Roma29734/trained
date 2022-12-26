@@ -7,8 +7,8 @@ import android.util.Log
 import android.view.View
 import androidx.navigation.fragment.navArgs
 import com.example.trained.base.BaseFragment
-import com.example.trained.data.model.DayWorkoutModel
-import com.example.trained.data.model.WorkoutTransitionModel
+import com.example.data.model.DayWorkoutEntity
+import com.example.data.model.WorkoutTransitionModel
 import com.example.trained.databinding.FragmentStopwatchBinding
 import com.example.trained.utils.Utils.formattedTimeMain
 
@@ -37,7 +37,7 @@ class StopwatchFragment :
 //                Собираю обновленную модель
                 Log.d("checkTime", timeInSeconds.toString())
                 val model = WorkoutTransitionModel(
-                    DayWorkoutModel(
+                    DayWorkoutEntity(
                         id = args.transit.workoutModel.id,
                         idWorkout = args.transit.workoutModel.idWorkout,
                         nameWorkout = args.transit.workoutModel.nameWorkout,

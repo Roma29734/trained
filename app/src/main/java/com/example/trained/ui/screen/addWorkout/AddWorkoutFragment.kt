@@ -2,16 +2,11 @@ package com.example.trained.ui.screen.addWorkout
 
 import android.os.Bundle
 import android.text.TextUtils
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
-import com.example.trained.R
 import com.example.trained.base.BaseFragment
-import com.example.trained.data.model.WorkoutModel
 import com.example.trained.databinding.FragmentAddWorkoutBinding
 import dagger.hilt.android.AndroidEntryPoint
 

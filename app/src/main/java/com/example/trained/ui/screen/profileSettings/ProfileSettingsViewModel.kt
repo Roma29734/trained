@@ -2,10 +2,10 @@ package com.example.trained.ui.screen.profileSettings
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.trained.data.model.SportsmanModel
-import com.example.trained.domain.repository.TrainedRepository
+import com.example.data.model.SportsmanEntity
+import com.example.domain.TrainedRepository
+import com.example.domain.model.SportsmanModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

@@ -5,7 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.example.trained.data.model.DayWorkoutModel
+import com.example.data.model.DayWorkoutEntity
+import com.example.domain.model.DayWorkoutModel
 import com.example.trained.databinding.CardTreinyHomeBinding
 
 

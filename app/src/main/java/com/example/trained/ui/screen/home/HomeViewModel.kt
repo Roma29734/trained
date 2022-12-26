@@ -3,12 +3,13 @@ package com.example.trained.ui.screen.home
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.trained.data.model.DayWorkoutModel
-import com.example.trained.data.model.SportsmanModel
-import com.example.trained.data.model.WorkoutModel
-import com.example.trained.domain.repository.TrainedRepository
-import dagger.hilt.android.AndroidEntryPoint
-import dagger.hilt.android.HiltAndroidApp
+import com.example.data.model.DayWorkoutEntity
+import com.example.data.model.SportsmanEntity
+import com.example.data.model.WorkoutEntity
+import com.example.domain.TrainedRepository
+import com.example.domain.model.DayWorkoutModel
+import com.example.domain.model.SportsmanModel
+import com.example.domain.model.WorkoutModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -34,11 +35,6 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    fun readWorkout() {
-        viewModelScope.launch {
-            _workout?.value = repository.readWorkoutTable()
-        }
-    }
 
     fun readDayWorkout() {
         viewModelScope.launch(Dispatchers.IO) {

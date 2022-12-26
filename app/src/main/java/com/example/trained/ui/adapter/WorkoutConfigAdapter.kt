@@ -3,7 +3,8 @@ package com.example.trained.ui.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.trained.data.model.WorkoutModel
+import com.example.data.model.WorkoutEntity
+import com.example.domain.model.WorkoutModel
 import com.example.trained.databinding.CardTreinyHomeBinding
 
 class WorkoutConfigAdapter: RecyclerView.Adapter<WorkoutConfigAdapter.MyViewHolder>() {
