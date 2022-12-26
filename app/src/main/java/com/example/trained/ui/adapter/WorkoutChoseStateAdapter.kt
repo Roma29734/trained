@@ -4,6 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.data.model.DayWorkoutEntity
+import com.example.data.model.WorkoutTransitionModel
+import com.example.data.toTransit
 import com.example.domain.model.DayWorkoutModel
 import com.example.trained.databinding.CardTreinyHomeBinding
 
@@ -14,7 +16,7 @@ class WorkoutChoseStateAdapter: RecyclerView.Adapter<WorkoutChoseStateAdapter.My
 
     private var dayWorkout = emptyList<DayWorkoutModel>()
 
-    var callBackDel: ((model: DayWorkoutModel) -> Unit)? = null
+    var callBackDel: ((model: WorkoutTransitionModel) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(
@@ -35,7 +37,8 @@ class WorkoutChoseStateAdapter: RecyclerView.Adapter<WorkoutChoseStateAdapter.My
         holder.binding.textQuantity.text = positionWorkout.receptions.toString()
 
         holder.binding.cardView.setOnClickListener {
-            callBackDel?.let { it1 -> it1(positionWorkout) }
+            val model = WorkoutTransitionModel(positionWorkout.toTransit(), 0)
+            callBackDel?.let { it1 -> it1(model) }
         }
     }
 

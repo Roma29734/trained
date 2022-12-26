@@ -5,6 +5,7 @@ import com.example.domain.model.SportsmanModel
 import com.example.domain.model.WorkoutModel
 import com.example.data.model.DayWorkoutEntity
 import com.example.data.model.SportsmanEntity
+import com.example.data.model.TransitDayWorkoutModel
 import com.example.data.model.WorkoutEntity
 
 fun WorkoutModel.toEntity() = WorkoutEntity (
@@ -48,6 +49,26 @@ fun DayWorkoutModel.toEntity() = DayWorkoutEntity (
 )
 
 fun DayWorkoutEntity.toDomain() = DayWorkoutModel (
+    id = id,
+    idWorkout = idWorkout,
+    nameWorkout = nameWorkout,
+    sumApproach = sumApproach,
+    completedApproach = completedApproach,
+    receptions = receptions,
+    timeWorkout = timeWorkout
+)
+
+fun DayWorkoutModel.toTransit() = TransitDayWorkoutModel (
+    id = id,
+    idWorkout = idWorkout,
+    nameWorkout = nameWorkout,
+    sumApproach = sumApproach,
+    completedApproach = completedApproach,
+    receptions = receptions,
+    timeWorkout = timeWorkout
+)
+
+fun TransitDayWorkoutModel.toDomain() = DayWorkoutModel (
     id = id,
     idWorkout = idWorkout,
     nameWorkout = nameWorkout,

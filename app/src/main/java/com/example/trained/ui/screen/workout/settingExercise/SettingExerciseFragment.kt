@@ -17,9 +17,9 @@ class SettingExerciseFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.textNameExercise.text = "Упражнение ${args.workout.nameWorkout}"
-        binding.textApproach.text = args.workout.sumApproach.toString()
-        binding.textRepetitions.text = args.workout.receptions.toString()
+        binding.textNameExercise.text = "Упражнение ${args.workout.workoutModel.nameWorkout}"
+        binding.textApproach.text = args.workout.workoutModel.sumApproach.toString()
+        binding.textRepetitions.text = args.workout.workoutModel.receptions.toString()
 
 
         binding.materialButton.setOnClickListener {
@@ -28,7 +28,7 @@ class SettingExerciseFragment :
                     .show()
             } else {
                 val model = WorkoutTransitionModel(
-                    workoutModel = args.workout,
+                    workoutModel = args.workout.workoutModel,
                     timeChill = binding.tiTimeChill.text.toString().toLong() * 1000
                 )
                 val action =

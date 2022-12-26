@@ -20,7 +20,10 @@ class ChoseWorkoutFragment :
         super.onViewCreated(view, savedInstanceState)
 
         adapter.callBackDel = {
-            val action = ChoseWorkoutFragmentDirections.actionChoseWorkoutFragmentToSettingExerciseFragment(it)
+            val action =
+                ChoseWorkoutFragmentDirections.actionChoseWorkoutFragmentToSettingExerciseFragment(
+                    it
+                )
             mainNavController.navigate(action)
         }
 

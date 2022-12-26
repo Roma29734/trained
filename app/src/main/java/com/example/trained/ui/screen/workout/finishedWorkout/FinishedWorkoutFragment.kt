@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
+import com.example.data.toDomain
 import com.example.trained.R
 import com.example.trained.base.BaseFragment
 import com.example.trained.databinding.FragmentFinishedWorkoutBinding
@@ -42,7 +43,7 @@ class FinishedWorkoutFragment :
         binding.upBar.textView6.text = "Тренировка"
 
         binding.materialButton.setOnClickListener {
-            viewModel.updateDayWorkout(args.transit.workoutModel)
+            viewModel.updateDayWorkout(args.transit.workoutModel.toDomain())
             val action = FinishedWorkoutFragmentDirections.actionFinishedWorkoutFragmentToNavFragment()
             mainNavController.navigate(action)
         }

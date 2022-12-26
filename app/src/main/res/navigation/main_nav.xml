@@ -80,7 +80,7 @@
             app:destination="@id/transitionFragment" />
         <argument
             android:name="workout"
-            app:argType="com.example.trained.data.model.DayWorkoutModel" />
+            app:argType="com.example.data.model.WorkoutTransitionModel" />
     </fragment>
     <fragment
         android:id="@+id/transitionFragment"
@@ -89,7 +89,7 @@
         tools:layout="@layout/fragment_transition" >
         <argument
             android:name="workout"
-            app:argType="com.example.trained.data.model.WorkoutTransitionModel" />
+            app:argType="com.example.data.model.WorkoutTransitionModel" />
         <action
             android:id="@+id/action_transitionFragment_to_stopwatchFragment"
             app:destination="@id/stopwatchFragment"
@@ -108,7 +108,7 @@
             app:popUpToInclusive="true" />
         <argument
             android:name="transit"
-            app:argType="com.example.trained.data.model.WorkoutTransitionModel" />
+            app:argType="com.example.data.model.WorkoutTransitionModel" />
     </fragment>
     <fragment
         android:id="@+id/timerChillFragment"
@@ -125,7 +125,7 @@
             app:destination="@id/stopwatchFragment" />
         <argument
             android:name="transit"
-            app:argType="com.example.trained.data.model.WorkoutTransitionModel" />
+            app:argType="com.example.data.model.WorkoutTransitionModel" />
     </fragment>
     <fragment
         android:id="@+id/finishedWorkoutFragment"
@@ -139,6 +139,6 @@
             app:popUpToInclusive="true" />
         <argument
             android:name="transit"
-            app:argType="com.example.trained.data.model.WorkoutTransitionModel" />
+            app:argType="com.example.data.model.WorkoutTransitionModel" />
     </fragment>
 </navigation>
