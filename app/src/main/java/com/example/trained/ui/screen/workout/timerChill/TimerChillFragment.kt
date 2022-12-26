@@ -20,7 +20,7 @@ class TimerChillFragment :
 
         binding.upBar.textView6.text = "Тренировка"
 
-        startTimer(args.dayWorkoutModel.timeChill)
+        startTimer(args.transit.timeChill)
     }
 
     private fun startTimer(time: Long) {
@@ -46,16 +46,16 @@ class TimerChillFragment :
 
         binding.apply {
             materialButtonNext.setOnClickListener {
-                if (args.dayWorkoutModel.sumApproach != args.dayWorkoutModel.completedApproach) {
+                if (args.transit.workoutModel.sumApproach != args.transit.workoutModel.completedApproach) {
                     val action =
                         TimerChillFragmentDirections.actionTimerChillFragmentToStopwatchFragment(
-                            args.dayWorkoutModel
+                            args.transit
                         )
                     mainNavController.navigate(action)
                 } else {
                     val action =
                         TimerChillFragmentDirections.actionTimerChillFragmentToFinishedWorkoutFragment(
-                            args.dayWorkoutModel
+                            args.transit
                         )
                     mainNavController.navigate(action)
                 }

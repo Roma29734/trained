@@ -19,7 +19,6 @@ class TransitionFragment :
     BaseFragment<FragmentTransitionBinding>(FragmentTransitionBinding::inflate) {
 
     private val args: TransitionFragmentArgs by navArgs()
-    private val viewModel: TransitionViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -32,9 +31,9 @@ class TransitionFragment :
             imageView3.setImageResource(R.drawable.ic_clock)
 
 //            Установка текстов
-            text1.text = args.workout.repetitions.toString()
-            text2.text = args.workout.approaches.toString()
-            textNameWorkout.text = args.workout.nameExercise
+            text1.text = args.workout.workoutModel.receptions.toString()
+            text2.text = args.workout.workoutModel.sumApproach.toString()
+            textNameWorkout.text = args.workout.workoutModel.nameWorkout
 //            Установка текста время отдыха
             val formattedTime = formattedWatchWidget((args.workout.timeChill))
             text3.text = formattedTime
@@ -46,26 +45,8 @@ class TransitionFragment :
 //        Обработка нажатия кнопки "Начать тренировку"
         binding.materialButton.setOnClickListener {
 //            Создание модели для перехода
-            viewModel.createWorkout(
-                args.workout.id,
-                args.workout.approaches,
-                args.workout.timeChill
-            )
-
-            viewModel.userId.observe(viewLifecycleOwner) { result ->
-                if (result != null) {
-                    lifecycleScope.launch(Dispatchers.IO) {
-                        val model = viewModel.getWorkoutById(result.toInt())
-                        val action =
-                            TransitionFragmentDirections.actionTransitionFragmentToStopwatchFragment(
-                                model
-                            )
-                        lifecycleScope.launch (Dispatchers.Main) {
-                            mainNavController.navigate(action)
-                        }
-                    }
-                }
-            }
+            val action = TransitionFragmentDirections.actionTransitionFragmentToStopwatchFragment(args.workout)
+            mainNavController.navigate(action)
         }
     }
 }

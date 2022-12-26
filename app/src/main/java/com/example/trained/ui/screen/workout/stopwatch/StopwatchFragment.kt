@@ -8,6 +8,7 @@ import android.view.View
 import androidx.navigation.fragment.navArgs
 import com.example.trained.base.BaseFragment
 import com.example.trained.data.model.DayWorkoutModel
+import com.example.trained.data.model.WorkoutTransitionModel
 import com.example.trained.databinding.FragmentStopwatchBinding
 import com.example.trained.utils.Utils.formattedTimeMain
 
@@ -35,17 +36,22 @@ class StopwatchFragment :
 
 //                Собираю обновленную модель
                 Log.d("checkTime", timeInSeconds.toString())
-                val model =
+                val model = WorkoutTransitionModel(
                     DayWorkoutModel(
-                        id = args.dayWorkoutModel.id,
-                        timeWorkout = args.dayWorkoutModel.timeWorkout + timeInSeconds,
-                        timeChill = args.dayWorkoutModel.timeChill,
-                        sumApproach = args.dayWorkoutModel.sumApproach,
-                        completedApproach = args.dayWorkoutModel.completedApproach + 1,
-                        idWorkout = args.dayWorkoutModel.idWorkout,
-                    )
+                        id = args.transit.workoutModel.id,
+                        idWorkout = args.transit.workoutModel.idWorkout,
+                        nameWorkout = args.transit.workoutModel.nameWorkout,
+                        sumApproach = args.transit.workoutModel.sumApproach,
+                        completedApproach = args.transit.workoutModel.completedApproach + 1,
+                        receptions = args.transit.workoutModel.receptions,
+                        timeWorkout = args.transit.workoutModel.timeWorkout + timeInSeconds
+                    ),
+                    args.transit.timeChill
+                )
                 val action =
-                    StopwatchFragmentDirections.actionStopwatchFragmentToTimerChillFragment(model)
+                    StopwatchFragmentDirections.actionStopwatchFragmentToTimerChillFragment(
+                        model
+                    )
                 stopTimer()
                 mainNavController.navigate(action)
             }

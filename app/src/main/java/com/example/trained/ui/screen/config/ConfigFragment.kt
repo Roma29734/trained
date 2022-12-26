@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.trained.R
 import com.example.trained.base.BaseFragment
 import com.example.trained.databinding.FragmentConfigBinding
+import com.example.trained.ui.adapter.WorkoutConfigAdapter
 import com.example.trained.ui.adapter.WorkoutStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -17,7 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class ConfigFragment : BaseFragment<FragmentConfigBinding>(FragmentConfigBinding::inflate) {
 
     private val viewModel: ConfigViewModel by viewModels()
-    private val adapter = WorkoutStateAdapter()
+    private val adapter = WorkoutConfigAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

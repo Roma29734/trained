@@ -27,7 +27,7 @@ class TrainedRepositoryImpl @Inject constructor(
         profileDao.deleteUser(user)
     }
 
-    override suspend fun readUserTable(): SportsmanModel {
+    override suspend fun readUserTable(): SportsmanModel? {
         return profileDao.readUserTable()
     }
 
@@ -35,8 +35,8 @@ class TrainedRepositoryImpl @Inject constructor(
         return profileDao.getSizeSportsmanTable()
     }
 
-    override suspend fun insertWorkout(day: WorkoutModel) {
-        workoutDao.insertWorkout(day)
+    override suspend fun insertWorkout(day: WorkoutModel): Long {
+        return workoutDao.insertWorkout(day)
     }
 
     override suspend fun updateWorkout(day: WorkoutModel) {
@@ -59,7 +59,7 @@ class TrainedRepositoryImpl @Inject constructor(
         dayWorkoutDao.updateDayWorkout(workout)
     }
 
-    override suspend fun readDayWorkout(): DayWorkoutModel {
+    override suspend fun readDayWorkout(): List<DayWorkoutModel>? {
         return  dayWorkoutDao.readDayWorkout()
     }
 
@@ -67,4 +67,7 @@ class TrainedRepositoryImpl @Inject constructor(
         return dayWorkoutDao.getDayWorkoutById(id)
     }
 
+    override suspend fun getSizeDayWorkoutTable(): Int {
+        return  dayWorkoutDao.getSizeDayWorkoutTable()
+    }
 }

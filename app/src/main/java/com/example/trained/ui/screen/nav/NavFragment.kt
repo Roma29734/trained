@@ -30,14 +30,14 @@ class NavFragment : BaseFragment<FragmentNavBinding>(FragmentNavBinding::inflate
             if(viewModel.checkUser()) {
                 Log.d("checkBagFirstStart", "Зашел в есть профиль")
                 if(viewModel.checkWorkout()) {
+                    binding.navHostFragments.visibility = View.VISIBLE
                     val navView = binding.bottomNavigationView
                     val navHostFragment = childFragmentManager.findFragmentById(R.id.nav_host_fragments) as NavHostFragment
                     val navController = navHostFragment.findNavController()
 
-
                     navView.setupWithNavController(navController)
                 } else {
-                    Navigation.findNavController(view).navigate(R.id.action_navFragment_to_dayConfigFragment)
+                    mainNavController.navigate(R.id.action_navFragment_to_dayConfigFragment)
                 }
             } else {
                 Log.d("checkBagFirstStart", "Зашел в нет профиля")

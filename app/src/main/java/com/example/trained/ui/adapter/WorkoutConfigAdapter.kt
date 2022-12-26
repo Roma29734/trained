@@ -3,18 +3,15 @@ package com.example.trained.ui.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.trained.data.model.DayWorkoutModel
 import com.example.trained.data.model.WorkoutModel
 import com.example.trained.databinding.CardTreinyHomeBinding
 
-class WorkoutChoseStateAdapter: RecyclerView.Adapter<WorkoutChoseStateAdapter.MyViewHolder>() {
+class WorkoutConfigAdapter: RecyclerView.Adapter<WorkoutConfigAdapter.MyViewHolder>() {
+
+    private var workout = emptyList<WorkoutModel>()
 
     inner class MyViewHolder(val binding: CardTreinyHomeBinding) :
         RecyclerView.ViewHolder(binding.root)
-
-    private var dayWorkout = emptyList<DayWorkoutModel>()
-
-    var callBackDel: ((model: DayWorkoutModel) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(
@@ -27,24 +24,19 @@ class WorkoutChoseStateAdapter: RecyclerView.Adapter<WorkoutChoseStateAdapter.My
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        val positionWorkout = workout[position]
 
-        val positionWorkout = dayWorkout[position]
-
-        holder.binding.textNameWorkout.text = positionWorkout.nameWorkout
-        holder.binding.textApproach.text = positionWorkout.sumApproach.toString()
-        holder.binding.textQuantity.text = positionWorkout.receptions.toString()
-
-        holder.binding.cardView.setOnClickListener {
-            callBackDel?.let { it1 -> it1(positionWorkout) }
-        }
+        holder.binding.textNameWorkout.text = positionWorkout.nameExercise
+        holder.binding.textApproach.text = positionWorkout.approaches.toString()
+        holder.binding.textQuantity.text = positionWorkout.repetitions.toString()
     }
 
     override fun getItemCount(): Int {
-        return dayWorkout.size
+        return workout.size
     }
 
-    fun setWorkout(list: List<DayWorkoutModel>) {
-        dayWorkout = list
+    fun setWorkout(list: List<WorkoutModel>) {
+        workout = list
         notifyDataSetChanged()
     }
 }

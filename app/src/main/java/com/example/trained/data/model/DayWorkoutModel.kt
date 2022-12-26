@@ -11,9 +11,10 @@ import kotlinx.parcelize.Parcelize
 data class DayWorkoutModel(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id") val id: Int,
-    @ColumnInfo(name = "timeWorkout") val timeWorkout: Long,
-    @ColumnInfo(name = "timeChill") val timeChill: Long,
+    @ColumnInfo(name = "idWorkout") val idWorkout: Int,
+    @ColumnInfo(name = "nameWorkout") val nameWorkout: String,
     @ColumnInfo(name = "sumApproach") val sumApproach: Int,
     @ColumnInfo(name = "completedApproach") val completedApproach: Int,
-    @ColumnInfo(name = "idWorkout") val idWorkout: Int,
+    @ColumnInfo(name = "receptions") val receptions: Int,
+    @ColumnInfo(name = "timeWorkout") val timeWorkout: Long,
 ): Parcelable

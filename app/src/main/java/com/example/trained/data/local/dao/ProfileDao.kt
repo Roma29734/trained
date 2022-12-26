@@ -19,7 +19,7 @@ interface ProfileDao {
     suspend fun deleteUser(user: SportsmanModel)
 
     @Query("SELECT * FROM sportsman_table")
-    suspend fun readUserTable(): SportsmanModel
+    suspend fun readUserTable(): SportsmanModel?
 
     @Query("SELECT COUNT(*) FROM sportsman_table")
     suspend fun getSizeSportsmanTable(): Int

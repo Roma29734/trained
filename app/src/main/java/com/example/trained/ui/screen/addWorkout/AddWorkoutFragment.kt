@@ -46,4 +46,7 @@ class AddWorkoutFragment :
                         && TextUtils.isEmpty(binding.tiRepetitions.text)
                 )
     }
+
+
+
 }

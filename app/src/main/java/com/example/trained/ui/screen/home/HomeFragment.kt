@@ -23,18 +23,19 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = GridLayoutManager(context, 2)
 
         viewModel.readProfile()
-        viewModel.readWorkout()
+        viewModel.readDayWorkout()
 
-        viewModel.profileData?.observe(viewLifecycleOwner) {
-            binding.textName.text = it.name
+        viewModel.profileData?.observe(viewLifecycleOwner) { model ->
+            if (model != null) {
+                binding.textName.text = model.name
+            }
         }
 
-        viewModel.workout?.observe(viewLifecycleOwner) {
+        viewModel.dayWorkout.observe(viewLifecycleOwner) {
             adapter.setWorkout(it)
         }
 

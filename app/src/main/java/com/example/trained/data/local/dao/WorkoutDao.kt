@@ -7,7 +7,7 @@ import com.example.trained.data.model.WorkoutModel
 interface WorkoutDao {
 
     @Insert(entity = WorkoutModel::class, onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertWorkout(day: WorkoutModel)
+    suspend fun insertWorkout(day: WorkoutModel): Long
 
     @Update(entity = WorkoutModel::class)
     suspend fun updateWorkout(day: WorkoutModel)

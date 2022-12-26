@@ -12,11 +12,11 @@ interface TrainedRepository {
 
     suspend fun deleteUser(user: SportsmanModel)
 
-    suspend fun readUserTable(): SportsmanModel
+    suspend fun readUserTable(): SportsmanModel?
 
     suspend fun getSizeSportsmanTable(): Int
 
-    suspend fun insertWorkout(day: WorkoutModel)
+    suspend fun insertWorkout(day: WorkoutModel): Long
 
     suspend fun updateWorkout(day: WorkoutModel)
 
@@ -28,7 +28,9 @@ interface TrainedRepository {
 
     suspend fun updateDayWorkout(workout: DayWorkoutModel)
 
-    suspend fun readDayWorkout(): DayWorkoutModel
+    suspend fun readDayWorkout(): List<DayWorkoutModel>?
 
     suspend fun getDayWorkoutById(id: Int): DayWorkoutModel
+
+    suspend fun getSizeDayWorkoutTable(): Int
 }

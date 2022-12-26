@@ -80,7 +80,7 @@
             app:destination="@id/transitionFragment" />
         <argument
             android:name="workout"
-            app:argType="com.example.trained.data.model.WorkoutModel" />
+            app:argType="com.example.trained.data.model.DayWorkoutModel" />
     </fragment>
     <fragment
         android:id="@+id/transitionFragment"
@@ -107,17 +107,14 @@
             app:popUpTo="@id/stopwatchFragment"
             app:popUpToInclusive="true" />
         <argument
-            android:name="dayWorkoutModel"
-            app:argType="com.example.trained.data.model.DayWorkoutModel" />
+            android:name="transit"
+            app:argType="com.example.trained.data.model.WorkoutTransitionModel" />
     </fragment>
     <fragment
         android:id="@+id/timerChillFragment"
         android:name="com.example.trained.ui.screen.workout.timerChill.TimerChillFragment"
         android:label="fragment_timer_chill"
         tools:layout="@layout/fragment_timer_chill" >
-        <argument
-            android:name="dayWorkoutModel"
-            app:argType="com.example.trained.data.model.DayWorkoutModel" />
         <action
             android:id="@+id/action_timerChillFragment_to_finishedWorkoutFragment"
             app:destination="@id/finishedWorkoutFragment"
@@ -126,19 +123,22 @@
         <action
             android:id="@+id/action_timerChillFragment_to_stopwatchFragment"
             app:destination="@id/stopwatchFragment" />
+        <argument
+            android:name="transit"
+            app:argType="com.example.trained.data.model.WorkoutTransitionModel" />
     </fragment>
     <fragment
         android:id="@+id/finishedWorkoutFragment"
         android:name="com.example.trained.ui.screen.workout.finishedWorkout.FinishedWorkoutFragment"
         android:label="fragment_finished_workout"
         tools:layout="@layout/fragment_finished_workout" >
-        <argument
-            android:name="dayWorkoutModel"
-            app:argType="com.example.trained.data.model.DayWorkoutModel" />
         <action
             android:id="@+id/action_finishedWorkoutFragment_to_navFragment"
             app:destination="@id/navFragment"
             app:popUpTo="@id/finishedWorkoutFragment"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="transit"
+            app:argType="com.example.trained.data.model.WorkoutTransitionModel" />
     </fragment>
 </navigation>
