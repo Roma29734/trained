@@ -5,13 +5,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.repository.TrainedRepository
 import com.example.domain.model.WorkoutModel
+import com.example.domain.userCase.WorkoutInteractor
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class ConfigViewModel @Inject constructor(
-    private val repository: TrainedRepository
+    private val workoutInteractor: WorkoutInteractor
 ): ViewModel() {
 
     private var _dayWorkout: MutableLiveData<List<WorkoutModel>> = MutableLiveData()
@@ -19,7 +20,7 @@ class ConfigViewModel @Inject constructor(
 
     fun getDayWorkout() {
         viewModelScope.launch {
-            _dayWorkout.value = repository.readWorkoutTable()
+            _dayWorkout.value = workoutInteractor.readWorkoutTable()
         }
     }
 }

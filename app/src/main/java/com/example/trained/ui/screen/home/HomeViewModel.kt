@@ -7,6 +7,9 @@ import com.example.domain.repository.TrainedRepository
 import com.example.domain.model.DayWorkoutModel
 import com.example.domain.model.SportsmanModel
 import com.example.domain.model.WorkoutModel
+import com.example.domain.userCase.DayWorkoutInteractor
+import com.example.domain.userCase.ProfileInteractor
+import com.example.domain.userCase.WorkoutInteractor
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -14,7 +17,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val repository: TrainedRepository
+    private val profileInteractor: ProfileInteractor,
+    private val workoutInteractor: WorkoutInteractor,
+    private val dayWorkoutInteractor: DayWorkoutInteractor
 ): ViewModel() {
 
     private var _profile: MutableLiveData<SportsmanModel>? = MutableLiveData()
@@ -28,7 +33,7 @@ class HomeViewModel @Inject constructor(
 
     fun readProfile() {
         viewModelScope.launch {
-            _profile?.value = repository.readUserTable()
+            _profile?.value = profileInteractor.readUserTable()
         }
     }
 
@@ -36,13 +41,13 @@ class HomeViewModel @Inject constructor(
     fun readDayWorkout() {
         viewModelScope.launch(Dispatchers.IO) {
 
-            if(repository.getSizeWorkoutTable() == 0) {
+            if(workoutInteractor.getSizeWorkoutTable() == 0) {
                 return@launch
             }
 
             if(checkDayWorkout()) {
                 viewModelScope.launch(Dispatchers.Main) {
-                    _dayWorkout.value = repository.readDayWorkout()
+                    _dayWorkout.value = dayWorkoutInteractor.readDayWorkout()
                 }
             } else {
                 fillDayWorkout()
@@ -52,8 +57,8 @@ class HomeViewModel @Inject constructor(
 
     private fun fillDayWorkout() {
         viewModelScope.launch (Dispatchers.IO) {
-            val repeatSize = repository.getSizeWorkoutTable()
-            val resultWorkout = repository.readWorkoutTable()
+            val repeatSize = workoutInteractor.getSizeWorkoutTable()
+            val resultWorkout = workoutInteractor.readWorkoutTable()
             for(i in 0..repeatSize) {
                 val model = DayWorkoutModel(
                     id = 0,
@@ -64,13 +69,13 @@ class HomeViewModel @Inject constructor(
                     receptions = resultWorkout[i].repetitions,
                     timeWorkout = 0,
                 )
-                repository.insertDayWorkout(model)
+                dayWorkoutInteractor.insertDayWorkout(model)
             }
             readDayWorkout()
         }
     }
 
     private suspend fun checkDayWorkout(): Boolean {
-        return repository.getSizeDayWorkoutTable() != 0
+        return dayWorkoutInteractor.getSizeDayWorkoutTable() != 0
     }
 }
