@@ -9,7 +9,7 @@ import com.example.data.local.dao.WorkoutDao
 import com.example.data.local.dataBase.DayWorkoutDataBase
 import com.example.data.local.dataBase.SportsmanDataBase
 import com.example.data.local.dataBase.WorkoutDataBase
-import com.example.domain.TrainedRepository
+import com.example.domain.repository.TrainedRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

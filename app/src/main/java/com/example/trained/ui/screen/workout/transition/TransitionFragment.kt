@@ -40,7 +40,12 @@ class TransitionFragment :
         }
 
 //        настройка upBar
-        binding.upBar.textView6.text = "Тренировка"
+        binding.upBar.apply {
+            textView6.text = "Тренировка"
+            imageButton.setOnClickListener {
+                mainNavController.popBackStack()
+            }
+        }
 
 //        Обработка нажатия кнопки "Начать тренировку"
         binding.materialButton.setOnClickListener {

@@ -3,7 +3,7 @@ package com.example.data.local
 import com.example.data.local.dao.DayWorkoutDao
 import com.example.data.local.dao.ProfileDao
 import com.example.data.local.dao.WorkoutDao
-import com.example.domain.TrainedRepository
+import com.example.domain.repository.TrainedRepository
 import com.example.domain.model.DayWorkoutModel
 import com.example.domain.model.SportsmanModel
 import com.example.domain.model.WorkoutModel

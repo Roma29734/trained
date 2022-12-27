@@ -122,7 +122,9 @@
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_timerChillFragment_to_stopwatchFragment"
-            app:destination="@id/stopwatchFragment" />
+            app:destination="@id/stopwatchFragment"
+            app:popUpTo="@id/timerChillFragment"
+            app:popUpToInclusive="true" />
         <argument
             android:name="transit"
             app:argType="com.example.data.model.WorkoutTransitionModel" />

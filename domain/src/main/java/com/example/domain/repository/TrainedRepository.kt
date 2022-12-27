@@ -1,4 +1,4 @@
-package com.example.domain
+package com.example.domain.repository
 
 import com.example.domain.model.DayWorkoutModel
 import com.example.domain.model.SportsmanModel

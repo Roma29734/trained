@@ -17,8 +17,8 @@ abstract class BaseFragment<B : ViewBinding>(private val inflate: Inflate<B>) :
     Fragment() {
     private var _viewBinding: B? = null
     protected val binding get() = checkNotNull(_viewBinding)
-//    protected val nav: NavController by lazy { Navigation.findNavController(requireActivity(), R.id.fragmentContainerView) }
     protected val mainNavController: NavController by lazy { Navigation.findNavController(requireActivity(), R.id.nav_host) }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -34,8 +34,8 @@ abstract class BaseFragment<B : ViewBinding>(private val inflate: Inflate<B>) :
 
     }
 
-//    override fun onDestroy() {
-//        super.onDestroy()
-//        _viewBinding = null
-//    }
+    override fun onDestroy() {
+        super.onDestroy()
+        _viewBinding = null
+    }
 }

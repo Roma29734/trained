@@ -3,10 +3,7 @@ package com.example.trained.ui.screen.home
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.data.model.DayWorkoutEntity
-import com.example.data.model.SportsmanEntity
-import com.example.data.model.WorkoutEntity
-import com.example.domain.TrainedRepository
+import com.example.domain.repository.TrainedRepository
 import com.example.domain.model.DayWorkoutModel
 import com.example.domain.model.SportsmanModel
 import com.example.domain.model.WorkoutModel

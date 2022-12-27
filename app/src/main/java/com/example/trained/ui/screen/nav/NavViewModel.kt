@@ -2,7 +2,7 @@ package com.example.trained.ui.screen.nav
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
-import com.example.domain.TrainedRepository
+import com.example.domain.repository.TrainedRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

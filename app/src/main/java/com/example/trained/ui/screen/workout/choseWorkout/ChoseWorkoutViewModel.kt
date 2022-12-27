@@ -3,8 +3,7 @@ package com.example.trained.ui.screen.workout.choseWorkout
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.data.model.DayWorkoutEntity
-import com.example.domain.TrainedRepository
+import com.example.domain.repository.TrainedRepository
 import com.example.domain.model.DayWorkoutModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

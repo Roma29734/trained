@@ -27,6 +27,10 @@ class ChoseWorkoutFragment :
             mainNavController.navigate(action)
         }
 
+        binding.upBar.imageButton.setOnClickListener {
+            mainNavController.popBackStack()
+        }
+
         binding.recycler.adapter = adapter
         binding.recycler.layoutManager = GridLayoutManager(context, 2)
 

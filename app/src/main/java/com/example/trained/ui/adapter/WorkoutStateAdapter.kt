@@ -1,5 +1,6 @@
 package com.example.trained.ui.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,11 +32,6 @@ class WorkoutStateAdapter() : RecyclerView.Adapter<WorkoutStateAdapter.MyViewHol
 
         val positionWorkout = dayWorkout[position]
 
-//        if(position == 1) {
-//            val layoutParams = (holder.binding.cardView.layoutParams as? ViewGroup.MarginLayoutParams)
-//            layoutParams?.setMargins(16,0,32,24)
-//            holder.binding.cardView.layoutParams = layoutParams
-//        }
         if (positionWorkout.sumApproach == positionWorkout.completedApproach) {
             val myColor = ContextCompat.getColor(
                 holder.itemView.context,
@@ -47,8 +43,14 @@ class WorkoutStateAdapter() : RecyclerView.Adapter<WorkoutStateAdapter.MyViewHol
         } else {
             holder.binding.textQuantity.text = positionWorkout.receptions.toString()
         }
+        if (positionWorkout.completedApproach > 0) {
+            holder.binding.textApproach.text =
+                "${positionWorkout.completedApproach}/${positionWorkout.sumApproach}"
+        } else {
+            holder.binding.textApproach.text = positionWorkout.sumApproach.toString()
+        }
         holder.binding.textNameWorkout.text = positionWorkout.nameWorkout
-        holder.binding.textApproach.text = positionWorkout.sumApproach.toString()
+        Log.d("WorkoutStateAdapter", positionWorkout.sumApproach.toString())
     }
 
     override fun getItemCount(): Int {

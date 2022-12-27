@@ -147,6 +147,7 @@
         <item name="android:background">@color/mainWhite</item>
         <item name="itemIconTint">@color/bottom_nav_ic</item>
         <item name="labelVisibilityMode">unlabeled</item>
+        <item name="itemIconSize">30dp</item>
     </style>
 
     <style name="imageViewForCardHomeState" parent="Widget.AppCompat.ImageButton" >

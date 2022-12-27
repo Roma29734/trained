@@ -2,9 +2,7 @@ package com.example.trained.ui.screen.addWorkout
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.data.model.DayWorkoutEntity
-import com.example.data.model.WorkoutEntity
-import com.example.domain.TrainedRepository
+import com.example.domain.repository.TrainedRepository
 import com.example.domain.model.DayWorkoutModel
 import com.example.domain.model.WorkoutModel
 import dagger.hilt.android.lifecycle.HiltViewModel
