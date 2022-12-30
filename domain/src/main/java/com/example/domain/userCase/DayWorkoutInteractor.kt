@@ -17,4 +17,7 @@ class DayWorkoutInteractor constructor(
     suspend fun getDayWorkoutById(id: Int): DayWorkoutModel = repository.getDayWorkoutById(id)
 
     suspend fun getSizeDayWorkoutTable(): Int = repository.getSizeWorkoutTable()
+
+    suspend fun getDayWorkoutByWorkoutId(id: Int): DayWorkoutModel =
+        repository.getDayWorkoutByWorkoutId(id)
 }

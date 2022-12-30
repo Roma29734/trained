@@ -33,4 +33,6 @@ interface TrainedRepository {
     suspend fun getDayWorkoutById(id: Int): DayWorkoutModel
 
     suspend fun getSizeDayWorkoutTable(): Int
+
+    suspend fun getDayWorkoutByWorkoutId(id: Int): DayWorkoutModel
 }

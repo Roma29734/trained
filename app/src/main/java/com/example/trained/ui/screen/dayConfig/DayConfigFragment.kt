@@ -15,7 +15,8 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class DayConfigFragment :
-    BaseFragment<FragmentDayConfigBinding>(FragmentDayConfigBinding::inflate) {
+    BaseFragment<FragmentDayConfigBinding>
+        (FragmentDayConfigBinding::inflate) {
 
     private val viewModel: DayConfigViewModel by viewModels()
     private val adapter = WorkoutConfigAdapter()
@@ -27,12 +28,13 @@ class DayConfigFragment :
         binding.recyclerTraine.layoutManager = GridLayoutManager(context, 2)
 
         viewModel.getDayWorkout()
-        viewModel.dayWorkout.observe(viewLifecycleOwner) {result ->
+        viewModel.dayWorkout.observe(viewLifecycleOwner) { result ->
             adapter.setWorkout(result)
         }
 
         binding.matButtonNext2.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_dayConfigFragment_to_addWorkoutFragment)
+            Navigation.findNavController(view)
+                .navigate(R.id.action_dayConfigFragment_to_addWorkoutFragment)
         }
     }
 }

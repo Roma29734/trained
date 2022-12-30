@@ -13,10 +13,13 @@ import com.example.trained.utils.Utils.formattedWatchWidget
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
+class HomeFragment :
+    BaseFragment<FragmentHomeBinding>
+        (FragmentHomeBinding::inflate) {
 
     private val viewModel: HomeViewModel by viewModels()
     private val adapter = WorkoutStateAdapter()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

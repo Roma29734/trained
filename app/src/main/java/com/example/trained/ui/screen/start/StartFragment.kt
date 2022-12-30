@@ -13,7 +13,9 @@ import com.example.trained.databinding.FragmentStartBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class StartFragment : BaseFragment<FragmentStartBinding>(FragmentStartBinding::inflate) {
+class StartFragment :
+    BaseFragment<FragmentStartBinding>
+        (FragmentStartBinding::inflate) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

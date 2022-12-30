@@ -10,7 +10,8 @@ import com.example.trained.databinding.FragmentSettingExerciseBinding
 
 
 class SettingExerciseFragment :
-    BaseFragment<FragmentSettingExerciseBinding>(FragmentSettingExerciseBinding::inflate) {
+    BaseFragment<FragmentSettingExerciseBinding>
+        (FragmentSettingExerciseBinding::inflate) {
 
     private val args: SettingExerciseFragmentArgs by navArgs()
 
@@ -34,8 +35,8 @@ class SettingExerciseFragment :
                 val action =
                     SettingExerciseFragmentDirections
                         .actionSettingExerciseFragmentToTransitionFragment(
-                        model
-                    )
+                            model
+                        )
                 mainNavController.navigate(action)
             }
         }

@@ -74,6 +74,10 @@ class TrainedRepositoryImpl constructor(
     }
 
     override suspend fun getSizeDayWorkoutTable(): Int {
-        return  dayWorkoutDao.getSizeDayWorkoutTable()
+        return dayWorkoutDao.getSizeDayWorkoutTable()
+    }
+
+    override suspend fun getDayWorkoutByWorkoutId(id: Int): DayWorkoutModel {
+        return  dayWorkoutDao.getDayWorkoutByWorkoutId(id).toDomain()
     }
 }

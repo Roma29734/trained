@@ -35,6 +35,9 @@
         <action
             android:id="@+id/action_navFragment_to_choseWorkoutFragment"
             app:destination="@id/choseWorkoutFragment" />
+        <action
+            android:id="@+id/action_navFragment_to_updateConfigFragment"
+            app:destination="@id/updateConfigFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileSettingsFragment"
@@ -142,5 +145,14 @@
         <argument
             android:name="transit"
             app:argType="com.example.data.model.WorkoutTransitionModel" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateConfigFragment"
+        android:name="com.example.trained.ui.screen.updateConfig.UpdateConfigFragment"
+        android:label="fragment_update_config"
+        tools:layout="@layout/fragment_update_config" >
+        <argument
+            android:name="workout"
+            app:argType="com.example.data.model.TransitWorkoutModel" />
     </fragment>
 </navigation>

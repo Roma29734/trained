@@ -11,7 +11,8 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class ChoseWorkoutFragment :
-    BaseFragment<FragmentChoseWorkoutBinding>(FragmentChoseWorkoutBinding::inflate) {
+    BaseFragment<FragmentChoseWorkoutBinding>
+        (FragmentChoseWorkoutBinding::inflate) {
 
     private val viewModel: ChoseWorkoutViewModel by viewModels()
     private val adapter = WorkoutChoseStateAdapter()

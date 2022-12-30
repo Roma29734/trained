@@ -22,7 +22,8 @@ import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class ProfileSettingsFragment :
-    BaseFragment<FragmentProfileSettingsBinding>(FragmentProfileSettingsBinding::inflate) {
+    BaseFragment<FragmentProfileSettingsBinding>
+        (FragmentProfileSettingsBinding::inflate) {
 
     private val viewModel: ProfileSettingsViewModel by viewModels()
 
@@ -30,8 +31,8 @@ class ProfileSettingsFragment :
         super.onViewCreated(view, savedInstanceState)
 
         binding.matButtonNext.setOnClickListener {
-            if(checkInputPol()) {
-                
+            if (checkInputPol()) {
+
                 viewModel.inputuser(
                     name = binding.tiName.text.toString(),
                     age = binding.tiAge.text.toString(),
@@ -39,8 +40,9 @@ class ProfileSettingsFragment :
                     growth = binding.tiGrowth.text.toString(),
                 )
 
-                Navigation.findNavController(view).navigate(R.id.action_profileSettingsFragment_to_navFragment)
-                    
+                Navigation.findNavController(view)
+                    .navigate(R.id.action_profileSettingsFragment_to_navFragment)
+
             } else {
                 Toast.makeText(context, "Заполните все поля", Toast.LENGTH_SHORT).show()
             }

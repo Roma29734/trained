@@ -12,7 +12,9 @@ import com.example.trained.databinding.FragmentProfileBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBinding::inflate) {
+class ProfileFragment :
+    BaseFragment<FragmentProfileBinding>
+        (FragmentProfileBinding::inflate) {
 
     private val viewModel: ProfileViewModel by viewModels()
 
@@ -22,7 +24,8 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
 
         viewModel.readProfile()
         viewModel.profileData.observe(viewLifecycleOwner) { result ->
-            binding.textPersonal.text = "${result.age} лет\nвес: ${result.weight}кг\nрост: ${result.growth}"
+            binding.textPersonal.text =
+                "${result.age} лет\nвес: ${result.weight}кг\nрост: ${result.growth}"
             binding.textName.text = result.name
         }
     }

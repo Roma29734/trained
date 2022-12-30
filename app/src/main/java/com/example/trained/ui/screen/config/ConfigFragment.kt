@@ -15,7 +15,9 @@ import com.example.trained.ui.adapter.WorkoutStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ConfigFragment : BaseFragment<FragmentConfigBinding>(FragmentConfigBinding::inflate) {
+class ConfigFragment :
+    BaseFragment<FragmentConfigBinding>
+        (FragmentConfigBinding::inflate) {
 
     private val viewModel: ConfigViewModel by viewModels()
     private val adapter = WorkoutConfigAdapter()

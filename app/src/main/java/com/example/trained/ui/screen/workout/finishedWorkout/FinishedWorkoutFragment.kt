@@ -13,7 +13,8 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class FinishedWorkoutFragment :
-    BaseFragment<FragmentFinishedWorkoutBinding>(FragmentFinishedWorkoutBinding::inflate) {
+    BaseFragment<FragmentFinishedWorkoutBinding>
+        (FragmentFinishedWorkoutBinding::inflate) {
 
     private val args: FinishedWorkoutFragmentArgs by navArgs()
     private val viewModel: FinishedViewModel by viewModels()
@@ -29,7 +30,8 @@ class FinishedWorkoutFragment :
             imageView3.setImageResource(R.drawable.ic_clock)
 
 //            Установка текста
-            val formattedTimeWorkout = formattedWatchWidget((args.transit.workoutModel.timeWorkout * 1000))
+            val formattedTimeWorkout =
+                formattedWatchWidget((args.transit.workoutModel.timeWorkout * 1000))
             text1.text = formattedTimeWorkout
 
             text2.text = args.transit.workoutModel.completedApproach.toString()
@@ -44,7 +46,8 @@ class FinishedWorkoutFragment :
 
         binding.materialButton.setOnClickListener {
             viewModel.updateDayWorkout(args.transit.workoutModel.toDomain())
-            val action = FinishedWorkoutFragmentDirections.actionFinishedWorkoutFragmentToNavFragment()
+            val action =
+                FinishedWorkoutFragmentDirections.actionFinishedWorkoutFragmentToNavFragment()
             mainNavController.navigate(action)
         }
     }

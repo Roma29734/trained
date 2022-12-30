@@ -16,7 +16,8 @@ import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class TransitionFragment :
-    BaseFragment<FragmentTransitionBinding>(FragmentTransitionBinding::inflate) {
+    BaseFragment<FragmentTransitionBinding>
+        (FragmentTransitionBinding::inflate) {
 
     private val args: TransitionFragmentArgs by navArgs()
 
@@ -50,7 +51,8 @@ class TransitionFragment :
 //        Обработка нажатия кнопки "Начать тренировку"
         binding.materialButton.setOnClickListener {
 //            Создание модели для перехода
-            val action = TransitionFragmentDirections.actionTransitionFragmentToStopwatchFragment(args.workout)
+            val action =
+                TransitionFragmentDirections.actionTransitionFragmentToStopwatchFragment(args.workout)
             mainNavController.navigate(action)
         }
     }

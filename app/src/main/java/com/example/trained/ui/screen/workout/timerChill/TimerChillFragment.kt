@@ -11,7 +11,8 @@ import com.example.trained.utils.Utils.formattedTimeMain
 
 
 class TimerChillFragment :
-    BaseFragment<FragmentTimerChillBinding>(FragmentTimerChillBinding::inflate) {
+    BaseFragment<FragmentTimerChillBinding>
+        (FragmentTimerChillBinding::inflate) {
 
     private val args: TimerChillFragmentArgs by navArgs()
 

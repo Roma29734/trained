@@ -19,7 +19,9 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class NavFragment : BaseFragment<FragmentNavBinding>(FragmentNavBinding::inflate) {
+class NavFragment :
+    BaseFragment<FragmentNavBinding>
+        (FragmentNavBinding::inflate) {
 
     private val viewModel: NavViewModel by viewModels()
 
@@ -27,12 +29,13 @@ class NavFragment : BaseFragment<FragmentNavBinding>(FragmentNavBinding::inflate
         super.onViewCreated(view, savedInstanceState)
 
         lifecycleScope.launch {
-            if(viewModel.checkUser()) {
+            if (viewModel.checkUser()) {
                 Log.d("checkBagFirstStart", "Зашел в есть профиль")
-                if(viewModel.checkWorkout()) {
+                if (viewModel.checkWorkout()) {
                     binding.navHostFragments.visibility = View.VISIBLE
                     val navView = binding.bottomNavigationView
-                    val navHostFragment = childFragmentManager.findFragmentById(R.id.nav_host_fragments) as NavHostFragment
+                    val navHostFragment =
+                        childFragmentManager.findFragmentById(R.id.nav_host_fragments) as NavHostFragment
                     val navController = navHostFragment.findNavController()
 
                     navView.setupWithNavController(navController)
@@ -41,8 +44,9 @@ class NavFragment : BaseFragment<FragmentNavBinding>(FragmentNavBinding::inflate
                 }
             } else {
                 Log.d("checkBagFirstStart", "Зашел в нет профиля")
-                Navigation.findNavController(view).navigate(R.id.action_navFragment_to_profileSettingsFragment)
-                Log.d("checkBagFirstStart","совершил навигации в настройки профиля")
+                Navigation.findNavController(view)
+                    .navigate(R.id.action_navFragment_to_profileSettingsFragment)
+                Log.d("checkBagFirstStart", "совершил навигации в настройки профиля")
             }
         }
     }

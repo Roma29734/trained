@@ -14,7 +14,8 @@ import com.example.trained.databinding.FragmentStopwatchBinding
 import com.example.trained.utils.Utils.formattedTimeMain
 
 class StopwatchFragment :
-    BaseFragment<FragmentStopwatchBinding>(FragmentStopwatchBinding::inflate) {
+    BaseFragment<FragmentStopwatchBinding>
+        (FragmentStopwatchBinding::inflate) {
 
     private val interval = 1000
     private var mHandler: Handler? = null

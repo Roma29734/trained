@@ -12,7 +12,8 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class AddWorkoutFragment :
-    BaseFragment<FragmentAddWorkoutBinding>(FragmentAddWorkoutBinding::inflate) {
+    BaseFragment<FragmentAddWorkoutBinding>
+        (FragmentAddWorkoutBinding::inflate) {
 
     private val viewModel: AddWorkoutViewModel by viewModels()
 
@@ -20,12 +21,12 @@ class AddWorkoutFragment :
         super.onViewCreated(view, savedInstanceState)
 
         binding.matButtonSave.setOnClickListener {
-            if(checkInputPol()) {
+            if (checkInputPol()) {
                 viewModel.saveWorkout(
-                        binding.tiNameWorkout.text.toString(),
-                        binding.tiRepetitions.text.toString(),
-                        binding.tiApproaches.text.toString()
-                    )
+                    binding.tiNameWorkout.text.toString(),
+                    binding.tiRepetitions.text.toString(),
+                    binding.tiApproaches.text.toString()
+                )
 
                 Toast.makeText(context, "Успешно добавлено", Toast.LENGTH_SHORT).show()
                 Navigation.findNavController(view).popBackStack()
@@ -34,14 +35,13 @@ class AddWorkoutFragment :
 
     }
 
-    fun checkInputPol(): Boolean {
+    private fun checkInputPol(): Boolean {
         return !(
                 TextUtils.isEmpty(binding.tiNameWorkout.text)
                         && TextUtils.isEmpty(binding.tiApproaches.text)
                         && TextUtils.isEmpty(binding.tiRepetitions.text)
                 )
     }
-
 
 
 }
