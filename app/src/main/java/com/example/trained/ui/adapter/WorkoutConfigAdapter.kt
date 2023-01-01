@@ -3,7 +3,10 @@ package com.example.trained.ui.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.data.model.TransitWorkoutModel
 import com.example.data.model.WorkoutEntity
+import com.example.data.model.WorkoutTransitionModel
+import com.example.data.toTransit
 import com.example.domain.model.WorkoutModel
 import com.example.trained.databinding.CardTreinyHomeBinding
 
@@ -13,6 +16,8 @@ class WorkoutConfigAdapter: RecyclerView.Adapter<WorkoutConfigAdapter.MyViewHold
 
     inner class MyViewHolder(val binding: CardTreinyHomeBinding) :
         RecyclerView.ViewHolder(binding.root)
+
+    var callBackDel: ((model: TransitWorkoutModel) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(
@@ -30,6 +35,12 @@ class WorkoutConfigAdapter: RecyclerView.Adapter<WorkoutConfigAdapter.MyViewHold
         holder.binding.textNameWorkout.text = positionWorkout.nameExercise
         holder.binding.textApproach.text = positionWorkout.approaches.toString()
         holder.binding.textQuantity.text = positionWorkout.repetitions.toString()
+
+        holder.binding.cardView.setOnClickListener {
+            if(callBackDel != null) {
+                callBackDel?.let { it1 -> it1(positionWorkout.toTransit()) }
+            }
+        }
     }
 
     override fun getItemCount(): Int {

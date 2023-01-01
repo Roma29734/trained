@@ -1,12 +1,9 @@
 package com.example.data
 
+import com.example.data.model.*
 import com.example.domain.model.DayWorkoutModel
 import com.example.domain.model.SportsmanModel
 import com.example.domain.model.WorkoutModel
-import com.example.data.model.DayWorkoutEntity
-import com.example.data.model.SportsmanEntity
-import com.example.data.model.TransitDayWorkoutModel
-import com.example.data.model.WorkoutEntity
 
 fun WorkoutModel.toEntity() = WorkoutEntity (
     id = id,
@@ -76,4 +73,18 @@ fun TransitDayWorkoutModel.toDomain() = DayWorkoutModel (
     completedApproach = completedApproach,
     receptions = receptions,
     timeWorkout = timeWorkout
+)
+
+fun WorkoutModel.toTransit() = TransitWorkoutModel (
+    id = id,
+    nameExercise =  nameExercise,
+    repetitions = repetitions,
+    approaches = approaches
+)
+
+fun TransitWorkoutModel.toDomain() = WorkoutModel (
+    id = id,
+    nameExercise =  nameExercise,
+    repetitions = repetitions,
+    approaches = approaches
 )

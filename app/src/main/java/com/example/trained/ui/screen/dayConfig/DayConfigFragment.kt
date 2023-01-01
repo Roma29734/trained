@@ -10,7 +10,6 @@ import com.example.trained.R
 import com.example.trained.base.BaseFragment
 import com.example.trained.databinding.FragmentDayConfigBinding
 import com.example.trained.ui.adapter.WorkoutConfigAdapter
-import com.example.trained.ui.adapter.WorkoutStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -11,8 +11,9 @@ import androidx.navigation.fragment.navArgs
 import com.example.trained.R
 import com.example.trained.base.BaseFragment
 import com.example.trained.databinding.FragmentUpdateConfigBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class UpdateConfigFragment :
     BaseFragment<FragmentUpdateConfigBinding>
         (FragmentUpdateConfigBinding::inflate) {
@@ -26,8 +27,8 @@ class UpdateConfigFragment :
         binding.include5.textView6.text = "Изменение тренировки"
 
         binding.tiNameWorkout.setText(args.workout.nameExercise)
-        binding.tiApproaches.setText(args.workout.approaches)
-        binding.tiRepetitions.setText(args.workout.repetitions)
+        binding.tiApproaches.setText(args.workout.approaches.toString())
+        binding.tiRepetitions.setText(args.workout.repetitions.toString())
 
         binding.matButtonSave.setOnClickListener {
             if(checkInputPol()) {
@@ -37,6 +38,7 @@ class UpdateConfigFragment :
                     approaches = binding.tiApproaches.text.toString().toInt(),
                     repetitions = binding.tiRepetitions.text.toString().toInt(),
                 )
+                mainNavController.popBackStack()
             }
         }
 

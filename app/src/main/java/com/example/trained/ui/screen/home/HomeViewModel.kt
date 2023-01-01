@@ -46,9 +46,7 @@ class HomeViewModel @Inject constructor(
             }
 
             if(checkDayWorkout()) {
-                viewModelScope.launch(Dispatchers.Main) {
-                    _dayWorkout.value = dayWorkoutInteractor.readDayWorkout()
-                }
+                _dayWorkout.postValue(dayWorkoutInteractor.readDayWorkout())
             } else {
                 fillDayWorkout()
             }
