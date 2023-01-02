@@ -1,7 +1,5 @@
 package com.example.data.local
 
-import com.example.data.local.dao.DayWorkoutDao
-import com.example.data.local.dao.ProfileDao
 import com.example.data.local.dao.WorkoutDao
 import com.example.domain.repository.TrainedRepository
 import com.example.domain.model.DayWorkoutModel
@@ -11,31 +9,29 @@ import com.example.data.toDomain
 import com.example.data.toEntity
 
 class TrainedRepositoryImpl constructor(
-    private val profileDao: ProfileDao,
     private val workoutDao: WorkoutDao,
-    private val dayWorkoutDao: DayWorkoutDao,
 ): TrainedRepository {
 
     override suspend fun insertUser(user: SportsmanModel) {
-        profileDao.insertUser(user.toEntity())
+        workoutDao.insertUser(user.toEntity())
     }
 
     override suspend fun updateUser(user: SportsmanModel) {
-        profileDao.updateUser(user.toEntity())
+        workoutDao.updateUser(user.toEntity())
     }
 
     override suspend fun deleteUser(user: SportsmanModel) {
 
-        profileDao.deleteUser(user.toEntity())
+        workoutDao.deleteUser(user.toEntity())
     }
 
     override suspend fun readUserTable(): SportsmanModel? {
 
-        return profileDao.readUserTable()?.toDomain()
+        return workoutDao.readUserTable()?.toDomain()
     }
 
     override suspend fun getSizeSportsmanTable(): Int {
-        return profileDao.getSizeSportsmanTable()
+        return workoutDao.getSizeSportsmanTable()
     }
 
     override suspend fun insertWorkout(day: WorkoutModel): Long {
@@ -58,26 +54,26 @@ class TrainedRepositoryImpl constructor(
     }
 
     override suspend fun insertDayWorkout(workout: DayWorkoutModel): Long {
-        return dayWorkoutDao.insertDayWorkout(workout.toEntity())
+        return workoutDao.insertDayWorkout(workout.toEntity())
     }
 
     override suspend fun updateDayWorkout(workout: DayWorkoutModel) {
-        dayWorkoutDao.updateDayWorkout(workout.toEntity())
+        workoutDao.updateDayWorkout(workout.toEntity())
     }
 
     override suspend fun readDayWorkout(): List<DayWorkoutModel>? {
-        return dayWorkoutDao.readDayWorkout()?.map { it.toDomain() }
+        return workoutDao.readDayWorkout()?.map { it.toDomain() }
     }
 
     override suspend fun getDayWorkoutById(id: Int): DayWorkoutModel {
-        return dayWorkoutDao.getDayWorkoutById(id).toDomain()
+        return workoutDao.getDayWorkoutById(id).toDomain()
     }
 
     override suspend fun getSizeDayWorkoutTable(): Int {
-        return dayWorkoutDao.getSizeDayWorkoutTable()
+        return workoutDao.getSizeDayWorkoutTable()
     }
 
     override suspend fun getDayWorkoutByWorkoutId(id: Int): DayWorkoutModel {
-        return  dayWorkoutDao.getDayWorkoutByWorkoutId(id).toDomain()
+        return  workoutDao.getDayWorkoutByWorkoutId(id).toDomain()
     }
 }

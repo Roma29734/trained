@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-@Entity(tableName = "workout_base")
+@Entity(tableName = "workout_table")
 data class WorkoutEntity (
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id") val id: Int,
