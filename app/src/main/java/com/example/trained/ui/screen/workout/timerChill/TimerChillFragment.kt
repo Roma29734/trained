@@ -4,10 +4,14 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import com.example.trained.base.BaseFragment
 import com.example.trained.databinding.FragmentTimerChillBinding
 import com.example.trained.utils.Utils.formattedTimeMain
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 
 class TimerChillFragment :
@@ -33,17 +37,25 @@ class TimerChillFragment :
             }
 
             override fun onFinish() {
-                binding.textViewChillSecond.text = "ПЕРЕРЫВ АКОНЧЕЯН"
                 binding.apply {
                     linear.visibility = View.VISIBLE
+                    textViewChillSecond.text = "ПЕРЕРЫВ АКОНЧЕЯН"
                 }
                 timerFinishUi()
+                lifecycleScope.launch (Dispatchers.IO) {
+                    while (true) {
+                        delay(800)
+                        vibratePhone()
+                    }
+                }
             }
         }
         timer.start()
     }
 
     private fun timerFinishUi() {
+
+
 
         binding.apply {
             materialButtonNext.setOnClickListener {
