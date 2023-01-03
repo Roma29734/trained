@@ -8,7 +8,6 @@ import com.example.data.model.WorkoutEntity
 @Dao
 interface WorkoutDao {
 
-
 //    Workout
     @Insert(entity = WorkoutEntity::class, onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertWorkout(day: WorkoutEntity): Long
