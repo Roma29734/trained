@@ -7,12 +7,14 @@ import com.example.data.model.TransitWorkoutModel
 import com.example.data.model.WorkoutEntity
 import com.example.data.model.WorkoutTransitionModel
 import com.example.data.toTransit
+import com.example.domain.model.DailyWorkoutDomainModel
+import com.example.domain.model.WorkoutDayDomainModel
 import com.example.domain.model.WorkoutModel
 import com.example.trained.databinding.CardTreinyHomeBinding
 
 class WorkoutConfigAdapter: RecyclerView.Adapter<WorkoutConfigAdapter.MyViewHolder>() {
 
-    private var workout = emptyList<WorkoutModel>()
+    private var workout = emptyList<WorkoutDayDomainModel>()
 
     inner class MyViewHolder(val binding: CardTreinyHomeBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -36,18 +38,18 @@ class WorkoutConfigAdapter: RecyclerView.Adapter<WorkoutConfigAdapter.MyViewHold
         holder.binding.textApproach.text = positionWorkout.approaches.toString()
         holder.binding.textQuantity.text = positionWorkout.repetitions.toString()
 
-        holder.binding.cardView.setOnClickListener {
-            if(callBackDel != null) {
-                callBackDel?.let { it1 -> it1(positionWorkout.toTransit()) }
-            }
-        }
+//        holder.binding.cardView.setOnClickListener {
+//            if(callBackDel != null) {
+//                callBackDel?.let { it1 -> it1(positionWorkout.toTransit()) }
+//            }
+//        }
     }
 
     override fun getItemCount(): Int {
         return workout.size
     }
 
-    fun setWorkout(list: List<WorkoutModel>) {
+    fun setWorkout(list: List<WorkoutDayDomainModel>) {
         workout = list
         notifyDataSetChanged()
     }

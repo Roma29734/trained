@@ -1,6 +1,6 @@
 package com.example.domain.repository
 
-import com.example.domain.model.DayWorkoutModel
+import com.example.domain.model.DailyStatisticsModel
 import com.example.domain.model.SportsmanModel
 import com.example.domain.model.WorkoutModel
 
@@ -24,15 +24,15 @@ interface TrainedRepository {
 
     suspend fun getSizeWorkoutTable(): Int
 
-    suspend fun insertDayWorkout(workout: DayWorkoutModel): Long
+    suspend fun insertDayWorkout(workout: DailyStatisticsModel): Long
 
-    suspend fun updateDayWorkout(workout: DayWorkoutModel)
+    suspend fun updateDayWorkout(workout: DailyStatisticsModel)
 
-    suspend fun readDayWorkout(): List<DayWorkoutModel>?
+    suspend fun readDayWorkout(): DailyStatisticsModel?
 
-    suspend fun getDayWorkoutById(id: Int): DayWorkoutModel
+    suspend fun getDayWorkoutById(id: Int): DailyStatisticsModel?
 
     suspend fun getSizeDayWorkoutTable(): Int
 
-    suspend fun getDayWorkoutByWorkoutId(id: Int): DayWorkoutModel
+    suspend fun getDayWorkoutByWorkoutId(id: Int): DailyStatisticsModel?
 }

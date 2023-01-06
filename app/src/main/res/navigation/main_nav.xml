@@ -54,15 +54,19 @@
         android:id="@+id/addWorkoutFragment"
         android:name="com.example.trained.ui.screen.addWorkout.AddWorkoutFragment"
         android:label="fragment_add_workout"
-        tools:layout="@layout/fragment_add_workout" />
+        tools:layout="@layout/fragment_add_workout" >
+        <argument
+            android:name="workout"
+            app:argType="com.example.data.model.TransitWorkoutModel" />
+    </fragment>
     <fragment
         android:id="@+id/dayConfigFragment"
         android:name="com.example.trained.ui.screen.dayConfig.DayConfigFragment"
         android:label="fragment_day_config"
         tools:layout="@layout/fragment_day_config" >
         <action
-            android:id="@+id/action_dayConfigFragment_to_addWorkoutFragment"
-            app:destination="@id/addWorkoutFragment" />
+            android:id="@+id/action_dayConfigFragment_to_dayAddWorkoutFragment"
+            app:destination="@id/dayAddWorkoutFragment" />
     </fragment>
     <fragment
         android:id="@+id/choseWorkoutFragment"
@@ -155,4 +159,9 @@
             android:name="workout"
             app:argType="com.example.data.model.TransitWorkoutModel" />
     </fragment>
+    <fragment
+        android:id="@+id/dayAddWorkoutFragment"
+        android:name="com.example.trained.ui.screen.dayAddWorkout.DayAddWorkoutFragment"
+        android:label="fragment_day_add_workout"
+        tools:layout="@layout/fragment_day_add_workout" />
 </navigation>

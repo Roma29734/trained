@@ -31,21 +31,22 @@ class FinishedWorkoutFragment :
 
 //            Установка текста
             val formattedTimeWorkout =
-                formattedWatchWidget((args.transit.workoutModel.timeWorkout * 1000))
+                formattedWatchWidget((args.transit.timeWorkout * 1000))
             text1.text = formattedTimeWorkout
 
             text2.text = args.transit.workoutModel.completedApproach.toString()
 
+
             val formattedTimeChill = formattedWatchWidget((args.transit.timeChill))
             text3.text = formattedTimeChill
 
-            textNameWorkout.text = args.transit.workoutModel.idWorkout.toString()
+            textNameWorkout.text = args.transit.workoutModel.nameWorkout
         }
 
         binding.upBar.textView6.text = "Тренировка"
 
         binding.materialButton.setOnClickListener {
-            viewModel.updateDayWorkout(args.transit.workoutModel.toDomain())
+            viewModel.updateDayWorkout(args.transit)
             val action =
                 FinishedWorkoutFragmentDirections.actionFinishedWorkoutFragmentToNavFragment()
             mainNavController.navigate(action)

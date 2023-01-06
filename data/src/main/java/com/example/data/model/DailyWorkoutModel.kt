@@ -1,15 +1,14 @@
 package com.example.data.model
 
 import android.os.Parcelable
+import androidx.room.Entity
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class TransitDayWorkoutModel (
-    val id: Int,
-    val idWorkout: Int,
+@Entity
+data class DailyWorkoutModel(
     val nameWorkout: String,
     val sumApproach: Int,
     val completedApproach: Int,
     val receptions: Int,
-    val timeWorkout: Long,
 ): Parcelable

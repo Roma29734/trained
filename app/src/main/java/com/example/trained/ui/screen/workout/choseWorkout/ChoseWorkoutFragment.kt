@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.data.model.WorkoutTransitionModel
 import com.example.trained.base.BaseFragment
 import com.example.trained.databinding.FragmentChoseWorkoutBinding
 import com.example.trained.ui.adapter.WorkoutChoseStateAdapter
@@ -21,9 +22,14 @@ class ChoseWorkoutFragment :
         super.onViewCreated(view, savedInstanceState)
 
         adapter.callBackDel = {
+            val model = WorkoutTransitionModel(
+                workoutModel = it,
+                timeChill = 0,
+                timeWorkout = 0,
+            )
             val action =
                 ChoseWorkoutFragmentDirections.actionChoseWorkoutFragmentToSettingExerciseFragment(
-                    it
+                    model
                 )
             mainNavController.navigate(action)
         }
@@ -37,7 +43,7 @@ class ChoseWorkoutFragment :
 
         viewModel.readWorkout()
         viewModel.workout?.observe(viewLifecycleOwner) {
-            adapter.setWorkout(it)
+            adapter.setWorkout(it.workout)
         }
     }
 }

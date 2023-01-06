@@ -15,12 +15,12 @@ class ConfigViewModel @Inject constructor(
     private val workoutInteractor: WorkoutInteractor
 ): ViewModel() {
 
-    private var _dayWorkout: MutableLiveData<List<WorkoutModel>> = MutableLiveData()
+    private var _dayWorkout: MutableLiveData<WorkoutModel> = MutableLiveData()
     val dayWorkout get() = _dayWorkout
 
     fun getDayWorkout() {
         viewModelScope.launch {
-            _dayWorkout.value = workoutInteractor.readWorkoutTable()
+            _dayWorkout.value = workoutInteractor.readWorkoutTable()[0]
         }
     }
 }

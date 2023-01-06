@@ -9,11 +9,14 @@ import android.os.Vibrator
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.viewbinding.ViewBinding
 import com.example.trained.R
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 typealias Inflate<T> = (LayoutInflater, ViewGroup?, Boolean) -> T
 
@@ -46,6 +49,7 @@ abstract class BaseFragment<B : ViewBinding>(private val inflate: Inflate<B>) :
             vibrator.vibrate(300)
         }
     }
+
 
     override fun onDestroy() {
         super.onDestroy()

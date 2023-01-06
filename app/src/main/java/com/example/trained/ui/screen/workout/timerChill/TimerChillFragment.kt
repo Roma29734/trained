@@ -55,8 +55,6 @@ class TimerChillFragment :
 
     private fun timerFinishUi() {
 
-
-
         binding.apply {
             materialButtonNext.setOnClickListener {
                 if (args.transit.workoutModel.sumApproach != args.transit.workoutModel.completedApproach) {

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.data.toTransit
 import com.example.trained.R
 import com.example.trained.base.BaseFragment
 import com.example.trained.databinding.FragmentConfigBinding
@@ -31,10 +32,13 @@ class ConfigFragment :
         binding.recyclerTraine.layoutManager = GridLayoutManager(context, 2)
 
         viewModel.getDayWorkout()
-        viewModel.dayWorkout.observe(viewLifecycleOwner) { adapter.setWorkout(it) }
+        viewModel.dayWorkout.observe(viewLifecycleOwner) { result ->
+            adapter.setWorkout(result.workout)
 
-        binding.matButtonNext2.setOnClickListener {
-            mainNavController.navigate(R.id.action_navFragment_to_addWorkoutFragment)
+            binding.matButtonNext2.setOnClickListener {
+                val action = NavFragmentDirections.actionNavFragmentToAddWorkoutFragment(result.toTransit())
+                mainNavController.navigate(action)
+            }
         }
     }
 }

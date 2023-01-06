@@ -30,7 +30,8 @@ class SettingExerciseFragment :
             } else {
                 val model = WorkoutTransitionModel(
                     workoutModel = args.workout.workoutModel,
-                    timeChill = binding.tiTimeChill.text.toString().toLong() * 1000
+                    timeChill = binding.tiTimeChill.text.toString().toLong() * 1000,
+                    timeWorkout = 0,
                 )
                 val action =
                     SettingExerciseFragmentDirections

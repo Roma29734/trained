@@ -1,23 +1,23 @@
 package com.example.domain.userCase
 
-import com.example.domain.model.DayWorkoutModel
+import com.example.domain.model.DailyStatisticsModel
 import com.example.domain.repository.TrainedRepository
 
 class DayWorkoutInteractor constructor(
     private val repository: TrainedRepository
 ) {
 
-    suspend fun insertDayWorkout(workout: DayWorkoutModel): Long =
+    suspend fun insertDayWorkout(workout: DailyStatisticsModel): Long =
         repository.insertDayWorkout(workout)
 
-    suspend fun updateDayWorkout(workout: DayWorkoutModel) = repository.updateDayWorkout(workout)
+    suspend fun updateDayWorkout(workout: DailyStatisticsModel) = repository.updateDayWorkout(workout)
 
-    suspend fun readDayWorkout(): List<DayWorkoutModel>? = repository.readDayWorkout()
+    suspend fun readDayWorkout(): DailyStatisticsModel? = repository.readDayWorkout()
 
-    suspend fun getDayWorkoutById(id: Int): DayWorkoutModel = repository.getDayWorkoutById(id)
+    suspend fun getDayWorkoutById(id: Int): DailyStatisticsModel? = repository.getDayWorkoutById(id)
 
     suspend fun getSizeDayWorkoutTable(): Int = repository.getSizeWorkoutTable()
 
-    suspend fun getDayWorkoutByWorkoutId(id: Int): DayWorkoutModel =
+    suspend fun getDayWorkoutByWorkoutId(id: Int): DailyStatisticsModel? =
         repository.getDayWorkoutByWorkoutId(id)
 }

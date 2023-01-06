@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Transformations.map
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.trained.R
 import com.example.trained.base.BaseFragment
@@ -35,20 +36,18 @@ class HomeFragment :
             }
         }
 
-        viewModel.dayWorkout.observe(viewLifecycleOwner) { result ->
-            adapter.setWorkout(result)
-            var timesWorkout: Long = 0
+        viewModel.dailyStatistics.observe(viewLifecycleOwner) { result ->
+
+            adapter.setWorkout(result.workout)
             var completeApproach = 0
             var sumApproach = 0
-            result.map {
+            result.workout.map {
                 sumApproach += 1
-                timesWorkout = timesWorkout.plus(it.timeWorkout)
                 if (it.completedApproach == it.sumApproach) {
                     completeApproach += 1
                 }
             }
-            Log.d("aboba", "$timesWorkout")
-            setUiWidget(timesWorkout, completeApproach, sumApproach)
+            setUiWidget(result.timeWorkout, completeApproach, sumApproach)
         }
 
         binding.materialButton.setOnClickListener {

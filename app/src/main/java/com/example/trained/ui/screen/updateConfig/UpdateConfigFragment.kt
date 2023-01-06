@@ -26,21 +26,21 @@ class UpdateConfigFragment :
 
         binding.include5.textView6.text = "Изменение тренировки"
 
-        binding.tiNameWorkout.setText(args.workout.nameExercise)
-        binding.tiApproaches.setText(args.workout.approaches.toString())
-        binding.tiRepetitions.setText(args.workout.repetitions.toString())
-
-        binding.matButtonSave.setOnClickListener {
-            if(checkInputPol()) {
-                viewModel.updateWorkout(
-                    id = args.workout.id,
-                    name = binding.tiNameWorkout.text.toString(),
-                    approaches = binding.tiApproaches.text.toString().toInt(),
-                    repetitions = binding.tiRepetitions.text.toString().toInt(),
-                )
-                mainNavController.popBackStack()
-            }
-        }
+//        binding.tiNameWorkout.setText(args.workout.)
+//        binding.tiApproaches.setText(args.workout.approaches.toString())
+//        binding.tiRepetitions.setText(args.workout.repetitions.toString())
+//
+//        binding.matButtonSave.setOnClickListener {
+//            if(checkInputPol()) {
+//                viewModel.updateWorkout(
+//                    id = args.workout.id,
+//                    name = binding.tiNameWorkout.text.toString(),
+//                    approaches = binding.tiApproaches.text.toString().toInt(),
+//                    repetitions = binding.tiRepetitions.text.toString().toInt(),
+//                )
+//                mainNavController.popBackStack()
+//            }
+//        }
 
     }
 

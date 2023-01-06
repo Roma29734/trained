@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.example.data.model.DayWorkoutEntity
-import com.example.domain.model.DayWorkoutModel
+import com.example.domain.model.DailyStatisticsModel
+import com.example.domain.model.DailyWorkoutDomainModel
 import com.example.trained.databinding.CardTreinyHomeBinding
 
 
@@ -16,7 +16,7 @@ class WorkoutStateAdapter() : RecyclerView.Adapter<WorkoutStateAdapter.MyViewHol
     inner class MyViewHolder(val binding: CardTreinyHomeBinding) :
         RecyclerView.ViewHolder(binding.root)
 
-    private var dayWorkout = emptyList<DayWorkoutModel>()
+    private var dayWorkout = emptyList<DailyWorkoutDomainModel>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(
@@ -57,7 +57,7 @@ class WorkoutStateAdapter() : RecyclerView.Adapter<WorkoutStateAdapter.MyViewHol
         return dayWorkout.size
     }
 
-    fun setWorkout(list: List<DayWorkoutModel>) {
+    fun setWorkout(list: List<DailyWorkoutDomainModel>) {
         dayWorkout = list
         notifyDataSetChanged()
     }

@@ -28,12 +28,11 @@ class DayConfigFragment :
 
         viewModel.getDayWorkout()
         viewModel.dayWorkout.observe(viewLifecycleOwner) { result ->
-            adapter.setWorkout(result)
+            result?.let { adapter.setWorkout(it.workout) }
         }
 
         binding.matButtonNext2.setOnClickListener {
-            Navigation.findNavController(view)
-                .navigate(R.id.action_dayConfigFragment_to_addWorkoutFragment)
+            mainNavController.navigate(R.id.action_dayConfigFragment_to_dayAddWorkoutFragment)
         }
     }
 }

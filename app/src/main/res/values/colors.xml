@@ -13,4 +13,6 @@
     <color name="secondAccent">#CEFF69</color>
     <color name="mainGrey">#676767</color>
     <color name="secondGrey">#A6A6A6</color>
+    <color name="nightBackground">#191B2C</color>
+    <color name="nightCard">#151724</color>
 </resources>

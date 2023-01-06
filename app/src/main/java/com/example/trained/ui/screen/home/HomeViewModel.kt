@@ -1,10 +1,12 @@
 package com.example.trained.ui.screen.home
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.domain.repository.TrainedRepository
-import com.example.domain.model.DayWorkoutModel
+import com.example.data.toDailyNew
+import com.example.data.toData
+import com.example.domain.model.DailyStatisticsModel
 import com.example.domain.model.SportsmanModel
 import com.example.domain.model.WorkoutModel
 import com.example.domain.userCase.DayWorkoutInteractor
@@ -20,7 +22,7 @@ class HomeViewModel @Inject constructor(
     private val profileInteractor: ProfileInteractor,
     private val workoutInteractor: WorkoutInteractor,
     private val dayWorkoutInteractor: DayWorkoutInteractor
-): ViewModel() {
+) : ViewModel() {
 
     private var _profile: MutableLiveData<SportsmanModel>? = MutableLiveData()
     val profileData get() = _profile
@@ -28,8 +30,8 @@ class HomeViewModel @Inject constructor(
     private var _workout: MutableLiveData<List<WorkoutModel>>? = MutableLiveData()
     val workout get() = _workout
 
-    private var _dayWorkout: MutableLiveData<List<DayWorkoutModel>> = MutableLiveData()
-    val dayWorkout get() = _dayWorkout
+    private var _dailyStatistics: MutableLiveData<DailyStatisticsModel> = MutableLiveData()
+    val dailyStatistics get() = _dailyStatistics
 
     fun readProfile() {
         viewModelScope.launch {
@@ -37,43 +39,34 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-
     fun readDayWorkout() {
         viewModelScope.launch(Dispatchers.IO) {
-
-            if(workoutInteractor.getSizeWorkoutTable() == 0) {
+            if (workoutInteractor.getSizeWorkoutTable() == 0) {
                 return@launch
             }
-
-            if(checkDayWorkout()) {
-                _dayWorkout.postValue(dayWorkoutInteractor.readDayWorkout())
+            if (dayWorkoutInteractor.getSizeDayWorkoutTable() != 0) {
+                Log.d("checarch","зашел в есть day тренировка")
+                _dailyStatistics.postValue(dayWorkoutInteractor.readDayWorkout())
             } else {
+                Log.d("checarch","зашел в нету тренировки создаю новую")
                 fillDayWorkout()
             }
         }
     }
 
     private fun fillDayWorkout() {
-        viewModelScope.launch (Dispatchers.IO) {
-            val repeatSize = workoutInteractor.getSizeWorkoutTable()
-            val resultWorkout = workoutInteractor.readWorkoutTable()
-            for(i in 0..repeatSize) {
-                val model = DayWorkoutModel(
-                    id = 0,
-                    idWorkout = resultWorkout[i].id,
-                    nameWorkout = resultWorkout[i].nameExercise,
-                    sumApproach = resultWorkout[i].approaches,
-                    completedApproach = 0,
-                    receptions = resultWorkout[i].repetitions,
-                    timeWorkout = 0,
-                )
-                dayWorkoutInteractor.insertDayWorkout(model)
-            }
+        viewModelScope.launch {
+            val resultWorkout = workoutInteractor.readWorkoutTable()[0]
+
+            val resultDaylyWorkout = DailyStatisticsModel(
+                id = resultWorkout.id,
+                day = resultWorkout.day,
+                workout = resultWorkout.workout.map { it.toDailyNew() }.toMutableList(),
+                timeWorkout = 0
+            )
+            Log.d("checarch",resultDaylyWorkout.toString())
+            dayWorkoutInteractor.insertDayWorkout(resultDaylyWorkout)
             readDayWorkout()
         }
-    }
-
-    private suspend fun checkDayWorkout(): Boolean {
-        return dayWorkoutInteractor.getSizeDayWorkoutTable() != 0
     }
 }

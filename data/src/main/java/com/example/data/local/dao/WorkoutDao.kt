@@ -1,9 +1,10 @@
 package com.example.data.local.dao
 
 import androidx.room.*
-import com.example.data.model.DayWorkoutEntity
+import com.example.data.model.DailyStatisticsEntity
 import com.example.data.model.SportsmanEntity
 import com.example.data.model.WorkoutEntity
+
 
 @Dao
 interface WorkoutDao {
@@ -38,21 +39,21 @@ interface WorkoutDao {
     suspend fun getSizeSportsmanTable(): Int
 
 //    DayWorkout
-    @Insert(entity = DayWorkoutEntity::class, onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertDayWorkout(workout: DayWorkoutEntity): Long
+    @Insert(entity = DailyStatisticsEntity::class, onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertDayWorkout(workout: DailyStatisticsEntity): Long
 
-    @Update(entity = DayWorkoutEntity::class)
-    suspend fun updateDayWorkout(workout: DayWorkoutEntity)
+    @Update(entity = DailyStatisticsEntity::class)
+    suspend fun updateDayWorkout(workout: DailyStatisticsEntity)
 
-    @Query("SELECT * FROM day_workout_table")
-    suspend fun readDayWorkout(): List<DayWorkoutEntity>?
+    @Query("SELECT * FROM daily_statistics_table")
+    suspend fun readDayWorkout(): DailyStatisticsEntity?
 
-    @Query("SELECT * FROM day_workout_table WHERE id LIKE :id")
-    suspend fun getDayWorkoutById(id: Int): DayWorkoutEntity
+    @Query("SELECT * FROM daily_statistics_table WHERE id LIKE :id")
+    suspend fun getDayWorkoutById(id: Int): DailyStatisticsEntity
 
-    @Query("SELECT * FROM day_workout_table WHERE idWorkout LIKE :id")
-    suspend fun getDayWorkoutByWorkoutId(id: Int): DayWorkoutEntity
+    @Query("SELECT * FROM daily_statistics_table WHERE id LIKE :id")
+    suspend fun getDayWorkoutByWorkoutId(id: Int): DailyStatisticsEntity
 
-    @Query("SELECT COUNT(*) FROM day_workout_table")
+    @Query("SELECT COUNT(*) FROM daily_statistics_table")
     suspend fun getSizeDayWorkoutTable(): Int
 }
