@@ -24,6 +24,8 @@ interface TrainedRepository {
 
     suspend fun getSizeWorkoutTable(): Int
 
+    suspend fun getWorkoutByWeeks(week: String): WorkoutModel
+
     suspend fun insertDayWorkout(workout: DailyStatisticsModel): Long
 
     suspend fun updateDayWorkout(workout: DailyStatisticsModel)

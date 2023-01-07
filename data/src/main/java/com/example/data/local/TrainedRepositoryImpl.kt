@@ -53,6 +53,10 @@ class TrainedRepositoryImpl constructor(
         return workoutDao.getSizeWorkoutTable()
     }
 
+    override suspend fun getWorkoutByWeeks(week: String): WorkoutModel {
+        return workoutDao.getWorkoutByWeeks(week).toDomain()
+    }
+
     override suspend fun insertDayWorkout(workout: DailyStatisticsModel): Long {
         return workoutDao.insertDayWorkout(workout.toEntity())
     }

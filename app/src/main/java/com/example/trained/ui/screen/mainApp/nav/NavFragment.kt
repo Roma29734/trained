@@ -42,7 +42,7 @@ class NavFragment :
             } else {
                 Log.d("checkBagFirstStart", "Зашел в нет профиля")
                 Navigation.findNavController(view)
-                    .navigate(R.id.action_navFragment_to_profileSettingsFragment)
+                    .navigate(R.id.action_navFragment_to_startFragment)
                 Log.d("checkBagFirstStart", "совершил навигации в настройки профиля")
             }
         }

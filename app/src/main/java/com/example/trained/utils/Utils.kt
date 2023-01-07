@@ -2,8 +2,10 @@ package com.example.trained.utils
 
 import android.os.Build
 import androidx.annotation.RequiresApi
+import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+import java.util.*
 import java.util.concurrent.TimeUnit
 
 object Utils {
@@ -35,19 +37,25 @@ object Utils {
                 if (seconds >= 1) "${seconds}с" else ""
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
+
     fun getDate(): LocalDate {
-        val firstApiFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+        val firstApiFormat =
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+        } else {
+            TODO()
+        }
         return LocalDate.parse("2019-08-07 09:00:00", firstApiFormat)
     }
 
     fun getDecryptedWeek(week: String): String {
-//        MONDAY TUESDAY WEDNESDAY THURSDAY SATURDAY SUNDAY
+//        MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY SUNDAY
         return when(week) {
             "MONDAY" -> "Понедельник"
             "TUESDAY" -> "Вторник"
             "WEDNESDAY" -> "Среда"
             "THURSDAY" -> "Четверг"
+            "FRIDAY" -> "Пятница"
             "SATURDAY" -> "Суббота"
             "SUNDAY" -> "Воскресенье"
             else -> "НИЧЕГО"

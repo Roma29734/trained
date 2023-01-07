@@ -8,6 +8,8 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.navArgs
+import com.example.data.toDomain
 import com.example.trained.base.BaseFragment
 import com.example.trained.databinding.FragmentDayAddWorkoutBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -18,6 +20,7 @@ class DayAddWorkoutFragment :
         (FragmentDayAddWorkoutBinding::inflate) {
 
     private val viewModel: DayAddWorkoutViewModel by viewModels()
+    private val args: DayAddWorkoutFragmentArgs by navArgs()
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -29,10 +32,11 @@ class DayAddWorkoutFragment :
                     binding.tiNameWorkout.text.toString(),
                     binding.tiRepetitions.text.toString(),
                     binding.tiApproaches.text.toString(),
+                    args.workout.toDomain(),
                 )
 
                 Toast.makeText(context, "Успешно добавлено", Toast.LENGTH_SHORT).show()
-                Navigation.findNavController(view).popBackStack()
+                mainNavController.popBackStack()
             }
         }
 

@@ -1,8 +1,10 @@
 package com.example.trained.ui.screen.firstStartApp.dayConfig
 
 
+import android.os.Build
 import android.os.Bundle
 import android.view.View
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.trained.R
@@ -19,6 +21,7 @@ class DayConfigFragment :
     private val viewModel: DayConfigViewModel by viewModels()
     private val adapter = WorkoutConfigAdapter()
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

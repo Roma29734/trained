@@ -22,6 +22,9 @@ interface WorkoutDao {
     @Query("SELECT COUNT(*) FROM workout_table")
     suspend fun getSizeWorkoutTable(): Int
 
+    @Query("SELECT * FROM WORKOUT_TABLE WHERE day LIKE :week")
+    suspend fun getWorkoutByWeeks(week: String): WorkoutEntity
+
 //    User
     @Insert(entity = SportsmanEntity::class, onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertUser(user: SportsmanEntity)

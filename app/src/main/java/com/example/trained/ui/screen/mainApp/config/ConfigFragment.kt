@@ -28,7 +28,7 @@ class ConfigFragment :
 
         viewModel.getDayWorkout()
         viewModel.dayWorkout.observe(viewLifecycleOwner) { result ->
-            adapter.setConfigDay(result)
+//            adapter.setConfigDay(result)
         }
     }
 }

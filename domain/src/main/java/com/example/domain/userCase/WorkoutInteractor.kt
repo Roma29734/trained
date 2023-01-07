@@ -13,4 +13,6 @@ class WorkoutInteractor constructor(
     suspend fun readWorkoutTable(): List<WorkoutModel> = repository.readWorkoutTable()
 
     suspend fun getSizeWorkoutTable(): Int = repository.getSizeWorkoutTable()
+
+    suspend fun getWorkoutByWeeks(week: String): WorkoutModel = repository.getWorkoutByWeeks(week)
 }

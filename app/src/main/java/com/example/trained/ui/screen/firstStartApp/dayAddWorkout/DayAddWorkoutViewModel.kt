@@ -23,29 +23,21 @@ class DayAddWorkoutViewModel @Inject constructor(
         name: String,
         repetitions: String,
         approaches: String,
+        workoutModel: WorkoutModel,
     ) {
         viewModelScope.launch(Dispatchers.IO) {
-            val model = WorkoutDayDomainModel(name, repetitions.toInt(), approaches.toInt())
-            if(workoutInteractor.getSizeWorkoutTable() != 0 ) {
-                val workoutModel = workoutInteractor.readWorkoutTable().first()
+            val modelWorkout = WorkoutDayDomainModel(name, repetitions.toInt(), approaches.toInt())
 
-                val newWorkout = workoutModel.workout
-                newWorkout.add(model)
-                val updateWorkoutModel = WorkoutModel(
-                    id = workoutModel.id,
-                    day = workoutModel.day,
-                    workout = newWorkout,
-                )
-                workoutInteractor.updateWorkout(updateWorkoutModel)
+            val newWorkout = workoutModel.workout
+            newWorkout.add(modelWorkout)
 
-            } else {
-                val newWorkoutModel = WorkoutModel(
-                    0,
-                    day = getDate().dayOfWeek.toString(),
-                    workout = mutableListOf(model)
-                )
-                workoutInteractor.insertWorkout(newWorkoutModel)
-            }
+            val updateWorkoutModel = WorkoutModel(
+                id = workoutModel.id,
+                day = workoutModel.day,
+                workout = newWorkout,
+            )
+
+            workoutInteractor.updateWorkout(updateWorkoutModel)
         }
 
     }
