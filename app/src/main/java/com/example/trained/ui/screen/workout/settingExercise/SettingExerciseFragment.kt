@@ -5,7 +5,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.navigation.fragment.navArgs
 import com.example.trained.base.BaseFragment
-import com.example.data.model.WorkoutTransitionModel
+import com.example.data.model.transit.WorkoutTransitionModel
 import com.example.trained.databinding.FragmentSettingExerciseBinding
 
 

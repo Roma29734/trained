@@ -1,6 +1,11 @@
 package com.example.data
 
 import com.example.data.model.*
+import com.example.data.model.entity.DailyStatisticsEntity
+import com.example.data.model.entity.SportsmanEntity
+import com.example.data.model.entity.WorkoutEntity
+import com.example.data.model.transit.TransitDailyStatisticsModel
+import com.example.data.model.transit.TransitWorkoutModel
 import com.example.domain.model.*
 
 fun WorkoutModel.toEntity() = WorkoutEntity (
@@ -104,4 +109,11 @@ fun WorkoutDayDomainModel.toDailyNew() = DailyWorkoutDomainModel(
     sumApproach = approaches,
     completedApproach = 0,
     receptions = repetitions,
+)
+
+fun WorkoutModel.toConfigAdapterModel() = ConfigAdapterModel(
+    id = id,
+    day = day,
+    workout = workout,
+    openState = false,
 )

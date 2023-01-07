@@ -43,6 +43,12 @@
         <item name="android:textColor">@color/mainBlack</item>
     </style>
 
+    <style name="textNameWeek" parent="TextAppearance.AppCompat" >
+        <item name="android:fontFamily">@font/source_code_pro_semi_bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
 <!--    -->
 
 <!--    MaterialButton-->
@@ -91,6 +97,12 @@
 
     <style name="imageButton" parent="Widget.AppCompat.ImageButton">
         <item name="android:tint">@color/white</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+
+    <style name="imageButtonDayWorkout" parent="Widget.AppCompat.ImageButton" >
+        <item name="android:tint">@color/mainBlack</item>
         <item name="android:background">@android:color/transparent</item>
     </style>
 

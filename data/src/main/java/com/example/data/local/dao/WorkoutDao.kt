@@ -1,9 +1,9 @@
 package com.example.data.local.dao
 
 import androidx.room.*
-import com.example.data.model.DailyStatisticsEntity
-import com.example.data.model.SportsmanEntity
-import com.example.data.model.WorkoutEntity
+import com.example.data.model.entity.DailyStatisticsEntity
+import com.example.data.model.entity.SportsmanEntity
+import com.example.data.model.entity.WorkoutEntity
 
 
 @Dao

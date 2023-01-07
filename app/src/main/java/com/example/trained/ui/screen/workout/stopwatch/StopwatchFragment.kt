@@ -7,8 +7,7 @@ import android.util.Log
 import android.view.View
 import androidx.navigation.fragment.navArgs
 import com.example.trained.base.BaseFragment
-import com.example.data.model.TransitDailyStatisticsModel
-import com.example.data.model.WorkoutTransitionModel
+import com.example.data.model.transit.WorkoutTransitionModel
 import com.example.trained.databinding.FragmentStopwatchBinding
 import com.example.trained.utils.Utils.formattedTimeMain
 

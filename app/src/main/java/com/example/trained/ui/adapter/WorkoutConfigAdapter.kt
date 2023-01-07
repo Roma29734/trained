@@ -3,13 +3,8 @@ package com.example.trained.ui.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.data.model.TransitWorkoutModel
-import com.example.data.model.WorkoutEntity
-import com.example.data.model.WorkoutTransitionModel
-import com.example.data.toTransit
-import com.example.domain.model.DailyWorkoutDomainModel
+import com.example.data.model.transit.TransitWorkoutModel
 import com.example.domain.model.WorkoutDayDomainModel
-import com.example.domain.model.WorkoutModel
 import com.example.trained.databinding.CardTreinyHomeBinding
 
 class WorkoutConfigAdapter: RecyclerView.Adapter<WorkoutConfigAdapter.MyViewHolder>() {

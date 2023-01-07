@@ -4,13 +4,11 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.example.data.local.converter.DailyConverter
-import com.example.data.local.converter.DateTypeConverter
-import com.example.data.local.converter.ListConverter
 import com.example.data.local.converter.WorkoutConverter
 import com.example.data.local.dao.WorkoutDao
-import com.example.data.model.DailyStatisticsEntity
-import com.example.data.model.SportsmanEntity
-import com.example.data.model.WorkoutEntity
+import com.example.data.model.entity.DailyStatisticsEntity
+import com.example.data.model.entity.SportsmanEntity
+import com.example.data.model.entity.WorkoutEntity
 
 @Database(
     entities = [WorkoutEntity::class,

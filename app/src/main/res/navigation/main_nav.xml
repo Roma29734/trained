@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/startFragment"
-        android:name="com.example.trained.ui.screen.start.StartFragment"
+        android:name="com.example.trained.ui.screen.firstStartApp.start.StartFragment"
         android:label="fragment_start"
         tools:layout="@layout/fragment_start" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/navFragment"
-        android:name="com.example.trained.ui.screen.nav.NavFragment"
+        android:name="com.example.trained.ui.screen.mainApp.nav.NavFragment"
         android:label="fragment_nav"
         tools:layout="@layout/fragment_nav" >
         <action
@@ -41,7 +41,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileSettingsFragment"
-        android:name="com.example.trained.ui.screen.profileSettings.ProfileSettingsFragment"
+        android:name="com.example.trained.ui.screen.mainApp.profileSettings.ProfileSettingsFragment"
         android:label="fragment_profile_settings"
         tools:layout="@layout/fragment_profile_settings" >
         <action
@@ -52,7 +52,7 @@
     </fragment>
     <fragment
         android:id="@+id/addWorkoutFragment"
-        android:name="com.example.trained.ui.screen.addWorkout.AddWorkoutFragment"
+        android:name="com.example.trained.ui.screen.mainApp.addWorkout.AddWorkoutFragment"
         android:label="fragment_add_workout"
         tools:layout="@layout/fragment_add_workout" >
         <argument
@@ -61,7 +61,7 @@
     </fragment>
     <fragment
         android:id="@+id/dayConfigFragment"
-        android:name="com.example.trained.ui.screen.dayConfig.DayConfigFragment"
+        android:name="com.example.trained.ui.screen.firstStartApp.dayConfig.DayConfigFragment"
         android:label="fragment_day_config"
         tools:layout="@layout/fragment_day_config" >
         <action
@@ -152,7 +152,7 @@
     </fragment>
     <fragment
         android:id="@+id/updateConfigFragment"
-        android:name="com.example.trained.ui.screen.updateConfig.UpdateConfigFragment"
+        android:name="com.example.trained.ui.screen.mainApp.updateConfig.UpdateConfigFragment"
         android:label="fragment_update_config"
         tools:layout="@layout/fragment_update_config" >
         <argument
@@ -161,7 +161,7 @@
     </fragment>
     <fragment
         android:id="@+id/dayAddWorkoutFragment"
-        android:name="com.example.trained.ui.screen.dayAddWorkout.DayAddWorkoutFragment"
+        android:name="com.example.trained.ui.screen.firstStartApp.dayAddWorkout.DayAddWorkoutFragment"
         android:label="fragment_day_add_workout"
         tools:layout="@layout/fragment_day_add_workout" />
 </navigation>

@@ -3,10 +3,7 @@ package com.example.trained.ui.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.data.model.TransitDailyWorkoutModel
-import com.example.data.model.WorkoutTransitionModel
-import com.example.data.toTransit
-import com.example.domain.model.DailyStatisticsModel
+import com.example.data.model.transit.TransitDailyWorkoutModel
 import com.example.domain.model.DailyWorkoutDomainModel
 import com.example.trained.databinding.CardTreinyHomeBinding
 

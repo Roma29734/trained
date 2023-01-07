@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.data.model.WorkoutTransitionModel
+import com.example.data.model.transit.WorkoutTransitionModel
 import com.example.trained.base.BaseFragment
 import com.example.trained.databinding.FragmentChoseWorkoutBinding
 import com.example.trained.ui.adapter.WorkoutChoseStateAdapter

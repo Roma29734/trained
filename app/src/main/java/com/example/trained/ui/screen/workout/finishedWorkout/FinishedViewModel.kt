@@ -2,10 +2,7 @@ package com.example.trained.ui.screen.workout.finishedWorkout
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.data.model.DailyWorkoutModel
-import com.example.data.model.TransitDailyWorkoutModel
-import com.example.data.model.WorkoutTransitionModel
-import com.example.domain.model.DailyStatisticsModel
+import com.example.data.model.transit.WorkoutTransitionModel
 import com.example.domain.model.DailyWorkoutDomainModel
 import com.example.domain.userCase.DayWorkoutInteractor
 import dagger.hilt.android.lifecycle.HiltViewModel

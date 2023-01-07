@@ -61,6 +61,12 @@
         <item name="android:fontFamily">@font/roboto_bold</item>
     </style>
 
+    <style name="textNameWeek" parent="TextAppearance.AppCompat" >
+        <item name="android:fontFamily">@font/source_code_pro_semi_bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/mainWhite</item>
+    </style>
+
 <!--    -->
 
 
@@ -132,6 +138,11 @@
 
     <style name="imageButton" parent="Widget.AppCompat.ImageButton">
         <item name="android:tint">@color/black</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="imageButtonDayWorkout" parent="Widget.AppCompat.ImageButton" >
+        <item name="android:tint">@color/mainWhite</item>
         <item name="android:background">@android:color/transparent</item>
     </style>
 
