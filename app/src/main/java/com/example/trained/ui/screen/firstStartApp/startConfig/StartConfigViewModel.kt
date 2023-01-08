@@ -1,4 +1,4 @@
-package com.example.trained.ui.screen.firstStartApp.dayConfig
+package com.example.trained.ui.screen.firstStartApp.startConfig
 
 import android.os.Build
 import androidx.annotation.RequiresApi
@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 
 @HiltViewModel
-class DayConfigViewModel @Inject constructor(
+class StartConfigViewModel @Inject constructor(
     private val workoutInteractor: WorkoutInteractor
 ): ViewModel() {
 

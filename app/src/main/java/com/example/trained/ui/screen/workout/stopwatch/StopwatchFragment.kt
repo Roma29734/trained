@@ -41,7 +41,7 @@ class StopwatchFragment :
                 val model = WorkoutTransitionModel(
                     workout,
                     args.transit.timeChill,
-                    timeWorkout = timeInSeconds,
+                    timeWorkout = args.transit.timeWorkout + timeInSeconds,
                 )
                 val action =
                     StopwatchFragmentDirections.actionStopwatchFragmentToTimerChillFragment(

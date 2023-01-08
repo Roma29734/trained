@@ -5,7 +5,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class WorkoutDayModel(
-    val nameExercise: String,
-    val repetitions: Int,
-    val approaches: Int,
+    var nameExercise: String,
+    var repetitions: Int,
+    var approaches: Int,
 ): Parcelable

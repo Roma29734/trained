@@ -24,7 +24,12 @@ abstract class BaseFragment<B : ViewBinding>(private val inflate: Inflate<B>) :
     Fragment() {
     private var _viewBinding: B? = null
     protected val binding get() = checkNotNull(_viewBinding)
-    protected val mainNavController: NavController by lazy { Navigation.findNavController(requireActivity(), R.id.nav_host) }
+    protected val mainNavController: NavController by lazy {
+        Navigation.findNavController(
+            requireActivity(),
+            R.id.nav_host
+        )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

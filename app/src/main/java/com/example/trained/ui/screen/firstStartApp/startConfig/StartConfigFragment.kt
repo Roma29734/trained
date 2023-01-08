@@ -1,4 +1,4 @@
-package com.example.trained.ui.screen.firstStartApp.dayConfig
+package com.example.trained.ui.screen.firstStartApp.startConfig
 
 
 import android.os.Build
@@ -9,16 +9,16 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.trained.R
 import com.example.trained.base.BaseFragment
-import com.example.trained.databinding.FragmentDayConfigBinding
+import com.example.trained.databinding.FragmentStartConfigBinding
 import com.example.trained.ui.adapter.WorkoutConfigAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class DayConfigFragment :
-    BaseFragment<FragmentDayConfigBinding>
-        (FragmentDayConfigBinding::inflate) {
+class StartConfigFragment :
+    BaseFragment<FragmentStartConfigBinding>
+        (FragmentStartConfigBinding::inflate) {
 
-    private val viewModel: DayConfigViewModel by viewModels()
+    private val viewModel: StartConfigViewModel by viewModels()
     private val adapter = WorkoutConfigAdapter()
 
     @RequiresApi(Build.VERSION_CODES.O)

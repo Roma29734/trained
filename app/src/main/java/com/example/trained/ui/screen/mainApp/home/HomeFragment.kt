@@ -2,6 +2,7 @@ package com.example.trained.ui.screen.mainApp.home
 
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -16,6 +17,7 @@ import com.example.trained.databinding.FragmentHomeBinding
 import com.example.trained.ui.adapter.WorkoutStateAdapter
 import com.example.trained.utils.LoadState
 import com.example.trained.utils.Utils.formattedWatchWidget
+import com.example.trained.utils.Utils.getDate
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -34,7 +36,7 @@ class HomeFragment :
 
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = GridLayoutManager(context, 2)
-
+        Log.d("checkBagDateHomeScreen","${getDate().dayOfWeek}")
         viewModel.readDayWorkout()
         lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -52,6 +54,7 @@ class HomeFragment :
                         }
                         LoadState.SUCCESS -> {
                             binding.progressBar.visibility = View.INVISIBLE
+                            uiState.successState?.sportsmanModel?.let { binding.textName.text = it.name }
                             uiState.successState?.dailyWorkoutModel?.let { adapter.setWorkout(it.workout) }
                             var completeApproach = 0
                             var sumApproach = 0

@@ -47,7 +47,6 @@ class HomeViewModel @Inject constructor(
 
                 if (dayWorkoutInteractor.getSizeDayWorkoutTable() != 0) {
                     checkDateDailyStatistics()
-                    Log.d("checarch", "зашел в есть day тренировка")
                     val dailyModel = dayWorkoutInteractor.readDayWorkout()
                     _dailyWorkoutState.update {
                         it.copy(
@@ -56,7 +55,6 @@ class HomeViewModel @Inject constructor(
                         )
                     }
                 } else {
-                    Log.d("checarch", "зашел в нету тренировки создаю новую")
                     fillDayWorkout()
                 }
             }
@@ -80,7 +78,6 @@ class HomeViewModel @Inject constructor(
                 workout = resultWorkout.workout.map { it.toDailyNew() }.toMutableList(),
                 timeWorkout = 0
             )
-            Log.d("checarch", resultDaylyWorkout.toString())
             dayWorkoutInteractor.insertDayWorkout(resultDaylyWorkout)
             readDayWorkout()
         }
@@ -91,17 +88,17 @@ class HomeViewModel @Inject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             val model = dayWorkoutInteractor.readDayWorkout()
             val date = getDate().dayOfWeek.toString()
+
             if(model!!.day != date) {
-                updateDailyStatistics()
+                updateDailyStatistics(date)
             }
         }
 
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun updateDailyStatistics() {
+    private fun updateDailyStatistics(date: String) {
         viewModelScope.launch(Dispatchers.IO) {
-            val date = getDate().dayOfWeek.toString()
             val resultWorkout = workoutInteractor.getWorkoutByWeeks(date)
 
             val resultDaylyWorkout = DailyStatisticsModel(

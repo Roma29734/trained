@@ -32,7 +32,8 @@
                 android:visibility="visible"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="35" />
+                tools:text="35"
+                android:textColor="@color/mainBlack"/>
 
             <ImageView
                 android:id="@+id/imgSuccess"

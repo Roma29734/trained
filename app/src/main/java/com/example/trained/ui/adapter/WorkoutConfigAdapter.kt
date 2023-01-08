@@ -14,7 +14,7 @@ class WorkoutConfigAdapter: RecyclerView.Adapter<WorkoutConfigAdapter.MyViewHold
     inner class MyViewHolder(val binding: CardTreinyHomeBinding) :
         RecyclerView.ViewHolder(binding.root)
 
-    var callBackDel: ((model: TransitWorkoutModel) -> Unit)? = null
+    var callBackDel: ((model: Int) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(
@@ -33,11 +33,11 @@ class WorkoutConfigAdapter: RecyclerView.Adapter<WorkoutConfigAdapter.MyViewHold
         holder.binding.textApproach.text = positionWorkout.approaches.toString()
         holder.binding.textQuantity.text = positionWorkout.repetitions.toString()
 
-//        holder.binding.cardView.setOnClickListener {
-//            if(callBackDel != null) {
-//                callBackDel?.let { it1 -> it1(positionWorkout.toTransit()) }
-//            }
-//        }
+        holder.binding.cardView.setOnClickListener {
+            if(callBackDel != null) {
+                callBackDel?.let { it1 -> it1(position) }
+            }
+        }
     }
 
     override fun getItemCount(): Int {

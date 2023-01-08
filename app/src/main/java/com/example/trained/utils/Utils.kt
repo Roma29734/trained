@@ -39,13 +39,17 @@ object Utils {
 
 
     fun getDate(): LocalDate {
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+        val data = dateFormat.format(Date())
+
+
         val firstApiFormat =
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
         } else {
             TODO()
         }
-        return LocalDate.parse("2019-08-07 09:00:00", firstApiFormat)
+        return LocalDate.parse(data, firstApiFormat)
     }
 
     fun getDecryptedWeek(week: String): String {

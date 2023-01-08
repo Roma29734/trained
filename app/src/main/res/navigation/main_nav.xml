@@ -26,23 +26,20 @@
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_navFragment_to_dayConfigFragment"
-            app:destination="@id/dayConfigFragment"
+            app:destination="@id/startConfigFragment"
             app:popUpTo="@id/navFragment"
             app:popUpToInclusive="true" />
         <action
-            android:id="@+id/action_navFragment_to_addWorkoutFragment"
-            app:destination="@id/addWorkoutFragment" />
-        <action
             android:id="@+id/action_navFragment_to_choseWorkoutFragment"
             app:destination="@id/choseWorkoutFragment" />
-        <action
-            android:id="@+id/action_navFragment_to_updateConfigFragment"
-            app:destination="@id/updateConfigFragment" />
         <action
             android:id="@+id/action_navFragment_to_startFragment"
             app:destination="@id/startFragment"
             app:popUpTo="@id/navFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_navFragment_to_dayConfigFragment2"
+            app:destination="@id/dayConfigFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileSettingsFragment"
@@ -65,10 +62,10 @@
             app:argType="com.example.data.model.transit.TransitWorkoutModel" />
     </fragment>
     <fragment
-        android:id="@+id/dayConfigFragment"
-        android:name="com.example.trained.ui.screen.firstStartApp.dayConfig.DayConfigFragment"
+        android:id="@+id/startConfigFragment"
+        android:name="com.example.trained.ui.screen.firstStartApp.startConfig.StartConfigFragment"
         android:label="fragment_day_config"
-        tools:layout="@layout/fragment_day_config" >
+        tools:layout="@layout/fragment_start_config" >
         <action
             android:id="@+id/action_dayConfigFragment_to_dayAddWorkoutFragment"
             app:destination="@id/dayAddWorkoutFragment" />
@@ -162,7 +159,7 @@
         tools:layout="@layout/fragment_update_config" >
         <argument
             android:name="workout"
-            app:argType="com.example.data.model.transit.TransitWorkoutModel"/>
+            app:argType="com.example.data.model.transit.TransitUpdateWorkoutModel"/>
     </fragment>
     <fragment
         android:id="@+id/dayAddWorkoutFragment"
@@ -172,5 +169,20 @@
         <argument
             android:name="workout"
             app:argType="com.example.data.model.transit.TransitWorkoutModel" />
+    </fragment>
+    <fragment
+        android:id="@+id/dayConfigFragment"
+        android:name="com.example.trained.ui.screen.mainApp.dayConfig.DayConfigFragment"
+        android:label="fragment_day_config"
+        tools:layout="@layout/fragment_day_config" >
+        <argument
+            android:name="week"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_dayConfigFragment_to_updateConfigFragment"
+            app:destination="@id/updateConfigFragment" />
+        <action
+            android:id="@+id/action_dayConfigFragment_to_addWorkoutFragment"
+            app:destination="@id/addWorkoutFragment" />
     </fragment>
 </navigation>

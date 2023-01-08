@@ -1,5 +1,7 @@
 package com.example.trained.ui.screen.mainApp.addWorkout
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.data.toDailyNew
@@ -8,6 +10,7 @@ import com.example.domain.model.WorkoutDayDomainModel
 import com.example.domain.model.WorkoutModel
 import com.example.domain.userCase.DayWorkoutInteractor
 import com.example.domain.userCase.WorkoutInteractor
+import com.example.trained.utils.Utils.getDate
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -19,6 +22,7 @@ class AddWorkoutViewModel @Inject constructor(
     private val dayWorkoutInteractor: DayWorkoutInteractor,
 ) : ViewModel() {
 
+    @RequiresApi(Build.VERSION_CODES.O)
     fun saveWorkout(
         name: String,
         repetitions: String,
@@ -38,19 +42,21 @@ class AddWorkoutViewModel @Inject constructor(
             )
 
             workoutInteractor.updateWorkout(updateWorkoutModel)
-            val dailyModel = dayWorkoutInteractor.readDayWorkout()
-            val newDailyWorkout = dailyModel?.workout
-            newDailyWorkout?.add(model.toDailyNew())
-            val updateDailyModel = newDailyWorkout?.let {
-                DailyStatisticsModel(
-                    id = dailyModel.id,
-                    day = dailyModel.day,
-                    workout = it,
-                    timeWorkout = dailyModel.timeWorkout
-                )
+            val day = getDate().dayOfWeek.toString()
+            if(workoutModel.day == day) {
+                val dailyModel = dayWorkoutInteractor.readDayWorkout()
+                val newDailyWorkout = dailyModel?.workout
+                newDailyWorkout?.add(model.toDailyNew())
+                val updateDailyModel = newDailyWorkout?.let {
+                    DailyStatisticsModel(
+                        id = dailyModel.id,
+                        day = dailyModel.day,
+                        workout = it,
+                        timeWorkout = dailyModel.timeWorkout
+                    )
+                }
+                updateDailyModel?.let { dayWorkoutInteractor.updateDayWorkout(it) }
             }
-            updateDailyModel?.let { dayWorkoutInteractor.updateDayWorkout(it) }
         }
-
     }
 }

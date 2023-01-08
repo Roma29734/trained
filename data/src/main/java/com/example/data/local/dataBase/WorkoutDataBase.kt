@@ -17,7 +17,6 @@ import com.example.data.model.entity.WorkoutEntity
     version = 1,
     exportSchema = false
 )
-//@TypeConverters(DateTypeConverter::class ,ListConverter::class)
 @TypeConverters(WorkoutConverter::class, DailyConverter::class)
 abstract class WorkoutDataBase : RoomDatabase() {
     abstract fun workoutDao(): WorkoutDao
