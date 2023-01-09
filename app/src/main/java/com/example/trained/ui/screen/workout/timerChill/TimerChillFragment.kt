@@ -73,7 +73,11 @@ class TimerChillFragment :
             }
 
             materialButtonComplete.setOnClickListener {
-                Toast.makeText(context, "Тут будет досрочное завершение", Toast.LENGTH_SHORT).show()
+                val action =
+                    TimerChillFragmentDirections.actionTimerChillFragmentToFinishedWorkoutFragment(
+                        args.transit
+                    )
+                mainNavController.navigate(action)
             }
         }
     }

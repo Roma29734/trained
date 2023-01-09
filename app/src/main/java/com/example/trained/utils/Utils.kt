@@ -21,11 +21,11 @@ object Utils {
         val second = TimeUnit.MILLISECONDS.toSeconds(milliseconds)
 
         return (if (minutes >= 1) "${minutes}:" else "00:") +
-                (if (second >= 1) "$second" else "00")
+                (if (second >= 10) "$second" else if (second >= 1) "0$second" else "00")
     }
 
     fun formattedWatchWidget(ms: Long): String {
-        if(ms == 0L) {
+        if (ms == 0L) {
             return "0м"
         }
 
@@ -49,16 +49,16 @@ object Utils {
 
         val firstApiFormat =
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
-        } else {
-            TODO()
-        }
+                DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+            } else {
+                TODO()
+            }
         return LocalDate.parse(data, firstApiFormat)
     }
 
     fun getDecryptedWeek(week: String): String {
 //        MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY SUNDAY
-        return when(week) {
+        return when (week) {
             "MONDAY" -> "Понедельник"
             "TUESDAY" -> "Вторник"
             "WEDNESDAY" -> "Среда"
@@ -71,7 +71,7 @@ object Utils {
     }
 
     fun getDecryptedWeekAccusativeForm(week: String): String {
-        return when(week) {
+        return when (week) {
             "MONDAY" -> "Понедельника"
             "TUESDAY" -> "Вторника"
             "WEDNESDAY" -> "Среды"

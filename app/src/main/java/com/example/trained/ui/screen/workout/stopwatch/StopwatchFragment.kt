@@ -43,12 +43,21 @@ class StopwatchFragment :
                     args.transit.timeChill,
                     timeWorkout = args.transit.timeWorkout + timeInSeconds,
                 )
-                val action =
-                    StopwatchFragmentDirections.actionStopwatchFragmentToTimerChillFragment(
-                        model
-                    )
-                stopTimer()
-                mainNavController.navigate(action)
+                if(model.workoutModel.completedApproach != model.workoutModel.sumApproach) {
+                    val action =
+                        StopwatchFragmentDirections.actionStopwatchFragmentToTimerChillFragment(
+                            model
+                        )
+                    stopTimer()
+                    mainNavController.navigate(action)
+                } else {
+                    val action =
+                        StopwatchFragmentDirections.actionStopwatchFragmentToFinishedWorkoutFragment(
+                            model
+                        )
+                    stopTimer()
+                    mainNavController.navigate(action)
+                }
             }
         }
     }

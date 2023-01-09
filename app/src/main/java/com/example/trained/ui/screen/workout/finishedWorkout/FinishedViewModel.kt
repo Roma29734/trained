@@ -26,7 +26,7 @@ class FinishedViewModel @Inject constructor(
                 receptions = workoutTransitionModel.workoutModel.receptions
             )
             dayWorkout!!.workout[workoutTransitionModel.workoutModel.id] = completeWorkout
-            dayWorkout.timeWorkout = workoutTransitionModel.timeWorkout
+            dayWorkout.timeWorkout = workoutTransitionModel.timeWorkout + dayWorkout.timeWorkout
             dailyStatisticsInteractor.updateDayWorkout(dayWorkout)
         }
     }

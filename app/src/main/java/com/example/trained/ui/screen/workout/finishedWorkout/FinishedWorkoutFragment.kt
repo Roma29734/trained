@@ -22,7 +22,6 @@ class FinishedWorkoutFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         binding.widget.apply {
 //            Установка иконок
             imageView1.setImageResource(R.drawable.ic_timer)

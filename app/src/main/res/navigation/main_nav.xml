@@ -118,6 +118,11 @@
         <argument
             android:name="transit"
             app:argType="com.example.data.model.transit.WorkoutTransitionModel" />
+        <action
+            android:id="@+id/action_stopwatchFragment_to_finishedWorkoutFragment"
+            app:destination="@id/finishedWorkoutFragment"
+            app:popUpTo="@id/stopwatchFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/timerChillFragment"
