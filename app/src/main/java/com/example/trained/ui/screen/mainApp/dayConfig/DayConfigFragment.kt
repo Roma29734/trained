@@ -15,6 +15,7 @@ import com.example.trained.R
 import com.example.trained.base.BaseFragment
 import com.example.trained.databinding.FragmentDayConfigBinding
 import com.example.trained.ui.adapter.WorkoutConfigAdapter
+import com.example.trained.utils.Utils.getDecryptedWeekAccusativeForm
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -32,7 +33,12 @@ class DayConfigFragment :
         binding.recyclerWorkout.layoutManager = GridLayoutManager(context, 2)
         binding.recyclerWorkout.adapter = adapter
 
-        viewModel.readWorkout(args.week)
+        args.week.apply {
+            val testData = getDecryptedWeekAccusativeForm(this)
+            binding.include2.textView6.text = "Конфигурация $testData"
+            viewModel.readWorkout(this)
+        }
+//        viewModel.readWorkout(args.week)
         viewModel.workout.observe(viewLifecycleOwner) { result ->
             adapter.callBackDel = {
                 val model = TransitUpdateWorkoutModel(

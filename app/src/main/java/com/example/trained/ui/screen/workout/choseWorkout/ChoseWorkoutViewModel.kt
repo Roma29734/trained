@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.model.DailyStatisticsModel
-import com.example.domain.userCase.DayWorkoutInteractor
+import com.example.domain.userCase.DailyStatisticsInteractor
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ChoseWorkoutViewModel @Inject constructor(
-    private val dayWorkoutInteractor: DayWorkoutInteractor,
+    private val dailyStatisticsInteractor: DailyStatisticsInteractor,
 ): ViewModel() {
 
     private var _workout: MutableLiveData<DailyStatisticsModel>? = MutableLiveData()
@@ -20,7 +20,7 @@ class ChoseWorkoutViewModel @Inject constructor(
 
     fun readWorkout() {
         viewModelScope.launch {
-            _workout?.value = dayWorkoutInteractor.readDayWorkout()
+            _workout?.value = dailyStatisticsInteractor.readDayWorkout()
         }
     }
 }

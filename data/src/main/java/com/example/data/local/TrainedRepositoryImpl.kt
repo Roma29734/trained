@@ -80,4 +80,8 @@ class TrainedRepositoryImpl constructor(
     override suspend fun getDayWorkoutByWorkoutId(id: Int): DailyStatisticsModel? {
         return  workoutDao.getDayWorkoutByWorkoutId(id).toDomain()
     }
+
+    override suspend fun deleteDailyStatisticsTable() {
+        workoutDao.deleteDailyStatisticsTable()
+    }
 }

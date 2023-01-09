@@ -27,7 +27,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/upBar"
-        tools:text="0:00" />
+        android:text="@string/_0_00" />
 
 
     <com.google.android.material.button.MaterialButton

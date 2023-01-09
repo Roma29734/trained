@@ -1,7 +1,7 @@
 package com.example.trained.di
 
 import com.example.domain.repository.TrainedRepository
-import com.example.domain.userCase.DayWorkoutInteractor
+import com.example.domain.userCase.DailyStatisticsInteractor
 import com.example.domain.userCase.ProfileInteractor
 import com.example.domain.userCase.WorkoutInteractor
 import dagger.Module
@@ -22,7 +22,7 @@ class DomainBaseModule {
         WorkoutInteractor(repository = repository)
 
     @Provides
-    fun provideDayWorkoutInteractor(repository: TrainedRepository): DayWorkoutInteractor =
-        DayWorkoutInteractor(repository = repository)
+    fun provideDayWorkoutInteractor(repository: TrainedRepository): DailyStatisticsInteractor =
+        DailyStatisticsInteractor(repository = repository)
 
 }

@@ -25,6 +25,10 @@ object Utils {
     }
 
     fun formattedWatchWidget(ms: Long): String {
+        if(ms == 0L) {
+            return "0м"
+        }
+
         var milliseconds = ms
         val hours = TimeUnit.MILLISECONDS.toHours(milliseconds)
         milliseconds -= TimeUnit.HOURS.toMillis(hours)
@@ -62,6 +66,19 @@ object Utils {
             "FRIDAY" -> "Пятница"
             "SATURDAY" -> "Суббота"
             "SUNDAY" -> "Воскресенье"
+            else -> "НИЧЕГО"
+        }
+    }
+
+    fun getDecryptedWeekAccusativeForm(week: String): String {
+        return when(week) {
+            "MONDAY" -> "Понедельника"
+            "TUESDAY" -> "Вторника"
+            "WEDNESDAY" -> "Среды"
+            "THURSDAY" -> "Четверга"
+            "FRIDAY" -> "Пятницы"
+            "SATURDAY" -> "Субботы"
+            "SUNDAY" -> "Воскресенья"
             else -> "НИЧЕГО"
         }
     }

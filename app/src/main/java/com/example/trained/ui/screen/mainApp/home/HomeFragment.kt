@@ -86,6 +86,8 @@ class HomeFragment :
             if (time != null) {
                 val formatedTime = formattedWatchWidget(time * 1000)
                 textTime.text = formatedTime
+            } else {
+                textTime.text = "0м"
             }
             textApproach.text = "${completeApproach}/${sumApproach}"
             textWeight.text = "50kg"

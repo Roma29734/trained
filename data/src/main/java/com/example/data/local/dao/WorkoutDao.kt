@@ -59,4 +59,7 @@ interface WorkoutDao {
 
     @Query("SELECT COUNT(*) FROM daily_statistics_table")
     suspend fun getSizeDayWorkoutTable(): Int
+
+    @Query("DELETE FROM daily_statistics_table")
+    suspend fun deleteDailyStatisticsTable()
 }

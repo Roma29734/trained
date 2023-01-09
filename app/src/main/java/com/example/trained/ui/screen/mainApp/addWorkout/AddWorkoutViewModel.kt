@@ -8,7 +8,7 @@ import com.example.data.toDailyNew
 import com.example.domain.model.DailyStatisticsModel
 import com.example.domain.model.WorkoutDayDomainModel
 import com.example.domain.model.WorkoutModel
-import com.example.domain.userCase.DayWorkoutInteractor
+import com.example.domain.userCase.DailyStatisticsInteractor
 import com.example.domain.userCase.WorkoutInteractor
 import com.example.trained.utils.Utils.getDate
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -19,7 +19,7 @@ import javax.inject.Inject
 @HiltViewModel
 class AddWorkoutViewModel @Inject constructor(
     private val workoutInteractor: WorkoutInteractor,
-    private val dayWorkoutInteractor: DayWorkoutInteractor,
+    private val dailyStatisticsInteractor: DailyStatisticsInteractor,
 ) : ViewModel() {
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -44,7 +44,7 @@ class AddWorkoutViewModel @Inject constructor(
             workoutInteractor.updateWorkout(updateWorkoutModel)
             val day = getDate().dayOfWeek.toString()
             if(workoutModel.day == day) {
-                val dailyModel = dayWorkoutInteractor.readDayWorkout()
+                val dailyModel = dailyStatisticsInteractor.readDayWorkout()
                 val newDailyWorkout = dailyModel?.workout
                 newDailyWorkout?.add(model.toDailyNew())
                 val updateDailyModel = newDailyWorkout?.let {
@@ -55,7 +55,7 @@ class AddWorkoutViewModel @Inject constructor(
                         timeWorkout = dailyModel.timeWorkout
                     )
                 }
-                updateDailyModel?.let { dayWorkoutInteractor.updateDayWorkout(it) }
+                updateDailyModel?.let { dailyStatisticsInteractor.updateDayWorkout(it) }
             }
         }
     }

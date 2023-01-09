@@ -3,7 +3,7 @@ package com.example.domain.userCase
 import com.example.domain.model.DailyStatisticsModel
 import com.example.domain.repository.TrainedRepository
 
-class DayWorkoutInteractor constructor(
+class DailyStatisticsInteractor constructor(
     private val repository: TrainedRepository
 ) {
 
@@ -20,4 +20,6 @@ class DayWorkoutInteractor constructor(
 
     suspend fun getDayWorkoutByWorkoutId(id: Int): DailyStatisticsModel? =
         repository.getDayWorkoutByWorkoutId(id)
+
+    suspend fun deleteDailyStatisticsTable() = repository.deleteDailyStatisticsTable()
 }

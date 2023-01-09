@@ -13,4 +13,5 @@
     <string name="planned_holidays">Запланированный отдых</string>
     <string name="complete">Завершить</string>
     <string name="next_mat_button">Продолжить</string>
+    <string name="_0_00">0:00</string>
 </resources>

@@ -69,6 +69,8 @@ dependencies {
     def hiltVersion = "2.44.2"
     implementation("com.google.dagger:hilt-android:$hiltVersion")
     kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
+
+    implementation 'com.github.ismaeldivita:chip-navigation-bar:1.4.0'
 }
 kapt {
     correctErrorTypes = true
