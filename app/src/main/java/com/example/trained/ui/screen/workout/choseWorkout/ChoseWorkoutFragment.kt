@@ -8,6 +8,7 @@ import com.example.data.model.transit.WorkoutTransitionModel
 import com.example.trained.base.BaseFragment
 import com.example.trained.databinding.FragmentChoseWorkoutBinding
 import com.example.trained.ui.adapter.WorkoutChoseStateAdapter
+import com.example.trained.ui.adapter.WorkoutStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -16,7 +17,7 @@ class ChoseWorkoutFragment :
         (FragmentChoseWorkoutBinding::inflate) {
 
     private val viewModel: ChoseWorkoutViewModel by viewModels()
-    private val adapter = WorkoutChoseStateAdapter()
+    private val adapter = WorkoutStateAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -42,8 +43,8 @@ class ChoseWorkoutFragment :
         binding.recycler.layoutManager = GridLayoutManager(context, 2)
 
         viewModel.readWorkout()
-        viewModel.workout?.observe(viewLifecycleOwner) {
-            adapter.setWorkout(it.workout)
+        viewModel.workout?.observe(viewLifecycleOwner) { result ->
+            adapter.setWorkout(result.workout)
         }
     }
 }

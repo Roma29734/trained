@@ -2,6 +2,7 @@ package com.example.trained.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.data.model.transit.TransitDailyWorkoutModel
 import com.example.domain.model.DailyWorkoutDomainModel
@@ -29,7 +30,6 @@ class WorkoutChoseStateAdapter: RecyclerView.Adapter<WorkoutChoseStateAdapter.My
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
         val positionWorkout = dayWorkout[position]
-
         holder.binding.textNameWorkout.text = positionWorkout.nameWorkout
         holder.binding.textApproach.text = positionWorkout.sumApproach.toString()
         holder.binding.textQuantity.text = positionWorkout.receptions.toString()
