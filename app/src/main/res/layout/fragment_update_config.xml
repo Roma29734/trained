@@ -33,7 +33,7 @@
             android:id="@+id/tiNameWorkout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Название упражениея"
+            android:hint="@string/nameWorkout"
             android:inputType="text" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -55,7 +55,7 @@
             android:id="@+id/tiApproaches"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Количевство подтходов"
+            android:hint="@string/quantityApproaches"
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -76,7 +76,7 @@
             android:id="@+id/tiRepetitions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Количевство повторений"
+            android:hint="@string/quantityRepetitions"
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 

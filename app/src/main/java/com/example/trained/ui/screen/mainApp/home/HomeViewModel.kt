@@ -37,9 +37,12 @@ class HomeViewModel @Inject constructor(
             _dailyWorkoutState.update { it.copy(loadState = LoadState.LOADING) }
             viewModelScope.launch(Dispatchers.IO) {
 
+//                Проверка на наличие профиля
                 if(profileInteractor.getSizeSportsmanTable() == 0) return@launch
 
+//                Проверка на наличие таблицы дневной статистики
                 if (dailyStatisticsInteractor.getSizeDayWorkoutTable() != 0) {
+//                    Проверка на соответствие даты в таблице дневной статистики и текущей даты
                     checkDateDailyStatistics()
                     val dailyModel = dailyStatisticsInteractor.readDayWorkout()
                     _dailyWorkoutState.update {
@@ -57,6 +60,7 @@ class HomeViewModel @Inject constructor(
         }
     }
 
+// создание таблицы дневной статистики
     private fun fillDayWorkout() {
         viewModelScope.launch(Dispatchers.IO) {
             _dailyWorkoutState.update { it.copy(loadState = LoadState.NON_DAILY) }
@@ -76,7 +80,7 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-
+//  Проверка даты в таблице дневной статистики
     private fun checkDateDailyStatistics() {
         viewModelScope.launch(Dispatchers.IO) {
             val model = dailyStatisticsInteractor.readDayWorkout()
@@ -88,7 +92,7 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-
+//  Обновление даты в таблице дневной статистики
     private fun updateDailyStatistics(date: String) {
         viewModelScope.launch(Dispatchers.IO) {
 
@@ -103,6 +107,7 @@ class HomeViewModel @Inject constructor(
             )
 
             dailyStatisticsInteractor.insertDayWorkout(resultDaylyWorkout)
+            readDayWorkout()
         }
     }
 }

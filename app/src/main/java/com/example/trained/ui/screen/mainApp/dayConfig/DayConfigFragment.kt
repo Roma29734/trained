@@ -32,7 +32,6 @@ class DayConfigFragment :
             binding.include2.textView6.text = "Конфигурация $testData"
             viewModel.readWorkout(this)
         }
-//        viewModel.readWorkout(args.week)
         viewModel.workout.observe(viewLifecycleOwner) { result ->
             adapter.callBackDel = {
                 val model = TransitUpdateWorkoutModel(

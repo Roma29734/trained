@@ -14,4 +14,19 @@
     <string name="complete">Завершить</string>
     <string name="next_mat_button">Продолжить</string>
     <string name="_0_00">0:00</string>
+    <string name="quantityApproaches">Количевство подтходов</string>
+    <string name="quantityRepetitions">Количевство повторений</string>
+    <string name="nameWorkout">Название упражениея</string>
+    <string name="selectedWorkoutwhichYouWillPerform">выберите упражнение которое будете выполнять</string>
+    <string name="yourCompleetWorkout">Вы выполнили упражнение</string>
+    <string name="YourWorkoutForToday">Ваша тренировка на сегодня</string>
+    <string name="startWorkout">Начать тренировку</string>
+    <string name="howYourName">Как вас зовут?</string>
+    <string name="howYourAge">Скольво вам лет?</string>
+    <string name="HowYourGrowth">Какой ваш рост?</string>
+    <string name="HowYourWeight">Какой ваш вес?</string>
+    <string name="approcatechItem">Количество подходов</string>
+    <string name="timeChill">Время для отдыха</string>
+    <string name="start">Старт</string>
+    <string name="StartWorkout">Начать тренировку</string>
 </resources>

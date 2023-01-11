@@ -64,7 +64,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Количество подходов"
+        android:text="@string/approcatechItem"
         style="@style/textSecondContext"
         app:layout_constraintStart_toStartOf="@+id/textApproach"
         app:layout_constraintTop_toBottomOf="@+id/textApproach" />
@@ -86,7 +86,7 @@
             android:id="@+id/tiTimeChill"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Время для отдыха"
+            android:hint="@string/timeChill"
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 

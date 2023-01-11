@@ -46,5 +46,5 @@
         app:layout_constraintBottom_toTopOf="@+id/widget"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="Вы выполнили упражнение" />
+        android:text="@string/yourCompleetWorkout" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,7 +22,7 @@
             android:id="@+id/tiName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Как вас зовут?"
+            android:hint="@string/howYourName"
             android:inputType="text" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -44,7 +44,7 @@
             android:id="@+id/tiGrowth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Какой ваш рост?"
+            android:hint="@string/HowYourGrowth"
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -65,7 +65,7 @@
             android:id="@+id/tiWeight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Какой ваш вес?"
+            android:hint="@string/HowYourWeight"
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -86,7 +86,7 @@
             android:id="@+id/tiAge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Скольво вам лет?"
+            android:hint="@string/howYourAge"
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 

@@ -34,7 +34,7 @@
         android:id="@+id/materialButton"
         style="@style/mainMaterialButton"
         android:layout_marginBottom="32dp"
-        android:text="Старт"
+        android:text="@string/start"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

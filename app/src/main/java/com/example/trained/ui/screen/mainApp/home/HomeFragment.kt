@@ -24,7 +24,7 @@ class HomeFragment :
     BaseFragment<FragmentHomeBinding>
         (FragmentHomeBinding::inflate) {
 
-    private val viewModel: HomeViewModel by viewModels {viewModelFactory}
+    private val viewModel: HomeViewModel by viewModels { viewModelFactory }
     private val adapter = WorkoutStateAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -32,8 +32,9 @@ class HomeFragment :
 
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = GridLayoutManager(context, 2)
-        Log.d("checkBagDateHomeScreen","${getDate().dayOfWeek}")
+        Log.d("checkBagDateHomeScreen", "${getDate().dayOfWeek}")
         viewModel.readDayWorkout()
+//        Обработка состояния запроса
         lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.dailyWorkoutState.collectLatest { uiState ->
@@ -46,11 +47,17 @@ class HomeFragment :
                         }
                         LoadState.ERROR -> {
                             binding.progressBar.visibility = View.INVISIBLE
-                            Toast.makeText(context, "Произошла ошибка перезпустите приложение", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                context,
+                                "Произошла ошибка перезпустите приложение",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                         LoadState.SUCCESS -> {
                             binding.progressBar.visibility = View.INVISIBLE
-                            uiState.successState?.sportsmanModel?.let { binding.textName.text = it.name }
+                            uiState.successState?.sportsmanModel?.let {
+                                binding.textName.text = it.name
+                            }
                             uiState.successState?.dailyWorkoutModel?.let { adapter.setWorkout(it.workout) }
                             var completeApproach = 0
                             var sumApproach = 0
@@ -76,6 +83,7 @@ class HomeFragment :
         }
     }
 
+//    Настрйка виджета состояния тренировки
     private fun setUiWidget(time: Long?, completeApproach: Int, sumApproach: Int) {
 
         binding.mainWidget.apply {
