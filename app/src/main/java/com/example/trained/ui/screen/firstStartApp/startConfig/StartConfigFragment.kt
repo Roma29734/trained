@@ -11,17 +11,14 @@ import com.example.trained.R
 import com.example.trained.base.BaseFragment
 import com.example.trained.databinding.FragmentStartConfigBinding
 import com.example.trained.ui.adapter.WorkoutConfigAdapter
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class StartConfigFragment :
     BaseFragment<FragmentStartConfigBinding>
         (FragmentStartConfigBinding::inflate) {
 
-    private val viewModel: StartConfigViewModel by viewModels()
+    private val viewModel: StartConfigViewModel by viewModels {viewModelFactory}
     private val adapter = WorkoutConfigAdapter()
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

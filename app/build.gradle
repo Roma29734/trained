@@ -2,7 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
-    id 'com.google.dagger.hilt.android'
+//    id 'com.google.dagger.hilt.android'
     id 'kotlin-parcelize'
     id 'androidx.navigation.safeargs.kotlin'
 }
@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.trained"
-        minSdk 23
+        minSdk 26
         targetSdk 32
         versionCode 1
         versionName "1.0"
@@ -32,6 +32,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+        freeCompilerArgs += [
+                "-Xjvm-default=all",
+        ]
     }
     viewBinding{
         enabled true
@@ -65,11 +68,23 @@ dependencies {
     implementation "androidx.room:room-ktx:$room_version"
     androidTestImplementation "androidx.room:room-testing:$room_version"
 
-    //Hilt
-    def hiltVersion = "2.44.2"
-    implementation("com.google.dagger:hilt-android:$hiltVersion")
-    kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
+//     Hilt
+//    def hiltVersion = "2.44.2"
+//    implementation("com.google.dagger:hilt-android:$hiltVersion")
+//    kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
 
+
+    // Dagger
+
+    def daggerVersion = "2.44.2"
+    def secondDaggerVersion = "2.40"
+
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$secondDaggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$secondDaggerVersion"
+
+    // Custom
     implementation 'com.github.ismaeldivita:chip-navigation-bar:1.4.0'
 }
 kapt {

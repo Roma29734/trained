@@ -9,15 +9,15 @@ import com.example.trained.R
 import com.example.trained.base.BaseFragment
 import com.example.trained.databinding.FragmentFinishedWorkoutBinding
 import com.example.trained.utils.Utils.formattedWatchWidget
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
+
+
 class FinishedWorkoutFragment :
     BaseFragment<FragmentFinishedWorkoutBinding>
         (FragmentFinishedWorkoutBinding::inflate) {
 
+    private val viewModel: FinishedViewModel by viewModels {viewModelFactory}
     private val args: FinishedWorkoutFragmentArgs by navArgs()
-    private val viewModel: FinishedViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

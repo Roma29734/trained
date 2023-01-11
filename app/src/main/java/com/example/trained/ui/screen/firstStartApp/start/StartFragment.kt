@@ -7,13 +7,12 @@ import androidx.navigation.Navigation
 import com.example.trained.R
 import com.example.trained.base.BaseFragment
 import com.example.trained.databinding.FragmentStartBinding
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
+
 class StartFragment :
     BaseFragment<FragmentStartBinding>
         (FragmentStartBinding::inflate) {
-    private val viewModel: StartViewModel by viewModels()
+    private val viewModel: StartViewModel by viewModels { viewModelFactory }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

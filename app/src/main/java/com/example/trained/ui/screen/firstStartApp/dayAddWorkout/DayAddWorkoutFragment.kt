@@ -12,17 +12,16 @@ import androidx.navigation.fragment.navArgs
 import com.example.data.toDomain
 import com.example.trained.base.BaseFragment
 import com.example.trained.databinding.FragmentDayAddWorkoutBinding
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
+
 class DayAddWorkoutFragment :
     BaseFragment<FragmentDayAddWorkoutBinding>
         (FragmentDayAddWorkoutBinding::inflate) {
 
-    private val viewModel: DayAddWorkoutViewModel by viewModels()
+    private val viewModel: DayAddWorkoutViewModel by viewModels {viewModelFactory}
     private val args: DayAddWorkoutFragmentArgs by navArgs()
 
-    @RequiresApi(Build.VERSION_CODES.O)
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

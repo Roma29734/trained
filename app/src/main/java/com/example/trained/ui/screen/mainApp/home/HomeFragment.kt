@@ -1,11 +1,9 @@
 package com.example.trained.ui.screen.mainApp.home
 
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -18,19 +16,17 @@ import com.example.trained.ui.adapter.WorkoutStateAdapter
 import com.example.trained.utils.LoadState
 import com.example.trained.utils.Utils.formattedWatchWidget
 import com.example.trained.utils.Utils.getDate
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-@AndroidEntryPoint
+
 class HomeFragment :
     BaseFragment<FragmentHomeBinding>
         (FragmentHomeBinding::inflate) {
 
-    private val viewModel: HomeViewModel by viewModels()
+    private val viewModel: HomeViewModel by viewModels {viewModelFactory}
     private val adapter = WorkoutStateAdapter()
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

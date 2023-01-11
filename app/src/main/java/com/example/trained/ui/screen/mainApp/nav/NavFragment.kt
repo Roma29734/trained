@@ -12,15 +12,14 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.trained.R
 import com.example.trained.base.BaseFragment
 import com.example.trained.databinding.FragmentNavBinding
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
-@AndroidEntryPoint
+
 class NavFragment :
     BaseFragment<FragmentNavBinding>
         (FragmentNavBinding::inflate) {
 
-    private val viewModel: NavViewModel by viewModels()
+    private val viewModel: NavViewModel by viewModels {viewModelFactory}
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

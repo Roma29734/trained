@@ -5,12 +5,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.model.WorkoutModel
 import com.example.domain.userCase.WorkoutInteractor
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-@HiltViewModel
+
 class StartViewModel @Inject constructor(
     private val workoutInteractor: WorkoutInteractor,
 ) : ViewModel() {

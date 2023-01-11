@@ -1,7 +1,6 @@
 package com.example.trained.utils
 
-import android.os.Build
-import androidx.annotation.RequiresApi
+
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -46,13 +45,8 @@ object Utils {
         val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
         val data = dateFormat.format(Date())
 
+        val firstApiFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
 
-        val firstApiFormat =
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
-            } else {
-                TODO()
-            }
         return LocalDate.parse(data, firstApiFormat)
     }
 

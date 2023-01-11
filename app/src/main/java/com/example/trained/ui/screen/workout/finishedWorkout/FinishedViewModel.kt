@@ -5,13 +5,12 @@ import androidx.lifecycle.viewModelScope
 import com.example.data.model.transit.WorkoutTransitionModel
 import com.example.domain.model.DailyWorkoutDomainModel
 import com.example.domain.userCase.DailyStatisticsInteractor
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
-@HiltViewModel
+
 class FinishedViewModel @Inject constructor(
     private val dailyStatisticsInteractor: DailyStatisticsInteractor
 ): ViewModel() {

@@ -3,10 +3,10 @@ package com.example.trained.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.trained.R
-import dagger.hilt.android.AndroidEntryPoint
+import dagger.android.support.DaggerAppCompatActivity
 
-@AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+
+class MainActivity : DaggerAppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

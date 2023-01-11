@@ -1,7 +1,10 @@
 package com.example.trained.app
 
-import android.app.Application
-import dagger.hilt.android.HiltAndroidApp
+import com.example.trained.di.DaggerAppComponent
+import dagger.android.AndroidInjector
+import dagger.android.DaggerApplication
 
-@HiltAndroidApp
-class App: Application()
+class App : DaggerApplication() {
+    private val applicationInjector = DaggerAppComponent.builder().application(this).build()
+    override fun applicationInjector(): AndroidInjector<out DaggerApplication> = applicationInjector
+}

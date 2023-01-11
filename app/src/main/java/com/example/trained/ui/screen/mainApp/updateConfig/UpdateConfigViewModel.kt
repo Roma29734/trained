@@ -1,7 +1,6 @@
 package com.example.trained.ui.screen.mainApp.updateConfig
 
-import android.os.Build
-import androidx.annotation.RequiresApi
+
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.data.model.transit.TransitWorkoutModel
@@ -10,18 +9,17 @@ import com.example.data.toDomain
 import com.example.domain.userCase.DailyStatisticsInteractor
 import com.example.domain.userCase.WorkoutInteractor
 import com.example.trained.utils.Utils.getDate
-import dagger.hilt.android.lifecycle.HiltViewModel
+
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-@HiltViewModel
+
 class UpdateConfigViewModel @Inject constructor(
     private val dailyStatisticsInteractor: DailyStatisticsInteractor,
     private val workoutInteractor: WorkoutInteractor,
 ) : ViewModel() {
 
-    @RequiresApi(Build.VERSION_CODES.O)
     fun updateWorkout(
         name: String,
         repetitions: String,

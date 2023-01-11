@@ -1,25 +1,22 @@
 package com.example.trained.ui.screen.mainApp.updateConfig
 
-import android.os.Build
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.example.trained.base.BaseFragment
 import com.example.trained.databinding.FragmentUpdateConfigBinding
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
+
+
 class UpdateConfigFragment :
     BaseFragment<FragmentUpdateConfigBinding>
         (FragmentUpdateConfigBinding::inflate) {
 
+    private val viewModel: UpdateConfigViewModel by viewModels {viewModelFactory}
     private val args: UpdateConfigFragmentArgs by navArgs()
-    private val viewModel: UpdateConfigViewModel by viewModels()
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.include5.textView6.text = "Изменение тренировки"

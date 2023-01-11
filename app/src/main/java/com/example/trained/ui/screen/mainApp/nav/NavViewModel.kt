@@ -4,10 +4,9 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.example.domain.userCase.ProfileInteractor
 import com.example.domain.userCase.WorkoutInteractor
-import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
-@HiltViewModel
+
 class NavViewModel @Inject  constructor(
     private val profileInteractor: ProfileInteractor,
     private val workoutInteractor: WorkoutInteractor,

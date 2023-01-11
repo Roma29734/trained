@@ -5,14 +5,13 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import com.example.trained.base.BaseFragment
 import com.example.trained.databinding.FragmentProfileBinding
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
+
 class ProfileFragment :
     BaseFragment<FragmentProfileBinding>
         (FragmentProfileBinding::inflate) {
 
-    private val viewModel: ProfileViewModel by viewModels()
+    private val viewModel: ProfileViewModel by viewModels {viewModelFactory}
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

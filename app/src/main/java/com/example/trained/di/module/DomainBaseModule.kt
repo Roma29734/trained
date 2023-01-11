@@ -1,4 +1,4 @@
-package com.example.trained.di
+package com.example.trained.di.module
 
 import com.example.domain.repository.TrainedRepository
 import com.example.domain.userCase.DailyStatisticsInteractor
@@ -6,10 +6,7 @@ import com.example.domain.userCase.ProfileInteractor
 import com.example.domain.userCase.WorkoutInteractor
 import dagger.Module
 import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ViewModelComponent
 
-@InstallIn(ViewModelComponent::class)
 @Module
 class DomainBaseModule {
 

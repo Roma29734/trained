@@ -2,19 +2,14 @@ package com.example.trained.ui.screen.workout.transition
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import com.example.trained.R
 import com.example.trained.base.BaseFragment
 import com.example.trained.databinding.FragmentTransitionBinding
 import com.example.trained.utils.Utils.formattedWatchWidget
-import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
-@AndroidEntryPoint
+
+
 class TransitionFragment :
     BaseFragment<FragmentTransitionBinding>
         (FragmentTransitionBinding::inflate) {

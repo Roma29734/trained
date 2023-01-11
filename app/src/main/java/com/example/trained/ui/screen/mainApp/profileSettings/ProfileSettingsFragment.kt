@@ -9,14 +9,13 @@ import androidx.navigation.Navigation
 import com.example.trained.R
 import com.example.trained.base.BaseFragment
 import com.example.trained.databinding.FragmentProfileSettingsBinding
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
+
 class ProfileSettingsFragment :
     BaseFragment<FragmentProfileSettingsBinding>
         (FragmentProfileSettingsBinding::inflate) {
 
-    private val viewModel: ProfileSettingsViewModel by viewModels()
+    private val viewModel: ProfileSettingsViewModel by viewModels {viewModelFactory}
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

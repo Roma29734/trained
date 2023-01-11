@@ -1,28 +1,25 @@
 package com.example.trained.ui.screen.mainApp.addWorkout
 
-import android.os.Build
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import com.example.data.toDomain
 import com.example.trained.base.BaseFragment
 import com.example.trained.databinding.FragmentAddWorkoutBinding
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
+
+
 class AddWorkoutFragment :
     BaseFragment<FragmentAddWorkoutBinding>
         (FragmentAddWorkoutBinding::inflate) {
 
-    private val viewModel: AddWorkoutViewModel by viewModels()
+    private val viewModel: AddWorkoutViewModel by viewModels {viewModelFactory}
     private val args: AddWorkoutFragmentArgs by navArgs()
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

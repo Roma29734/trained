@@ -1,7 +1,5 @@
 package com.example.trained.ui.screen.mainApp.addWorkout
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.data.toDailyNew
@@ -11,18 +9,16 @@ import com.example.domain.model.WorkoutModel
 import com.example.domain.userCase.DailyStatisticsInteractor
 import com.example.domain.userCase.WorkoutInteractor
 import com.example.trained.utils.Utils.getDate
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-@HiltViewModel
+
 class AddWorkoutViewModel @Inject constructor(
     private val workoutInteractor: WorkoutInteractor,
     private val dailyStatisticsInteractor: DailyStatisticsInteractor,
 ) : ViewModel() {
 
-    @RequiresApi(Build.VERSION_CODES.O)
     fun saveWorkout(
         name: String,
         repetitions: String,
