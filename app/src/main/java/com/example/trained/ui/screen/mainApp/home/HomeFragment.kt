@@ -19,7 +19,6 @@ import com.example.trained.utils.Utils.getDate
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-
 class HomeFragment :
     BaseFragment<FragmentHomeBinding>
         (FragmentHomeBinding::inflate) {

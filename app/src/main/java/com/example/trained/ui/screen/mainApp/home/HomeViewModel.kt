@@ -18,7 +18,6 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-
 class HomeViewModel @Inject constructor(
     private val profileInteractor: ProfileInteractor,
     private val workoutInteractor: WorkoutInteractor,
