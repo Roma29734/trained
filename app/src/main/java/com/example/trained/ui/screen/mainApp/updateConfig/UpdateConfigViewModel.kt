@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.data.model.transit.TransitWorkoutModel
 import com.example.data.toDailyNew
 import com.example.data.toDomain
+import com.example.domain.model.DailyStatisticsModel
 import com.example.domain.userCase.DailyStatisticsInteractor
 import com.example.domain.userCase.WorkoutInteractor
 import com.example.trained.utils.Utils.getDate
@@ -13,7 +14,6 @@ import com.example.trained.utils.Utils.getDate
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-
 
 class UpdateConfigViewModel @Inject constructor(
     private val dailyStatisticsInteractor: DailyStatisticsInteractor,
@@ -52,6 +52,33 @@ class UpdateConfigViewModel @Inject constructor(
                 dailyWorkout?.let { dailyStatisticsInteractor.updateDayWorkout(it) }
             }
 
+        }
+    }
+
+    fun deleteWorkout(
+        id: Int,
+        workoutModel: TransitWorkoutModel,
+    ) {
+        viewModelScope.launch(Dispatchers.IO) {
+
+            val newWorkout = workoutModel.workout
+            newWorkout.removeAt(id)
+
+            val newWorkoutModel = TransitWorkoutModel(
+                id = workoutModel.id,
+                workout = newWorkout,
+                day = workoutModel.day
+            )
+            workoutInteractor.updateWorkout(newWorkoutModel.toDomain())
+
+            val day = getDate().dayOfWeek.toString()
+            if(workoutModel.day == day) {
+                val dailyWorkout = dailyStatisticsInteractor.readDayWorkout()
+
+                dailyWorkout?.workout?.removeAt(id)
+
+                dailyWorkout?.let { dailyStatisticsInteractor.updateDayWorkout(it) }
+            }
         }
     }
 }

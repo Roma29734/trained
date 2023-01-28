@@ -29,4 +29,6 @@
     <string name="timeChill">Время для отдыха</string>
     <string name="start">Старт</string>
     <string name="StartWorkout">Начать тренировку</string>
+    <string name="delete">Удалить</string>
+    <string name="edit">Изменить</string>
 </resources>

@@ -8,13 +8,22 @@
 
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/matButtonSave"
+        android:id="@+id/matButtonDelete"
         style="@style/mainMaterialButton"
         android:layout_marginBottom="32dp"
-        android:text="@string/save"
+        android:text="@string/delete"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.89"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/matButtonEdit"
+        style="@style/mainMaterialButton"
+        android:layout_marginBottom="8dp"
+        android:text="@string/edit"
+        app:layout_constraintBottom_toTopOf="@+id/matButtonDelete"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
