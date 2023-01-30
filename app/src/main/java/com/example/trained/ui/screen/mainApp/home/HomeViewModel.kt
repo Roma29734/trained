@@ -37,19 +37,23 @@ class HomeViewModel @Inject constructor(
             viewModelScope.launch(Dispatchers.IO) {
 
 //                Проверка на наличие профиля
-                if(profileInteractor.getSizeSportsmanTable() == 0) return@launch
+                if (profileInteractor.getSizeSportsmanTable() == 0) return@launch
 
 //                Проверка на наличие таблицы дневной статистики
                 if (dailyStatisticsInteractor.getSizeDayWorkoutTable() != 0) {
 //                    Проверка на соответствие даты в таблице дневной статистики и текущей даты
-                    checkDateDailyStatistics()
-                    val dailyModel = dailyStatisticsInteractor.readDayWorkout()
-                    _dailyWorkoutState.update {
-                        it.copy(
-                            loadState = LoadState.SUCCESS,
-                            successState = HomeModel(dailyModel!!, readProfile())
-                        )
+                    if(checkDateDailyStatistics()) {
+                        val dailyModel = dailyStatisticsInteractor.readDayWorkout()
+                        _dailyWorkoutState.update {
+                            it.copy(
+                                loadState = LoadState.SUCCESS,
+                                successState = HomeModel(dailyModel!!, readProfile())
+                            )
+                        }
+                    } else {
+                        updateDailyStatistics()
                     }
+
                 } else {
                     fillDayWorkout()
                 }
@@ -59,7 +63,7 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-// создание таблицы дневной статистики
+    // создание таблицы дневной статистики
     private fun fillDayWorkout() {
         viewModelScope.launch(Dispatchers.IO) {
             _dailyWorkoutState.update { it.copy(loadState = LoadState.NON_DAILY) }
@@ -79,22 +83,21 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-//  Проверка даты в таблице дневной статистики
-    private fun checkDateDailyStatistics() {
-        viewModelScope.launch(Dispatchers.IO) {
-            val model = dailyStatisticsInteractor.readDayWorkout()
-            val date = getDate().dayOfWeek.toString()
+    //  Проверка даты в таблице дневной статистики
+    private suspend fun checkDateDailyStatistics(): Boolean {
+        val model = dailyStatisticsInteractor.readDayWorkout()
+        val date = getDate().dayOfWeek.toString()
 
-            if(model!!.day != date) {
-                updateDailyStatistics(date)
-            }
+        if (model!!.day != date) {
+            return false
         }
+        return true
     }
 
-//  Обновление даты в таблице дневной статистики
-    private fun updateDailyStatistics(date: String) {
+    //  Обновление даты в таблице дневной статистики
+    private fun updateDailyStatistics() {
         viewModelScope.launch(Dispatchers.IO) {
-
+            val date = getDate().dayOfWeek.toString()
             dailyStatisticsInteractor.deleteDailyStatisticsTable()
             val resultWorkout = workoutInteractor.getWorkoutByWeeks(date)
 

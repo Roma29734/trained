@@ -16,6 +16,7 @@ import com.example.trained.ui.adapter.WorkoutStateAdapter
 import com.example.trained.utils.LoadState
 import com.example.trained.utils.Utils.formattedWatchWidget
 import com.example.trained.utils.Utils.getDate
+import com.example.trained.utils.Utils.getDecryptedWeek
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -29,8 +30,14 @@ class HomeFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.recyclerView.adapter = adapter
-        binding.recyclerView.layoutManager = GridLayoutManager(context, 2)
+        binding.apply {
+            recyclerView.adapter = adapter
+            recyclerView.layoutManager = GridLayoutManager(context, 2)
+            materialButton.setOnClickListener {
+                mainNavController.navigate(R.id.action_navFragment_to_choseWorkoutFragment)
+            }
+            include.textView6.text = getDecryptedWeek(getDate().dayOfWeek.toString())
+        }
         Log.d("checkBagDateHomeScreen", "${getDate().dayOfWeek}")
         viewModel.readDayWorkout()
 //        Обработка состояния запроса
@@ -77,9 +84,6 @@ class HomeFragment :
             }
         }
 
-        binding.materialButton.setOnClickListener {
-            mainNavController.navigate(R.id.action_navFragment_to_choseWorkoutFragment)
-        }
     }
 
 //    Настрйка виджета состояния тренировки
