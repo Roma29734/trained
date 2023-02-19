@@ -71,6 +71,7 @@
         tools:text="3 среднее кол-во подтходов за тренировку" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/matButtonSettingsProfile"
         style="@style/mainMaterialButton"
         android:layout_marginBottom="16dp"
         android:text="@string/setings_profile"

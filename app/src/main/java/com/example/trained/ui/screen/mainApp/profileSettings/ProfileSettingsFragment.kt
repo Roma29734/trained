@@ -4,18 +4,18 @@ import android.os.Bundle
 import android.text.TextUtils.isEmpty
 import android.view.View
 import android.widget.Toast
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import com.example.trained.R
 import com.example.trained.base.BaseFragment
 import com.example.trained.databinding.FragmentProfileSettingsBinding
-
+import com.example.trained.ui.MainViewModel
 
 class ProfileSettingsFragment :
     BaseFragment<FragmentProfileSettingsBinding>
         (FragmentProfileSettingsBinding::inflate) {
 
-    private val viewModel: ProfileSettingsViewModel by viewModels {viewModelFactory}
+    private val viewModel: MainViewModel by activityViewModels { viewModelFactory }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -23,7 +23,7 @@ class ProfileSettingsFragment :
         binding.matButtonNext.setOnClickListener {
             if (checkInputPol()) {
 
-                viewModel.inputuser(
+                viewModel.inputUser(
                     name = binding.tiName.text.toString(),
                     age = binding.tiAge.text.toString(),
                     weight = binding.tiWeight.text.toString(),
@@ -40,7 +40,7 @@ class ProfileSettingsFragment :
 
     }
 
-    fun checkInputPol(): Boolean {
+    private fun checkInputPol(): Boolean {
         return !(
                 isEmpty(binding.tiAge.text)
                         && isEmpty(binding.tiGrowth.text)

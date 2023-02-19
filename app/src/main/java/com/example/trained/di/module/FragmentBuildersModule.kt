@@ -11,6 +11,7 @@ import com.example.trained.ui.screen.mainApp.nav.NavFragment
 import com.example.trained.ui.screen.mainApp.profile.ProfileFragment
 import com.example.trained.ui.screen.mainApp.profileSettings.ProfileSettingsFragment
 import com.example.trained.ui.screen.mainApp.updateConfig.UpdateConfigFragment
+import com.example.trained.ui.screen.mainApp.updateProfile.UpdateProfileFragment
 import com.example.trained.ui.screen.workout.choseWorkout.ChoseWorkoutFragment
 import com.example.trained.ui.screen.workout.finishedWorkout.FinishedWorkoutFragment
 import com.example.trained.ui.screen.workout.settingExercise.SettingExerciseFragment
@@ -59,6 +60,8 @@ abstract class FragmentBuildersModule {
     @ContributesAndroidInjector
     abstract fun contributeUpdateConfigFragment(): UpdateConfigFragment
 
+    @ContributesAndroidInjector
+    abstract fun contributeUpdateProfileFragment(): UpdateProfileFragment
 //    Workout
     @ContributesAndroidInjector
     abstract fun contributeChoseWorkoutFragment(): ChoseWorkoutFragment

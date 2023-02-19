@@ -8,7 +8,7 @@
     <string name="welcomeHome">С возвращением</string>
     <string name="setings_profile">Настроить профиль</string>
     <string name="addWorkout">Добавить упражнение</string>
-    <string name="save">Cохранить</string>
+    <string name="save">Сохранить</string>
     <string name="reciption_item">Количество повторений</string>
     <string name="planned_holidays">Запланированный отдых</string>
     <string name="complete">Завершить</string>
@@ -31,4 +31,8 @@
     <string name="StartWorkout">Начать тренировку</string>
     <string name="delete">Удалить</string>
     <string name="edit">Изменить</string>
+    <string name="age">Возраст</string>
+    <string name="height">Рост</string>
+    <string name="weight">Вес</string>
+    <string name="profileSettings">Настройка профиля</string>
 </resources>

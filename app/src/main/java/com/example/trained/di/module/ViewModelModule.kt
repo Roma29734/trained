@@ -2,6 +2,7 @@ package com.example.trained.di.module
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.trained.ui.MainViewModel
 import com.example.trained.ui.screen.firstStartApp.dayAddWorkout.DayAddWorkoutViewModel
 import com.example.trained.ui.screen.firstStartApp.start.StartViewModel
 import com.example.trained.ui.screen.firstStartApp.startConfig.StartConfigViewModel
@@ -10,8 +11,6 @@ import com.example.trained.ui.screen.mainApp.config.ConfigViewModel
 import com.example.trained.ui.screen.mainApp.dayConfig.DayConfigViewModel
 import com.example.trained.ui.screen.mainApp.home.HomeViewModel
 import com.example.trained.ui.screen.mainApp.nav.NavViewModel
-import com.example.trained.ui.screen.mainApp.profile.ProfileViewModel
-import com.example.trained.ui.screen.mainApp.profileSettings.ProfileSettingsViewModel
 import com.example.trained.ui.screen.mainApp.updateConfig.UpdateConfigViewModel
 import com.example.trained.ui.screen.workout.choseWorkout.ChoseWorkoutViewModel
 import com.example.trained.ui.screen.workout.finishedWorkout.FinishedViewModel
@@ -26,6 +25,11 @@ import kotlin.reflect.KClass
 abstract class ViewModelModule {
     @Binds
     abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(MainViewModel::class)
+    abstract fun bindMainViewModel(imagesListViewModel: MainViewModel): ViewModel
 
     @Binds
     @IntoMap
@@ -67,15 +71,6 @@ abstract class ViewModelModule {
     @ViewModelKey(NavViewModel::class)
     abstract fun bindNavViewModel(imagesListViewModel: NavViewModel): ViewModel
 
-    @Binds
-    @IntoMap
-    @ViewModelKey(ProfileViewModel::class)
-    abstract fun bindProfileViewModel(imagesListViewModel: ProfileViewModel): ViewModel
-
-    @Binds
-    @IntoMap
-    @ViewModelKey(ProfileSettingsViewModel::class)
-    abstract fun bindProfileSettingsViewModel(imagesListViewModel: ProfileSettingsViewModel): ViewModel
 
     @Binds
     @IntoMap

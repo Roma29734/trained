@@ -40,6 +40,11 @@
         <action
             android:id="@+id/action_navFragment_to_dayConfigFragment2"
             app:destination="@id/dayConfigFragment" />
+        <action
+            android:id="@+id/action_navFragment_to_updateProfileFragment"
+            app:destination="@id/updateProfileFragment"
+            app:launchSingleTop="false"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/profileSettingsFragment"
@@ -190,4 +195,9 @@
             android:id="@+id/action_dayConfigFragment_to_addWorkoutFragment"
             app:destination="@id/addWorkoutFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/updateProfileFragment"
+        android:name="com.example.trained.ui.screen.mainApp.updateProfile.UpdateProfileFragment"
+        android:label="fragment_update_profile"
+        tools:layout="@layout/fragment_update_profile" />
 </navigation>
