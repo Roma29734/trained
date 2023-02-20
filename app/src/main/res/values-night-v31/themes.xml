@@ -3,15 +3,15 @@
 
     <style name="SplashActivity" parent="Theme.AppCompat.NoActionBar">
         <!-- Пункт 3-->
-        <item name="android:windowSplashScreenBackground">@color/white</item>
+        <item name="android:windowSplashScreenBackground">@color/black</item>
         <!-- Пункт 2-->
         <item name="android:windowSplashScreenIconBackgroundColor">
-            @color/white
+            @color/black
         </item>
 
         <!-- Пункт 1-->
         <item name="android:windowSplashScreenAnimatedIcon">
-            @drawable/ic_logo
+            @drawable/ic_logo_white
         </item>
         <!-- Пункт 4-->
     </style>
