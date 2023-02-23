@@ -3,9 +3,6 @@ package com.example.trained.di.module
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.trained.ui.MainViewModel
-import com.example.trained.ui.screen.firstStartApp.dayAddWorkout.DayAddWorkoutViewModel
-import com.example.trained.ui.screen.firstStartApp.start.StartViewModel
-import com.example.trained.ui.screen.firstStartApp.startConfig.StartConfigViewModel
 import com.example.trained.ui.screen.mainApp.addWorkout.AddWorkoutViewModel
 import com.example.trained.ui.screen.mainApp.config.ConfigViewModel
 import com.example.trained.ui.screen.mainApp.dayConfig.DayConfigViewModel
@@ -30,21 +27,6 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(MainViewModel::class)
     abstract fun bindMainViewModel(imagesListViewModel: MainViewModel): ViewModel
-
-    @Binds
-    @IntoMap
-    @ViewModelKey(DayAddWorkoutViewModel::class)
-    abstract fun bindDayAddWorkout(imagesListViewModel: DayAddWorkoutViewModel): ViewModel
-
-    @Binds
-    @IntoMap
-    @ViewModelKey(StartViewModel::class)
-    abstract fun bindStartViewModel(imagesListViewModel: StartViewModel): ViewModel
-
-    @Binds
-    @IntoMap
-    @ViewModelKey(StartConfigViewModel::class)
-    abstract fun bindStartConfigViewModel(imagesListViewModel: StartConfigViewModel): ViewModel
 
     @Binds
     @IntoMap

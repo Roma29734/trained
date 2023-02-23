@@ -1,24 +1,21 @@
 package com.example.trained.ui.screen.firstStartApp.dayAddWorkout
 
-import android.os.Build
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
 import android.widget.Toast
-import androidx.annotation.RequiresApi
-import androidx.fragment.app.viewModels
-import androidx.navigation.Navigation
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
 import com.example.data.toDomain
 import com.example.trained.base.BaseFragment
 import com.example.trained.databinding.FragmentDayAddWorkoutBinding
-
+import com.example.trained.ui.MainViewModel
 
 class DayAddWorkoutFragment :
     BaseFragment<FragmentDayAddWorkoutBinding>
         (FragmentDayAddWorkoutBinding::inflate) {
 
-    private val viewModel: DayAddWorkoutViewModel by viewModels {viewModelFactory}
+    private val viewModel: MainViewModel by activityViewModels { viewModelFactory }
     private val args: DayAddWorkoutFragmentArgs by navArgs()
 
 
