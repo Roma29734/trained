@@ -10,11 +10,15 @@
         <item name="colorSecondaryVariant">@color/teal_200</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">@color/nightBackground</item>
+        <item name="android:statusBarColor">@color/nightBackground</item>
         <!-- Customize your theme here. -->
         <item name="android:windowBackground">@color/nightBackground</item>
         <item name="android:navigationBarColor">@color/nightCard</item>
 
+    </style>
+
+    <style name="upBarStyle" parent="Theme.MaterialComponents.DayNight.NoActionBar" >
+        <item name="android:background">@color/nightBackground</item>
     </style>
 
 <!--    TextView-->

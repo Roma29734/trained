@@ -13,11 +13,15 @@
         <item name="android:statusBarColor" tools:targetApi="l">@color/mainWhite</item>
         <!-- Customize your theme here. -->
         <item name="android:windowBackground">@color/mainWhite</item>
-
+        <item name="android:navigationBarColor">@color/white</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
-<!--    TextView-->
+    <style name="upBarStyle" parent="Theme.MaterialComponents.DayNight.NoActionBar" >
+        <item name="android:background">@color/mainWhite</item>
+    </style>
+
+    <!--    TextView-->
 
     <style name="textMainContext" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">@font/source_code_pro_semi_bold</item>
@@ -161,7 +165,7 @@
 <!--    More-->
 
     <style name="bottomNavView" parent="Widget.MaterialComponents.BottomNavigationView">
-        <item name="android:background">@color/mainWhite</item>
+        <item name="android:background">@color/white</item>
         <item name="itemIconTint">@color/bottom_nav_ic</item>
         <item name="labelVisibilityMode">unlabeled</item>
         <item name="itemIconSize">30dp</item>

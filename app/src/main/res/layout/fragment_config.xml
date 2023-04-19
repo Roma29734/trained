@@ -7,7 +7,7 @@
     tools:context=".ui.screen.mainApp.config.ConfigFragment">
 
     <include
-        android:id="@+id/include4"
+        android:id="@+id/upBar"
         layout="@layout/up_bar_simple_title"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -24,7 +24,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include4">
+        app:layout_constraintTop_toBottomOf="@+id/upBar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

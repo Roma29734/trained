@@ -35,4 +35,5 @@
     <string name="height">Рост</string>
     <string name="weight">Вес</string>
     <string name="profileSettings">Настройка профиля</string>
+    <string name="configTrained">Конфигурация тренировок</string>
 </resources>
