@@ -43,7 +43,7 @@ class ChoseWorkoutFragment :
 
         viewModel.readWorkout()
         viewModel.workout?.observe(viewLifecycleOwner) { result ->
-            adapter.setWorkout(result.workout)
+            adapter.setWorkout(result)
         }
     }
 }

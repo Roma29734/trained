@@ -39,7 +39,7 @@ class TimerChillFragment :
             override fun onFinish() {
                 binding.apply {
                     linear.visibility = View.VISIBLE
-                    textViewChillSecond.text = "ПЕРЕРЫВ АКОНЧЕЯН"
+                    textViewChillSecond.text = "Перерыв окончен"
                 }
                 timerFinishUi()
                 lifecycleScope.launch (Dispatchers.IO) {
