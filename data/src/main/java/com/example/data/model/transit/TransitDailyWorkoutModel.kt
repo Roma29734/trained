@@ -10,4 +10,5 @@ data class TransitDailyWorkoutModel(
     val sumApproach: Int,
     var completedApproach: Int,
     val receptions: Int,
+    var projectileWeight: Int,
 ): Parcelable

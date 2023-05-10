@@ -85,9 +85,10 @@ class MainViewModel @Inject constructor(
         repetitions: String,
         approaches: String,
         workoutModel: WorkoutModel,
+        projectileWeight: String,
     ) {
         viewModelScope.launch(Dispatchers.IO) {
-            val modelWorkout = WorkoutDayDomainModel(name, repetitions.toInt(), approaches.toInt())
+            val modelWorkout = WorkoutDayDomainModel(name, repetitions.toInt(), approaches.toInt(), projectileWeight.toInt())
 
             val newWorkout = workoutModel.workout
             newWorkout.add(modelWorkout)

@@ -8,4 +8,5 @@ data class WorkoutDayModel(
     var nameExercise: String,
     var repetitions: Int,
     var approaches: Int,
+    var projectileWeight: Int,
 ): Parcelable

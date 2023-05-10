@@ -4,4 +4,5 @@ data class WorkoutDayDomainModel(
     val nameExercise: String,
     val repetitions: Int,
     val approaches: Int,
+    var projectileWeight: Int,
 )

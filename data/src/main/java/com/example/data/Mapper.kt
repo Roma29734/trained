@@ -43,12 +43,15 @@ fun DailyStatisticsModel.toEntity() = DailyStatisticsEntity (
     timeWorkout = timeWorkout
 )
 
-fun DailyStatisticsEntity.toDomain() = workout?.map { it.toDomain() }?.let {
+fun DailyStatisticsEntity.toDomain() = workout?.map { it.toDomain() }?.let { result ->
+    var projectileWeight = 0
+    result.map { projectileWeight+=it.projectileWeight }
     DailyStatisticsModel (
         id = id,
         day = day,
-        workout = it.toMutableList(),
-        timeWorkout = timeWorkout
+        workout = result.toMutableList(),
+        timeWorkout = timeWorkout,
+        projectileWeight = projectileWeight
     )
 }
 
@@ -59,12 +62,7 @@ fun DailyStatisticsModel.toTransit() = TransitDailyStatisticsModel (
     timeWorkout = timeWorkout
 )
 
-fun TransitDailyStatisticsModel.toDomain() = DailyStatisticsModel (
-    id = id,
-    day = day,
-    workout = workout.map { it.toDomain() }.toMutableList(),
-    timeWorkout = timeWorkout
-)
+
 
 fun WorkoutModel.toTransit() = TransitWorkoutModel (
     id = id,
@@ -81,13 +79,15 @@ fun TransitWorkoutModel.toDomain() = WorkoutModel (
 fun WorkoutDayModel.toDomain() = WorkoutDayDomainModel(
     nameExercise = nameExercise,
     repetitions = repetitions,
-    approaches = approaches
+    approaches = approaches,
+    projectileWeight = projectileWeight
 )
 
 fun WorkoutDayDomainModel.toData() = WorkoutDayModel(
     nameExercise = nameExercise,
     repetitions = repetitions,
-    approaches = approaches
+    approaches = approaches,
+    projectileWeight = projectileWeight
 )
 
 fun DailyWorkoutModel.toDomain() = DailyWorkoutDomainModel(
@@ -95,6 +95,7 @@ fun DailyWorkoutModel.toDomain() = DailyWorkoutDomainModel(
     sumApproach = sumApproach,
     completedApproach = completedApproach,
     receptions = receptions,
+    projectileWeight = projectileWeight
 )
 
 fun DailyWorkoutDomainModel.toData() = DailyWorkoutModel(
@@ -102,6 +103,7 @@ fun DailyWorkoutDomainModel.toData() = DailyWorkoutModel(
     sumApproach = sumApproach,
     completedApproach = completedApproach,
     receptions = receptions,
+    projectileWeight = projectileWeight
 )
 
 fun WorkoutDayDomainModel.toDailyNew() = DailyWorkoutDomainModel(
@@ -109,6 +111,7 @@ fun WorkoutDayDomainModel.toDailyNew() = DailyWorkoutDomainModel(
     sumApproach = approaches,
     completedApproach = 0,
     receptions = repetitions,
+    projectileWeight = projectileWeight
 )
 
 fun WorkoutModel.toConfigAdapterModel() = ConfigAdapterModel(

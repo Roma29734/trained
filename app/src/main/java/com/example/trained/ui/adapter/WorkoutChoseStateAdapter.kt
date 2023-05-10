@@ -41,6 +41,7 @@ class WorkoutChoseStateAdapter: RecyclerView.Adapter<WorkoutChoseStateAdapter.My
                 sumApproach = positionWorkout.sumApproach,
                 completedApproach = positionWorkout.completedApproach,
                 receptions = positionWorkout.receptions,
+                projectileWeight = positionWorkout.projectileWeight
             )
             callBackDel?.let { it1 -> it1(model) }
         }

@@ -14,7 +14,7 @@ class ConfigFragment :
     BaseFragment<FragmentConfigBinding>
         (FragmentConfigBinding::inflate) {
 
-    private val viewModel: ConfigViewModel by viewModels {viewModelFactory}
+    private val viewModel: ConfigViewModel by viewModels { viewModelFactory }
     private val adapter = ConfigDayAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -30,7 +30,7 @@ class ConfigFragment :
 
         viewModel.getDayWorkout()
         viewModel.dayWorkout.observe(viewLifecycleOwner) { result ->
-            Log.d("configFragment","$result")
+            Log.d("configFragment", "$result")
             adapter.setConfigDay(result)
         }
     }

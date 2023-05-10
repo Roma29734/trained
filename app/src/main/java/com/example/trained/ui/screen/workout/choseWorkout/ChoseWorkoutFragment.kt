@@ -2,6 +2,7 @@ package com.example.trained.ui.screen.workout.choseWorkout
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.data.model.transit.WorkoutTransitionModel
@@ -9,13 +10,11 @@ import com.example.trained.base.BaseFragment
 import com.example.trained.databinding.FragmentChoseWorkoutBinding
 import com.example.trained.ui.adapter.WorkoutStateAdapter
 
-
-
 class ChoseWorkoutFragment :
     BaseFragment<FragmentChoseWorkoutBinding>
         (FragmentChoseWorkoutBinding::inflate) {
 
-    private val viewModel: ChoseWorkoutViewModel by viewModels {viewModelFactory}
+    private val viewModel: ChoseWorkoutViewModel by viewModels { viewModelFactory }
     private val adapter = WorkoutStateAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -43,7 +42,12 @@ class ChoseWorkoutFragment :
 
         viewModel.readWorkout()
         viewModel.workout?.observe(viewLifecycleOwner) { result ->
-            adapter.setWorkout(result)
+            if (result.isEmpty()) {
+                binding.textSupportive.isVisible = true
+            } else {
+                binding.textSupportive.isVisible = false
+                adapter.setWorkout(result)
+            }
         }
     }
 }

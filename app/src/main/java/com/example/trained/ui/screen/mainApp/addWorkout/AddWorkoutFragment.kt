@@ -30,11 +30,16 @@ class AddWorkoutFragment :
                     binding.tiRepetitions.text.toString(),
                     binding.tiApproaches.text.toString(),
                     args.workout.toDomain(),
+                    binding.tiProjectileWeight.text.toString(),
                 )
 
                 Toast.makeText(context, "Успешно добавлено", Toast.LENGTH_SHORT).show()
                 Navigation.findNavController(view).popBackStack()
             }
+        }
+
+        binding.upBar.imageButton.setOnClickListener {
+            Navigation.findNavController(view).popBackStack()
         }
 
     }
@@ -44,6 +49,7 @@ class AddWorkoutFragment :
                 TextUtils.isEmpty(binding.tiNameWorkout.text)
                         && TextUtils.isEmpty(binding.tiApproaches.text)
                         && TextUtils.isEmpty(binding.tiRepetitions.text)
+                        && TextUtils.isEmpty(binding.tiProjectileWeight.text)
                 )
     }
 }

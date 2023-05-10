@@ -65,19 +65,14 @@ class HomeFragment :
                                 binding.textName.text = it.name
                             }
                             uiState.successState?.dailyWorkoutModel?.let { adapter.setWorkout(it.workout) }
-                            var completeApproach = 0
-                            var sumApproach = 0
-                            uiState.successState?.dailyWorkoutModel?.workout?.map {
-                                sumApproach += 1
-                                if (it.completedApproach == it.sumApproach) {
-                                    completeApproach += 1
-                                }
+                            uiState.successState?.completeApproach?.let {
+                                setUiWidget(
+                                    uiState.successState.dailyWorkoutModel.timeWorkout,
+                                    it,
+                                    uiState.successState.sumApproach,
+                                    uiState.successState.dailyWorkoutModel.projectileWeight
+                                )
                             }
-                            setUiWidget(
-                                uiState.successState?.dailyWorkoutModel?.timeWorkout,
-                                completeApproach,
-                                sumApproach
-                            )
                         }
                     }
                 }
@@ -86,8 +81,8 @@ class HomeFragment :
 
     }
 
-//    Настрйка виджета состояния тренировки
-    private fun setUiWidget(time: Long?, completeApproach: Int, sumApproach: Int) {
+//    Настройка виджета состояния тренировки
+    private fun setUiWidget(time: Long?, completeApproach: Int, sumApproach: Int, projectileWeight: Int?) {
 
         binding.mainWidget.apply {
             if (time != null) {
@@ -97,7 +92,7 @@ class HomeFragment :
                 textTime.text = "0м"
             }
             textApproach.text = "${completeApproach}/${sumApproach}"
-            textWeight.text = "50kg"
+            textWeight.text = "$projectileWeight kg"
         }
     }
 }

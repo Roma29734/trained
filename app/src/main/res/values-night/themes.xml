@@ -53,6 +53,13 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="textChangeTheme" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/source_code_pro_medium</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/mainWhite</item>
+        <item name="android:text">@string/welcome_to_black_theme</item>
+    </style>
+
 <!--    -->
 
 <!--    MaterialButton-->
@@ -110,6 +117,13 @@
         <item name="android:background">@android:color/transparent</item>
     </style>
 
+    <style name="imageButtonChangeTheme" parent="Widget.AppCompat.ImageButton">
+        <item name="android:tint">@color/white</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:src">@drawable/ic_moon</item>
+    </style>
+
+
     <!--    -->
 
     <!--    EditText-->
@@ -135,6 +149,21 @@
     <style name="imageViewForCardHomeState" parent="Widget.AppCompat.ImageButton" >
         <item name="android:tint">@color/mainBlack</item>
         <item name="android:backgroundTint">@android:color/transparent</item>
+    </style>
+
+    <style name="SwitchMain" parent="Widget.AppCompat.CompoundButton.Switch">
+        <item name="android:thumbTint">@color/white</item>
+        <item name="android:trackTint">@color/mainWhite</item>
+        <item name="android:fontFamily">@font/source_code_pro_medium</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/mainWhite</item>
+    </style>
+
+
+    <style name="mainRadioButton" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:button">@null</item>
+        <item name="android:background">@drawable/radion_white_button_selector</item>
+        <item name="android:backgroundTint">@color/secondAccent</item>
     </style>
 
 <!--    -->

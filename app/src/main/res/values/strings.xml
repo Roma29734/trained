@@ -36,4 +36,14 @@
     <string name="weight">Вес</string>
     <string name="profileSettings">Настройка профиля</string>
     <string name="configTrained">Конфигурация тренировок</string>
+    <string name="supportiveTrainde">Все упражнения выполнены</string>
+    <string name="app_theme">Тема</string>
+    <string name="white">Светлая</string>
+    <string name="dark">Тёмная</string>
+    <string name="system">Системная</string>
+    <string name="settings_app">Настройки</string>
+    <string name="leave_the_screen_on">Оставить экран включенным</string>
+    <string name="projectile_weight">Вес снаряда</string>
+    <string name="welcome_to_black_theme">Добро пожаловать на темную сторону!</string>
+    <string name="welcome_to_white_theme">Добро пожаловать на светлую сторону!</string>
 </resources>

@@ -29,6 +29,7 @@ class DayAddWorkoutFragment :
                     binding.tiRepetitions.text.toString(),
                     binding.tiApproaches.text.toString(),
                     args.workout.toDomain(),
+                    binding.tiProjectileWeight.text.toString(),
                 )
 
                 Toast.makeText(context, "Успешно добавлено", Toast.LENGTH_SHORT).show()
@@ -43,6 +44,7 @@ class DayAddWorkoutFragment :
                 TextUtils.isEmpty(binding.tiNameWorkout.text)
                         && TextUtils.isEmpty(binding.tiApproaches.text)
                         && TextUtils.isEmpty(binding.tiRepetitions.text)
+                        && TextUtils.isEmpty(binding.tiProjectileWeight.text)
                 )
     }
 

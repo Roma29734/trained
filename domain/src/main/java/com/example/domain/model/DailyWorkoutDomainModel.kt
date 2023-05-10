@@ -5,4 +5,5 @@ data class DailyWorkoutDomainModel(
     val sumApproach: Int,
     val completedApproach: Int,
     val receptions: Int,
+    var projectileWeight: Int,
 )

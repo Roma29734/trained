@@ -21,7 +21,7 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     private val profileInteractor: ProfileInteractor,
     private val workoutInteractor: WorkoutInteractor,
-    private val dailyStatisticsInteractor: DailyStatisticsInteractor
+    private val dailyStatisticsInteractor: DailyStatisticsInteractor,
 ) : ViewModel() {
 
     private var _dailyWorkoutState = MutableStateFlow(HomeState())
@@ -42,12 +42,25 @@ class HomeViewModel @Inject constructor(
 //                Проверка на наличие таблицы дневной статистики
                 if (dailyStatisticsInteractor.getSizeDayWorkoutTable() != 0) {
 //                    Проверка на соответствие даты в таблице дневной статистики и текущей даты
-                    if(checkDateDailyStatistics()) {
+                    if (checkDateDailyStatistics()) {
                         val dailyModel = dailyStatisticsInteractor.readDayWorkout()
+                        var completeApproach = 0
+                        var sumApproach = 0
+                        dailyModel?.workout?.map {
+                            sumApproach += 1
+                            if (it.completedApproach == it.sumApproach) {
+                                completeApproach += 1
+                            }
+                        }
                         _dailyWorkoutState.update {
                             it.copy(
                                 loadState = LoadState.SUCCESS,
-                                successState = HomeModel(dailyModel!!, readProfile())
+                                successState = HomeModel(
+                                    dailyWorkoutModel = dailyModel!!,
+                                    sportsmanModel = readProfile(),
+                                    completeApproach = completeApproach,
+                                    sumApproach = sumApproach,
+                                )
                             )
                         }
                     } else {
@@ -70,13 +83,18 @@ class HomeViewModel @Inject constructor(
 
             val date = getDate().dayOfWeek.toString()
 
+            var projectileWeight = 0
+
             val resultWorkout = workoutInteractor.getWorkoutByWeeks(date)
+
+            resultWorkout.workout.map { projectileWeight += it.projectileWeight }
 
             val resultDaylyWorkout = DailyStatisticsModel(
                 id = resultWorkout.id,
                 day = resultWorkout.day,
                 workout = resultWorkout.workout.map { it.toDailyNew() }.toMutableList(),
-                timeWorkout = 0
+                timeWorkout = 0,
+                projectileWeight = projectileWeight
             )
             dailyStatisticsInteractor.insertDayWorkout(resultDaylyWorkout)
             readDayWorkout()
@@ -99,13 +117,18 @@ class HomeViewModel @Inject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             val date = getDate().dayOfWeek.toString()
             dailyStatisticsInteractor.deleteDailyStatisticsTable()
+            var projectileWeight = 0
+
             val resultWorkout = workoutInteractor.getWorkoutByWeeks(date)
+
+            resultWorkout.workout.map { projectileWeight += it.projectileWeight }
 
             val resultDaylyWorkout = DailyStatisticsModel(
                 id = resultWorkout.id,
                 day = resultWorkout.day,
                 workout = resultWorkout.workout.map { it.toDailyNew() }.toMutableList(),
-                timeWorkout = 0
+                timeWorkout = 0,
+                projectileWeight = projectileWeight
             )
 
             dailyStatisticsInteractor.insertDayWorkout(resultDaylyWorkout)

@@ -17,10 +17,16 @@ class ProfileFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.include3.textView6.text = "Профиль"
-        binding.matButtonSettingsProfile.setOnClickListener {
-            val action = NavFragmentDirections.actionNavFragmentToUpdateProfileFragment()
-            mainNavController.navigate(action)
+        binding.apply {
+            include3.textView6.text = "Профиль"
+            matButtonSettingsProfile.setOnClickListener {
+                val action = NavFragmentDirections.actionNavFragmentToAppSettingsFragment()
+                mainNavController.navigate(action)
+            }
+            imgButtonEdit.setOnClickListener {
+                val action = NavFragmentDirections.actionNavFragmentToUpdateProfileFragment()
+                mainNavController.navigate(action)
+            }
         }
         viewModel.readProfile()
         viewModel.profileData.observe(viewLifecycleOwner) { result ->

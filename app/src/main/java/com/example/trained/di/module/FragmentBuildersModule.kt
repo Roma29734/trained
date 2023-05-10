@@ -4,6 +4,7 @@ import com.example.trained.ui.screen.firstStartApp.dayAddWorkout.DayAddWorkoutFr
 import com.example.trained.ui.screen.firstStartApp.start.StartFragment
 import com.example.trained.ui.screen.firstStartApp.startConfig.StartConfigFragment
 import com.example.trained.ui.screen.mainApp.addWorkout.AddWorkoutFragment
+import com.example.trained.ui.screen.mainApp.appSettings.AppSettingsFragment
 import com.example.trained.ui.screen.mainApp.config.ConfigFragment
 import com.example.trained.ui.screen.mainApp.dayConfig.DayConfigFragment
 import com.example.trained.ui.screen.mainApp.home.HomeFragment
@@ -62,6 +63,9 @@ abstract class FragmentBuildersModule {
 
     @ContributesAndroidInjector
     abstract fun contributeUpdateProfileFragment(): UpdateProfileFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributeAppSettingsFragment(): AppSettingsFragment
 //    Workout
     @ContributesAndroidInjector
     abstract fun contributeChoseWorkoutFragment(): ChoseWorkoutFragment

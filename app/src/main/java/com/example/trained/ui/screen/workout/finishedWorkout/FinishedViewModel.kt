@@ -22,7 +22,8 @@ class FinishedViewModel @Inject constructor(
                 nameWorkout = workoutTransitionModel.workoutModel.nameWorkout,
                 sumApproach = workoutTransitionModel.workoutModel.sumApproach,
                 completedApproach = workoutTransitionModel.workoutModel.completedApproach,
-                receptions = workoutTransitionModel.workoutModel.receptions
+                receptions = workoutTransitionModel.workoutModel.receptions,
+                projectileWeight = workoutTransitionModel.workoutModel.projectileWeight,
             )
             dayWorkout!!.workout[workoutTransitionModel.workoutModel.id] = completeWorkout
             dayWorkout.timeWorkout = workoutTransitionModel.timeWorkout + dayWorkout.timeWorkout

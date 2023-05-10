@@ -1,5 +1,6 @@
 package com.example.data.local.dataBase
 
+import androidx.room.AutoMigration
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
@@ -15,7 +16,7 @@ import com.example.data.model.entity.WorkoutEntity
         SportsmanEntity::class,
         DailyStatisticsEntity::class],
     version = 1,
-    exportSchema = false
+    exportSchema = false,
 )
 @TypeConverters(WorkoutConverter::class, DailyConverter::class)
 abstract class WorkoutDataBase : RoomDatabase() {

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.data.model.ConfigAdapterModel
+import com.example.trained.R
 import com.example.trained.databinding.CardConfigDayBinding
 import com.example.trained.utils.Utils.getDecryptedWeek
 
@@ -45,11 +46,16 @@ class ConfigDayAdapter : RecyclerView.Adapter<ConfigDayAdapter.MyViewHolder>() {
             } else {
                 cardViewFocusable.visibility = View.VISIBLE
                 cardViewNonFocusable.visibility = View.GONE
-
+                if(positionDay.workout.isNotEmpty()) {
+                    imageButtonFocusable.setImageResource(R.drawable.ic_edit)
+                } else {
+                    imageButtonFocusable.setImageResource(R.drawable.ic_add)
+                }
                 val day = getDecryptedWeek(positionDay.day)
                 textDateFocusable.text = day
                 val adapter = WorkoutConfigAdapter()
                 recyclerViewFocusable.adapter = adapter
+                recyclerViewFocusable.isNestedScrollingEnabled = false
                 recyclerViewFocusable.layoutManager = GridLayoutManager(holder.itemView.context, 2)
                 adapter.setWorkout(positionDay.workout)
                 imageButtonFocusable.setOnClickListener {

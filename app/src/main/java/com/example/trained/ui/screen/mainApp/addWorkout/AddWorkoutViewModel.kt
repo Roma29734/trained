@@ -23,11 +23,17 @@ class AddWorkoutViewModel @Inject constructor(
         name: String,
         repetitions: String,
         approaches: String,
-        workoutModel: WorkoutModel
+        workoutModel: WorkoutModel,
+        projectileWeight: String,
     ) {
         viewModelScope.launch(Dispatchers.IO) {
 
-            val model = WorkoutDayDomainModel(name, repetitions.toInt(), approaches.toInt())
+            val model = WorkoutDayDomainModel(
+                name,
+                repetitions.toInt(),
+                approaches.toInt(),
+                projectileWeight.toInt()
+            )
             val newWorkout = workoutModel.workout
             newWorkout.add(model)
 
@@ -39,7 +45,7 @@ class AddWorkoutViewModel @Inject constructor(
 
             workoutInteractor.updateWorkout(updateWorkoutModel)
             val day = getDate().dayOfWeek.toString()
-            if(workoutModel.day == day) {
+            if (workoutModel.day == day) {
                 val dailyModel = dailyStatisticsInteractor.readDayWorkout()
                 val newDailyWorkout = dailyModel?.workout
                 newDailyWorkout?.add(model.toDailyNew())
@@ -48,7 +54,8 @@ class AddWorkoutViewModel @Inject constructor(
                         id = dailyModel.id,
                         day = dailyModel.day,
                         workout = it,
-                        timeWorkout = dailyModel.timeWorkout
+                        timeWorkout = dailyModel.timeWorkout,
+                        projectileWeight = projectileWeight.toInt()
                     )
                 }
                 updateDailyModel?.let { dailyStatisticsInteractor.updateDayWorkout(it) }

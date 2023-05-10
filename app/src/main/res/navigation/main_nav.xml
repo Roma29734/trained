@@ -45,6 +45,9 @@
             app:destination="@id/updateProfileFragment"
             app:launchSingleTop="false"
             app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_navFragment_to_appSettingsFragment"
+            app:destination="@id/appSettingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileSettingsFragment"
@@ -200,4 +203,9 @@
         android:name="com.example.trained.ui.screen.mainApp.updateProfile.UpdateProfileFragment"
         android:label="fragment_update_profile"
         tools:layout="@layout/fragment_update_profile" />
+    <fragment
+        android:id="@+id/appSettingsFragment"
+        android:name="com.example.trained.ui.screen.mainApp.appSettings.AppSettingsFragment"
+        android:label="fragment_app_settings"
+        tools:layout="@layout/fragment_app_settings" />
 </navigation>
