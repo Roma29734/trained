@@ -33,14 +33,22 @@ class UpdateConfigFragment :
 
             matButtonEdit.setOnClickListener {
                 if (checkInputPol()) {
-                    viewModel.updateWorkout(
-                        name = binding.tiNameWorkout.text.toString(),
-                        approaches = binding.tiApproaches.text.toString(),
-                        repetitions = binding.tiRepetitions.text.toString(),
-                        id = args.workout.id,
-                        workoutModel = args.workout.workoutModel,
-                    )
-                    mainNavController.popBackStack()
+                    if (
+                        binding.tiNameWorkout.text.toString() == args.workout.workoutModel.workout[args.workout.id].nameExercise &&
+                        binding.tiApproaches.text.toString() == args.workout.workoutModel.workout[args.workout.id].approaches.toString() &&
+                        binding.tiRepetitions.text.toString() == args.workout.workoutModel.workout[args.workout.id].repetitions.toString()
+                    ) {
+                        Toast.makeText(context, "Вы ничего не изминили", Toast.LENGTH_SHORT).show()
+                    } else {
+                        viewModel.updateWorkout(
+                            name = binding.tiNameWorkout.text.toString(),
+                            approaches = binding.tiApproaches.text.toString(),
+                            repetitions = binding.tiRepetitions.text.toString(),
+                            id = args.workout.id,
+                            workoutModel = args.workout.workoutModel,
+                        )
+                        mainNavController.popBackStack()
+                    }
                 }
             }
             matButtonDelete.setOnClickListener {
@@ -59,7 +67,8 @@ class UpdateConfigFragment :
             Toast.makeText(
                 context,
                 "успешно удалено: ",
-                Toast.LENGTH_SHORT).show()
+                Toast.LENGTH_SHORT
+            ).show()
             mainNavController.popBackStack()
         }
         builder.setNegativeButton("Нет") { _, _ -> }

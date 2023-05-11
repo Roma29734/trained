@@ -46,4 +46,11 @@
     <string name="projectile_weight">Вес снаряда</string>
     <string name="welcome_to_black_theme">Добро пожаловать на темную сторону!</string>
     <string name="welcome_to_white_theme">Добро пожаловать на светлую сторону!</string>
+
+
+    <string name="title">setTime</string>
+    <string name="time_suffix">>></string>
+    <string name="time_prefix">>></string>
+    <string name="time_chill">Время отдыха</string>
+    <string name="set_time_rest_chill">установить время отдыха</string>
 </resources>

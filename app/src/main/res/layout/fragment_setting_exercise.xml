@@ -8,7 +8,7 @@
 
 
     <include
-        android:id="@+id/include7"
+        android:id="@+id/upBar"
         layout="@layout/up_bar_simple_title_back"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -27,7 +27,7 @@
         style="@style/textSecondContext"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include7" />
+        app:layout_constraintTop_toBottomOf="@+id/upBar" />
 
     <TextView
         android:id="@+id/textRepetitions"
@@ -69,26 +69,7 @@
         app:layout_constraintStart_toStartOf="@+id/textApproach"
         app:layout_constraintTop_toBottomOf="@+id/textApproach" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputWeight"
-        style="@style/editText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tiTimeChill"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/timeChill"
-            android:inputType="number" />
-    </com.google.android.material.textfield.TextInputLayout>
 
 
     <com.google.android.material.button.MaterialButton
@@ -99,4 +80,33 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonTime"
+        style="@style/mainMaterialButton"
+        android:layout_marginBottom="8dp"
+        android:text="@string/set_time_rest_chill"
+        app:layout_constraintBottom_toTopOf="@+id/materialButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textTimeChill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        tools:text="6M"
+        style="@style/textMainContext"
+        app:layout_constraintStart_toStartOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/time_chill"
+        style="@style/textSecondContext"
+        app:layout_constraintStart_toStartOf="@+id/textTimeChill"
+        app:layout_constraintTop_toBottomOf="@+id/textTimeChill" />
 </androidx.constraintlayout.widget.ConstraintLayout>

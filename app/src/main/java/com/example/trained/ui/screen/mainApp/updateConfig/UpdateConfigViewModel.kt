@@ -34,7 +34,7 @@ class UpdateConfigViewModel @Inject constructor(
             newWorkoutItem.nameExercise = name
 
             val newWorkout = workoutModel.workout
-            newWorkout.add(id, newWorkoutItem)
+            newWorkout[id] = newWorkoutItem
 
             val newWorkoutModel = TransitWorkoutModel(
                 id = workoutModel.id,
@@ -47,11 +47,10 @@ class UpdateConfigViewModel @Inject constructor(
             if(workoutModel.day == day) {
                 val dailyWorkout = dailyStatisticsInteractor.readDayWorkout()
 
-                dailyWorkout?.workout?.add(id, newWorkoutItem.toDomain().toDailyNew())
+                dailyWorkout?.workout?.set(id, newWorkoutItem.toDomain().toDailyNew())
 
                 dailyWorkout?.let { dailyStatisticsInteractor.updateDayWorkout(it) }
             }
-
         }
     }
 
