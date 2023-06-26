@@ -9,8 +9,13 @@ import com.example.domain.model.WorkoutDayDomainModel
 import com.example.domain.model.WorkoutModel
 import com.example.domain.userCase.ProfileInteractor
 import com.example.domain.userCase.WorkoutInteractor
+import com.example.trained.ui.screen.mainApp.home.HomeState
+import com.example.trained.ui.screen.mainApp.profile.ProfileState
+import com.example.trained.utils.LoadState
 import com.example.trained.utils.Utils
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -19,12 +24,25 @@ class MainViewModel @Inject constructor(
     private val workoutInteractor: WorkoutInteractor,
 ) : ViewModel() {
 
-    private var _profile: MutableLiveData<SportsmanModel> = MutableLiveData()
-    val profileData get() = _profile
+    private var _profileData = MutableStateFlow(ProfileState(trainedOfWeek = 0))
+    val profileData get() = _profileData
 
     fun readProfile() {
-        viewModelScope.launch {
-            _profile.value = profileInteractor.readUserTable()
+        viewModelScope.launch(Dispatchers.IO) {
+            var trainedOfWeek = 0
+            val workoutTrained = workoutInteractor.readWorkoutTable()
+            for (i in 0..6) {
+                if (workoutTrained[i].workout.isNotEmpty()) {
+                    trainedOfWeek += 1
+                }
+            }
+            Log.d("mainViewModel","$trainedOfWeek")
+            _profileData.update {
+                it.copy(
+                    trainedOfWeek = trainedOfWeek,
+                    profileData = profileInteractor.readUserTable()
+                )
+            }
         }
     }
 
@@ -64,10 +82,10 @@ class MainViewModel @Inject constructor(
             val nameWeeks =
                 listOf("MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY")
 
-            Log.d("startViewModel",nameWeeks.size.toString())
+            Log.d("startViewModel", nameWeeks.size.toString())
 
             for (i in nameWeeks.indices) {
-                Log.d("startViewModel","$i")
+                Log.d("startViewModel", "$i")
                 val model = WorkoutModel(
                     id = 0,
                     day = nameWeeks[i],
@@ -88,7 +106,12 @@ class MainViewModel @Inject constructor(
         projectileWeight: String,
     ) {
         viewModelScope.launch(Dispatchers.IO) {
-            val modelWorkout = WorkoutDayDomainModel(name, repetitions.toInt(), approaches.toInt(), projectileWeight.toInt())
+            val modelWorkout = WorkoutDayDomainModel(
+                name,
+                repetitions.toInt(),
+                approaches.toInt(),
+                projectileWeight.toInt()
+            )
 
             val newWorkout = workoutModel.workout
             newWorkout.add(modelWorkout)
@@ -109,7 +132,7 @@ class MainViewModel @Inject constructor(
 
 
     fun getDayWorkout() {
-        viewModelScope.launch (Dispatchers.IO) {
+        viewModelScope.launch(Dispatchers.IO) {
             val date = Utils.getDate().dayOfWeek.toString()
             _dayWorkout.postValue(workoutInteractor.getWorkoutByWeeks(date))
         }

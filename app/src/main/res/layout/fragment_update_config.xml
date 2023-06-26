@@ -90,8 +90,8 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <include
-        android:id="@+id/include5"
-        layout="@layout/up_bar_simple_title"
+        android:id="@+id/upBar"
+        layout="@layout/up_bar_simple_title_back"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:layout_constraintEnd_toEndOf="parent"

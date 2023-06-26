@@ -13,7 +13,6 @@ import com.example.data.model.transit.TransitWorkoutModel
 import com.example.trained.base.BaseFragment
 import com.example.trained.databinding.FragmentUpdateConfigBinding
 
-
 class UpdateConfigFragment :
     BaseFragment<FragmentUpdateConfigBinding>
         (FragmentUpdateConfigBinding::inflate) {
@@ -25,7 +24,9 @@ class UpdateConfigFragment :
         super.onViewCreated(view, savedInstanceState)
 
         binding.apply {
-            include5.textView6.text = "Изменение тренировки"
+            upBar.textView6.text = "Изменение тренировки"
+
+            upBar.imageButton.setOnClickListener { mainNavController.popBackStack() }
 
             tiNameWorkout.setText(args.workout.workoutModel.workout[args.workout.id].nameExercise)
             tiApproaches.setText(args.workout.workoutModel.workout[args.workout.id].approaches.toString())

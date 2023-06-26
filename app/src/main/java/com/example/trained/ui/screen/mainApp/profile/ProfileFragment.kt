@@ -4,10 +4,15 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.example.trained.base.BaseFragment
 import com.example.trained.databinding.FragmentProfileBinding
 import com.example.trained.ui.MainViewModel
 import com.example.trained.ui.screen.mainApp.nav.NavFragmentDirections
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 class ProfileFragment :
     BaseFragment<FragmentProfileBinding>
@@ -29,10 +34,16 @@ class ProfileFragment :
             }
         }
         viewModel.readProfile()
-        viewModel.profileData.observe(viewLifecycleOwner) { result ->
-            binding.textPersonal.text =
-                "${result.age} лет\nвес: ${result.weight}кг\nрост: ${result.growth}"
-            binding.textName.text = result.name
+        lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.profileData.collectLatest { result ->
+                    binding.textPersonal.text =
+                        "${result.profileData?.age} лет\nвес: ${result.profileData?.weight}кг\nрост: ${result.profileData?.growth}"
+                    binding.textName.text = result.profileData?.name
+
+                    binding.textNumsOfWorkout.text = "${result.trainedOfWeek} тренировки в неделю"
+                }
+            }
         }
     }
 }
